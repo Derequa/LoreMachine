@@ -17,7 +17,8 @@ export const MainAppStack = StackNavigator({
     CharcterEdit: {
         title: "Edit Character",
         screen: CharacterEditScreen,
-    }
-});
+    }},
+    { headerMode: 'screen' },
+);
 
 AppRegistry.registerComponent('LoreMachine', () => MainAppStack);

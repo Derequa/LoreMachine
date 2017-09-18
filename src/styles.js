@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-
+import { colors } from './colors'
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -27,5 +27,15 @@ export const styles = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'center',
     marginLeft: 7, marginRight: 7,
+  },
+  card: {
+    flex: 1,
+    borderRadius: 4,
+    borderWidth: 2,
+    borderColor: '#E8E8E8',
+    justifyContent: 'center',
+    alignSelf: 'center',
+    backgroundColor: colors.white,
+    width: 380,
   },
 });
