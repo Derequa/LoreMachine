@@ -32,10 +32,15 @@ export const styles = StyleSheet.create({
     flex: 1,
     borderRadius: 4,
     borderWidth: 2,
-    borderColor: '#E8E8E8',
+    borderColor: '#0000FF',
     justifyContent: 'center',
     alignSelf: 'center',
     backgroundColor: colors.white,
-    width: 380,
+  },
+  card_image: {
+    borderRadius: 4,
+    borderWidth: 2,
+    borderColor: '#FF0000',
+    alignSelf: 'center',
   },
 });

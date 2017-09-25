@@ -1,17 +1,30 @@
 import React from 'react';
-import Swiper from 'react-native-deck-swiper'
-import { Card } from 'react-native-elements';
+import { 
+    Container,
+    Header,
+    View, 
+    DeckSwiper,
+    Drawer,
+    Card,
+    CardItem,
+    Thumbnail,
+    Text,
+    Title,
+    Left,
+    Body,
+    Icon,
+    Button,
+} from 'native-base';
 import { styles } from '../styles';
 import { colors } from '../colors';
 import RootSiblings from 'react-native-root-siblings';
+import { DocumentPicker, DocumentPickerUtil } from 'react-native-document-picker';
+import MainSideBar from './MainSideBar';
 import {
-    Text,
-    View,
     TouchableOpacity,
     Dimensions,
     Image,
 } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
 const MK = require('react-native-material-kit');
 
 const {
@@ -23,8 +36,8 @@ const ColoredFab = MKButton.coloredFab()
   .withStyle(styles.fab)
   .build();
 
-const SCREEN_WIDTH = 380;// Dimensions.get('screen').width;
-const SCREEN_HEIGHT = 480;//Dimensions.get('screen').height;
+const img_width = (Dimensions.get('screen').width - 42);
+const img_height = (Dimensions.get('screen').height - 170);
 
 export default class CharacterSelectorScreen extends React.Component {
 
@@ -41,7 +54,7 @@ export default class CharacterSelectorScreen extends React.Component {
 
     componentWillMount() {
         this.fabRoot = new RootSiblings(
-            <ColoredFab style={{flex: 1, justifyContent: 'center', alignItems: 'center', width: 69, height: 69, position: 'absolute', bottom: 20, right: 20}}>
+            <ColoredFab onPress={this._openFilePicker}style={{flex: 1, justifyContent: 'center', alignItems: 'center', width: 69, height: 69, position: 'absolute', bottom: 20, right: 20}}>
                 <Icon name='add' size={40} color={colors.white}/>
             </ColoredFab>
         );
@@ -52,61 +65,86 @@ export default class CharacterSelectorScreen extends React.Component {
         this.fabRoot.destroy();
     }
 
+    _closeDrawer = () => {
+        this.drawer._root.close()
+    };
+
+    _openDrawer = () => {
+        this.drawer._root.open()
+    };
+
+    _openFilePicker() {
+        console.log('fab pressed you fucker');
+        DocumentPicker.show({
+            filetype: [DocumentPickerUtil.images()],
+            },(error,res) => {
+            // Android
+            if (res) {
+                console.log(
+                res.uri,
+                res.type, // mime type
+                res.fileName,
+                res.fileSize
+                );
+            }
+          });
+    }
+
 
     render() {
         return (
-            <View style={{flex: 1}}>
-                <Swiper
-                    ref={(swiper) => { this.swiper = swiper }}
-                    onSwiped={this._onSwipe}
-                    cards={this.state.data}
-                    renderCard={this._renderCard}
-                    infinite={true}
-                    backgroundColor={colors.lightGrey}
-                    >
-                </Swiper>
-            </View>
-        );
+            <Drawer
+            ref={(ref) => { this.drawer = ref; }}
+            content={<MainSideBar navigator={this.navigator} />}
+            onClose={() => this._closeDrawer()}
+            >
+                <Container>
+                <Header>
+                    <Left style={{flex: 1, flexDirection: 'row'}}>
+                        <Button transparent onPress={this._openDrawer}>
+                            <Icon ios='ios-menu' android="md-menu"/>
+                        </Button>
+                        <Title style={{alignSelf: 'center', paddingLeft: 5}}>Select a Character</Title>
+                    </Left>
+                </Header>
+                <View>
+                    <DeckSwiper
+                    dataSource={this.state.data}
+                    renderItem={this._renderCard}
+                    />
+                </View>
+                </Container>
+            </Drawer>
+          );
     }
+
 
     _renderCard(card) {
         return(
-            <View style={styles.card}>
-                <Image 
-                    source={card.card_img}
-                    style={{alignSelf: 'center', borderRadius: 4,  borderWidth: 2,}}
-                    resizeMode='cover'
-                />
-            </View>
+            <Card style={{ elevation: 3 }}>
+                <CardItem>
+                    <Left>
+                        <Body>
+                        <Text>{card.name + ': Level ' + card.level}</Text>
+                        <Text note>{card.race + ' ' + card.class}</Text>
+                        </Body>
+                    </Left>
+                </CardItem>
+                <CardItem cardBody>
+                    <Image style={{ height: 400, flex: 1 }} source={card.image} resizeMode='cover'/>
+                </CardItem>
+            </Card>
         );
-        /*return(<Card
-            key={card.id}
-            containerStyle={{borderRadius: 10, width: SCREEN_WIDTH * 0.92, height: SCREEN_HEIGHT - 165}}
-            featuredTitle={`${card.name}, ${card.class}`}
-            featuredTitleStyle={{position: 'absolute', left: 15, bottom: 10, fontSize: 30 }}
-            //image={card.card_img}
-           // imageStyle={{borderRadius: 10, width: SCREEN_WIDTH * 0.915, height: SCREEN_HEIGHT - 165}}  
-        />);*/
-    }
-
-    _renderEmpty() {
-        <View style={styles.container}>
-            <Text style={styles.welcome}>nope</Text>
-        </View>
-    }
-
-    _onSwipe(card) {
-        console.log('on swipe!');
     }
 
 
     _loadCharacters() {
         return(
             [
-                {id: 0, name: 'Solaire', level: 10, class: 'Cleric', race: 'Human', card_img: require('../../assets/solaire.jpg')},
-                {id: 1, name: 'Gimli', level: 7, class: 'Barbarian', race: 'Dwarf', card_img: require('../../assets/gimli.jpeg')},
-                {id: 2, name: 'Vex', level: 6, class: 'Rogue', race: 'Human', card_img: require('../../assets/vex.png')},
-                {id: 3, name: 'Daerak', level: 6, class: 'Paladin', race: 'Half-Elf', card_img: require('../../assets/daerak.jpg')}
+                {id: 0, name: 'Solaire', level: 10, class: 'Cleric', race: 'Human', image: require('../../assets/solaire.jpg')},
+                {id: 1, name: 'Gimli', level: 7, class: 'Barbarian', race: 'Dwarf', image: require('../../assets/gimli.jpeg')},
+                {id: 2, name: 'Vex', level: 6, class: 'Rogue', race: 'Human', image: require('../../assets/vex.png')},
+                {id: 3, name: 'Daerak', level: 6, class: 'Paladin', race: 'Half-Elf', image: require('../../assets/daerak.jpg')}
             ]
         );
     }
