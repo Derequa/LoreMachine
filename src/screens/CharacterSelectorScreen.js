@@ -76,17 +76,32 @@ export default class CharacterSelectorScreen extends React.Component {
     _openFilePicker() {
         console.log('fab pressed you fucker');
         DocumentPicker.show({
-            filetype: [DocumentPickerUtil.images()],
+            filetype: [DocumentPickerUtil.allFiles()],
             },(error,res) => {
             // Android
-            if (res) {
-                console.log(
-                res.uri,
-                res.type, // mime type
-                res.fileName,
-                res.fileSize
-                );
-            }
+            var RNGRP = require('react-native-get-real-path');
+            var RNFS = require('react-native-fs');
+            RNGRP.getRealPathFromURI(res.uri)
+                .then((filePath) => {
+                    console.log(filePath);
+                    RNFS.readFile(filePath)
+                    .then((res) => {
+                        let daerak = JSON.parse(res);
+                        console.log(daerak);
+                    })
+                    
+                    if (res) {
+                        console.log(
+                        res.uri,
+                        res.type, // mime type
+                        res.fileName,
+                        res.fileSize
+                        );
+                    }
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
           });
     }
 

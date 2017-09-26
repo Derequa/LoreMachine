@@ -14,6 +14,8 @@
     "react-native-device-info": "^0.11.0",
     "react-native-document-picker": "^2.0.0",
     "react-native-elements": "^0.16.0",
+    "react-native-fs": "^2.5.2",
+    "react-native-get-real-path": "git+https://github.com/Wraptime/react-native-get-real-path.git",
     "react-native-material-kit": "^0.4.1",
     "react-native-root-siblings": "^1.2.1",
     "react-native-vector-icons": "^4.2.0",

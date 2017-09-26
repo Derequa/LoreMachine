@@ -1,7 +1,7 @@
 package com.loremachine;
 
 import android.app.Application;
-
+import com.rngrp.RNGRPPackage;
 import com.facebook.react.ReactApplication;
 import com.learnium.RNDeviceInfo.RNDeviceInfo;
 import com.reactnativedocumentpicker.ReactNativeDocumentPicker;
@@ -11,6 +11,7 @@ import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
+import com.rnfs.RNFSPackage;
 
 import java.util.Arrays;
 import java.util.List;
@@ -27,10 +28,12 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-            new RNDeviceInfo(),
-            new ReactNativeDocumentPicker(),
-            new VectorIconsPackage(),
-            new ReactMaterialKitPackage()
+          new RNDeviceInfo(),
+          new ReactNativeDocumentPicker(),
+          new VectorIconsPackage(),
+          new ReactMaterialKitPackage(),
+          new RNGRPPackage(),
+          new RNFSPackage()
       );
     }
   };
