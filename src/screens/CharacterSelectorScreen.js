@@ -2,6 +2,7 @@ import React from 'react';
 import { 
     Container,
     Header,
+    Content,
     View, 
     DeckSwiper,
     Drawer,
@@ -11,33 +12,27 @@ import {
     Text,
     Title,
     Left,
+    Right,
     Body,
     Icon,
     Button,
+    Fab,
+    List,
+    ListItem,
 } from 'native-base';
 import { styles } from '../styles';
 import { colors } from '../colors';
-import RootSiblings from 'react-native-root-siblings';
 import { DocumentPicker, DocumentPickerUtil } from 'react-native-document-picker';
 import MainSideBar from './MainSideBar';
 import {
-    TouchableOpacity,
     Dimensions,
     Image,
 } from 'react-native';
-const MK = require('react-native-material-kit');
 
-const {
-  MKButton,
-  MKColor,
-} = MK;
-
-const ColoredFab = MKButton.coloredFab()
-  .withStyle(styles.fab)
-  .build();
-
-const img_width = (Dimensions.get('screen').width - 42);
-const img_height = (Dimensions.get('screen').height - 170);
+const SCREEN_WIDTH = (Dimensions.get('screen').width);
+const SCREEN_HEIGHT = (Dimensions.get('screen').height);
+const DECK_MODE = 'deck-mode';
+const LIST_MODE = 'list-mode';
 
 export default class CharacterSelectorScreen extends React.Component {
 
@@ -49,20 +44,16 @@ export default class CharacterSelectorScreen extends React.Component {
         super(props);
         this.state = {
             data: [],
+            active: false,
+            renderMode: DECK_MODE,
         }
     }
 
     componentWillMount() {
-        this.fabRoot = new RootSiblings(
-            <ColoredFab onPress={this._openFilePicker}style={{flex: 1, justifyContent: 'center', alignItems: 'center', width: 69, height: 69, position: 'absolute', bottom: 20, right: 20}}>
-                <Icon name='add' size={40} color={colors.white}/>
-            </ColoredFab>
-        );
         this.setState({ data: this._loadCharacters()});
     }
 
     componentWillUnmount() {
-        this.fabRoot.destroy();
     }
 
     _closeDrawer = () => {
@@ -105,6 +96,13 @@ export default class CharacterSelectorScreen extends React.Component {
           });
     }
 
+    _changeRenderMode() {
+        let lastMode = this.state.renderMode;
+        this.setState({
+            renderMode: ((lastMode === DECK_MODE) ? LIST_MODE : DECK_MODE)
+        });
+    }
+
 
     render() {
         return (
@@ -113,43 +111,80 @@ export default class CharacterSelectorScreen extends React.Component {
             content={<MainSideBar navigator={this.navigator} />}
             onClose={() => this._closeDrawer()}
             >
-                <Container>
-                <Header>
-                    <Left style={{flex: 1, flexDirection: 'row'}}>
-                        <Button transparent onPress={this._openDrawer}>
-                            <Icon ios='ios-menu' android="md-menu"/>
-                        </Button>
-                        <Title style={{alignSelf: 'center', paddingLeft: 5}}>Select a Character</Title>
-                    </Left>
-                </Header>
-                <View>
-                    <DeckSwiper
-                    dataSource={this.state.data}
-                    renderItem={this._renderCard}
-                    />
-                </View>
+                <Container style={{backgroundColor: colors.black}}>
+                    <Header style={{backgroundColor: colors.greyDark}}>
+                        <Left style={{flex: 1, flexDirection: 'row'}}>
+                            <Button transparent onPress={this._openDrawer}>
+                                <Icon ios='ios-menu' android="md-menu"/>
+                            </Button>
+                            <Title style={{alignSelf: 'center', paddingLeft: 5}}>Select a Character</Title>
+                        </Left>
+                        <Right>
+                            <Button transparent onPress={this._changeRenderMode.bind(this)}>
+                                <Icon name={(this.state.renderMode === LIST_MODE) ? 'albums' : 'list'}/>
+                            </Button>
+                        </Right>
+                    </Header>
+                        {(this.state.renderMode === DECK_MODE) ? this._renderDeck() : this._renderList()}
                 </Container>
             </Drawer>
-          );
+        );
+        /*
+        <
+        */
+    }
+
+    _renderDeck() {
+        return(
+            <View>
+                <DeckSwiper
+                dataSource={this.state.data}
+                renderItem={this._renderCard}
+                />
+            </View>
+        );
+    }
+
+    _renderList() {
+        return(
+            <Content>
+                <List
+                dataArray={this.state.data}
+                renderRow={this._renderListItem}
+                />
+            </Content>);
     }
 
 
     _renderCard(card) {
         return(
-            <Card style={{ elevation: 3 }}>
-                <CardItem>
+            <Card style={{ elevation: 3, padding: 5, backgroundColor: colors.greyDark}}>
+                <CardItem style={{backgroundColor: colors.greyDark}}>
                     <Left>
                         <Body>
-                        <Text>{card.name + ': Level ' + card.level}</Text>
-                        <Text note>{card.race + ' ' + card.class}</Text>
+                            <Text style={{color: colors.white}}>{card.name + ': Level ' + card.level}</Text>
+                            <Text style={{color: colors.white}} note>{card.race + ' ' + card.class}</Text>
                         </Body>
                     </Left>
                 </CardItem>
                 <CardItem cardBody>
-                    <Image style={{ height: 400, flex: 1 }} source={card.image} resizeMode='cover'/>
+                    <Image style={{ height: (Dimensions.get('window').height) - 180, flex: 1 }} source={card.image} resizeMode='cover'/>
                 </CardItem>
             </Card>
         );
+    }
+
+    _renderListItem(item) {
+        return(
+            <ListItem avatar style={{backgroundColor: colors.black}}>
+                <Left>
+                    <Thumbnail size={80} source={item.image} />
+                </Left>
+                <Body>
+                    <Text style={{color: colors.white}}>{item.name + ': Level ' + item.level}</Text>
+                    <Text style={{color: colors.white}} note>{item.race + ' ' + item.class}</Text>
+                </Body>
+            </ListItem>);
     }
 
 
