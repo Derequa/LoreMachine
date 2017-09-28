@@ -7,6 +7,7 @@ install:
 - echo y | android update sdk -u -a -t tools
 - echo y | android update sdk -u -a -t platform-tools
 - echo y | android update sdk -u -a -t build-tools-25.0.1
+- echo y | android update sdk -u -a -t build-tools-26.0.1
 - echo y | android update sdk -u -a -t android-25
 - echo y | android update sdk -u -a -t extra-google-m2repository
 - echo y | android update sdk -u -a -t extra-android-m2repository
@@ -28,4 +29,3 @@ deploy:
   file: "$TRAVIS_BUILD_DIR/android/app/build/outputs/apk/app-debug.apk"
   on:
     repo: Derequa/LoreMachine
-    tags: true
