@@ -3,6 +3,7 @@ package com.loremachine;
 import android.app.Application;
 import com.rngrp.RNGRPPackage;
 import com.facebook.react.ReactApplication;
+import com.lugg.ReactNativeConfig.ReactNativeConfigPackage;
 import com.learnium.RNDeviceInfo.RNDeviceInfo;
 import com.reactnativedocumentpicker.ReactNativeDocumentPicker;
 import com.oblador.vectoricons.VectorIconsPackage;
@@ -28,6 +29,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new ReactNativeConfigPackage(),
           new RNDeviceInfo(),
           new ReactNativeDocumentPicker(),
           new VectorIconsPackage(),
