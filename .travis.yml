@@ -22,3 +22,4 @@ deploy:
   file: "$TRAVIS_BUILD_DIR/android/app/build/outputs/apk/app-debug.apk"
   on:
     repo: Derequa/LoreMachine
+    tags: true
