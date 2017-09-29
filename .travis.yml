@@ -40,4 +40,3 @@ deploy:
   skip_cleanup: true
   on:
     repo: Derequa/LoreMachine
-    tags: true
