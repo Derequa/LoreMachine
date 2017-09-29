@@ -29,10 +29,3 @@ android:
 script:
 - npm run ci
 - cd android && ./gradlew assembleDebug
-deploy:
-  provider: releases
-  api_key:
-    secure: HIvNA0ZlODHPCoX20KSv5SKtmhKpOYW592QvrJjvFKGw+CZ8VYm5NVecje7ULyAWE6VBqLoD3f3++SVtOhM8D1XBEYn2SPjoXZKp/jbyyHCpr5RzLSB+2kkguSALAbMOfTF/hzlz+NdJTBF+ZkYlLFB8EbPRrkQce91KPfqSvP0JIwrkGQRh1788OOBjRFA2j5lvaaqY+JzkaRR+JvZoIh8X5dyx28XRRgH/wCzcXlvCYVfmKZAdmpjwCB1rvC1cuDbO0rss8YvQtZ975ZHi+ZA/Dw6wEx8l7S1+735HiS5erEGo2g1Wic7rhCmt3IN3JuLHAPKg2FAWhDUqifRqmsjWG8A1YktzpTrNpqUppHDmomChQ9Mw+3VvU5VpUzxJJ5u+d/U+EHRmfNeYsxqqSK5l+wC6DuyedhhLWK0R0lgy7bHL30Hczo48s9Xcd3kLqY0CZBjmlH2igDobPbAygIxnTxzkrrw8aoI2YQQ9L0svLAePeUIfZ4KLiH8zxOz5k5DZRCg15DeaIGgcAX1BXoXlmV5DdgNM2Oo9dO6szZ6diOr4+6dbcrxmwiQrkDMwPt5pcxPC6Z7yplOvW9eTNhCDgDIRRjHbZHK8ZI0pKF9UOvMJ+Jt99ckG+z4ffHdFVpX2Wds44Q7u03pM57WSWg7Ne7t9srUX0jVn9dzMuTk=
-  file: "$TRAVIS_BUILD_DIR/android/app/build/outputs/apk/app-debug.apk"
-  on:
-    repo: Derequa/LoreMachine
