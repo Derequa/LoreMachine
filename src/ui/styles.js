@@ -18,8 +18,8 @@ export const styles = StyleSheet.create({
     marginBottom: 5,
   },
   fab: {
-    width: 75,
-    height: 75,
+    width: 60,
+    height: 60,
     borderRadius: 37,
   },
   col: {

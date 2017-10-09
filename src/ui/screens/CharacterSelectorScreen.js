@@ -2,6 +2,7 @@ import React from 'react';
 import { 
     Container,
     Header,
+    Footer,
     Content,
     View, 
     DeckSwiper,
@@ -23,17 +24,15 @@ import {
 import { styles } from '../styles';
 import { colors } from '../colors';
 import { DocumentPicker, DocumentPickerUtil } from 'react-native-document-picker';
-import MainSideBar from './MainSideBar';
+import MainSideBar from '../components/MainSideBar';
+import RootSiblings from 'react-native-root-siblings';
 import {
     Dimensions,
     Image,
 } from 'react-native';
-
 const SCREEN_WIDTH = (Dimensions.get('screen').width);
 const SCREEN_HEIGHT = (Dimensions.get('screen').height);
-const DECK_MODE = 'deck-mode';
-const LIST_MODE = 'list-mode';
-
+import SettingsManager, { DECK_MODE, LIST_MODE } from '../../managers/SettingsManager';
 export default class CharacterSelectorScreen extends React.Component {
 
     static navigationOptions = {
@@ -51,9 +50,7 @@ export default class CharacterSelectorScreen extends React.Component {
 
     componentWillMount() {
         this.setState({ data: this._loadCharacters()});
-    }
-
-    componentWillUnmount() {
+        SettingsManager.get().then((settings) => {this.setState({renderMode: settings.selectorMode})})
     }
 
     _closeDrawer = () => {
@@ -101,6 +98,8 @@ export default class CharacterSelectorScreen extends React.Component {
         this.setState({
             renderMode: ((lastMode === DECK_MODE) ? LIST_MODE : DECK_MODE)
         });
+        SettingsManager.get()
+        .then((settings) => { settings.change({selectorMode: this.state.renderMode})});
     }
 
 
@@ -108,20 +107,26 @@ export default class CharacterSelectorScreen extends React.Component {
         return (
             <Drawer
             ref={(ref) => { this.drawer = ref; }}
-            content={<MainSideBar navigator={this.navigator} />}
+            content={<MainSideBar navigator={this.navigator}/>}
             onClose={() => this._closeDrawer()}
             >
                 <Container style={{backgroundColor: colors.black}}>
-                    <Header style={{backgroundColor: colors.greyDark}}>
+                <Fab style={{ backgroundColor: colors.orangeLight }} position="bottomRight">
+                    <Icon name="add" />
+                </Fab>
+                    <Header style={{backgroundColor: colors.transparent}}>
                         <Left style={{flex: 1, flexDirection: 'row'}}>
                             <Button transparent onPress={this._openDrawer}>
-                                <Icon ios='ios-menu' android="md-menu"/>
+                                <Icon ios='ios-menu' android='md-menu'/>
                             </Button>
-                            <Title style={{alignSelf: 'center', paddingLeft: 5}}>Select a Character</Title>
+                            <Title style={{alignSelf: 'center', paddingLeft: 5}}>Characters</Title>
                         </Left>
                         <Right>
+                            <Button transparent >
+                                <Icon name='ios-search'/>
+                            </Button>
                             <Button transparent onPress={this._changeRenderMode.bind(this)}>
-                                <Icon name={(this.state.renderMode === LIST_MODE) ? 'albums' : 'list'}/>
+                                <Icon active name={(this.state.renderMode === LIST_MODE) ? 'list' : 'albums'} style={{ color: colors.white, fontSize: 26, width: 30 }}/>
                             </Button>
                         </Right>
                     </Header>
@@ -129,9 +134,6 @@ export default class CharacterSelectorScreen extends React.Component {
                 </Container>
             </Drawer>
         );
-        /*
-        <
-        */
     }
 
     _renderDeck() {
@@ -147,12 +149,12 @@ export default class CharacterSelectorScreen extends React.Component {
 
     _renderList() {
         return(
-            <Content>
+            <View>
                 <List
                 dataArray={this.state.data}
                 renderRow={this._renderListItem}
                 />
-            </Content>);
+            </View>);
     }
 
 
@@ -168,7 +170,7 @@ export default class CharacterSelectorScreen extends React.Component {
                     </Left>
                 </CardItem>
                 <CardItem cardBody>
-                    <Image style={{ height: (Dimensions.get('window').height) - 180, flex: 1 }} source={card.image} resizeMode='cover'/>
+                    <Image style={{ height: (Dimensions.get('window').height) - 220, flex: 1 }} source={card.image} resizeMode='cover'/>
                 </CardItem>
             </Card>
         );
@@ -176,13 +178,13 @@ export default class CharacterSelectorScreen extends React.Component {
 
     _renderListItem(item) {
         return(
-            <ListItem avatar style={{backgroundColor: colors.black}}>
-                <Left>
+            <ListItem style={{backgroundColor: colors.black}}>
+                <Body style={{flex: 1, flexDirection: 'row'}}>
                     <Thumbnail size={80} source={item.image} />
-                </Left>
-                <Body>
-                    <Text style={{color: colors.white}}>{item.name + ': Level ' + item.level}</Text>
-                    <Text style={{color: colors.white}} note>{item.race + ' ' + item.class}</Text>
+                    <View style={{ padding: 10}}>
+                        <Text style={{color: colors.white}}>{item.name + ': Level ' + item.level}</Text>
+                        <Text style={{color: colors.white}} note>{item.race + ' ' + item.class}</Text>
+                    </View>
                 </Body>
             </ListItem>);
     }
@@ -191,10 +193,10 @@ export default class CharacterSelectorScreen extends React.Component {
     _loadCharacters() {
         return(
             [
-                {id: 0, name: 'Solaire', level: 10, class: 'Cleric', race: 'Human', image: require('../../assets/solaire.jpg')},
-                {id: 1, name: 'Gimli', level: 7, class: 'Barbarian', race: 'Dwarf', image: require('../../assets/gimli.jpeg')},
-                {id: 2, name: 'Vex', level: 6, class: 'Rogue', race: 'Human', image: require('../../assets/vex.png')},
-                {id: 3, name: 'Daerak', level: 6, class: 'Paladin', race: 'Half-Elf', image: require('../../assets/daerak.jpg')}
+                {id: 0, name: 'Solaire', level: 10, class: 'Cleric', race: 'Human', image: require('../../../assets/solaire.jpg')},
+                {id: 1, name: 'Gimli', level: 7, class: 'Barbarian', race: 'Dwarf', image: require('../../../assets/gimli.jpeg')},
+                {id: 2, name: 'Vex', level: 6, class: 'Rogue', race: 'Human', image: require('../../../assets/vex.png')},
+                {id: 3, name: 'Daerak', level: 6, class: 'Paladin', race: 'Half-Elf', image: require('../../../assets/daerak.jpg')}
             ]
         );
     }

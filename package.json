@@ -8,6 +8,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "bluebird": "^3.5.1",
     "native-base": "^2.3.2",
     "react": "16.0.0-alpha.12",
     "react-native": "0.46.4",
@@ -21,7 +22,8 @@
     "react-native-material-kit": "^0.4.1",
     "react-native-root-siblings": "^1.2.1",
     "react-native-vector-icons": "^4.2.0",
-    "react-navigation": "^1.0.0-beta.11"
+    "react-navigation": "^1.0.0-beta.11",
+    "realm": "^1.12.0"
   },
   "devDependencies": {
     "babel-jest": "20.0.3",
