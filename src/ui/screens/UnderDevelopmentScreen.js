@@ -37,6 +37,8 @@ export default class UnderDevelopmentScreen extends React.Component {
 
     render() {
         return(
+            <Container>
+            <Header style={{ height: 0, backgroundColor: colors.orangeLight, }} androidStatusBarColor={colors.orangeLight} iosBarStyle='light-content' />
             <View style={{flex: 1, flexDirection: 'column', justifyContent: 'center', alignItems: 'center', backgroundColor: colors.orangeLight}}>
                 <Text style={{
                     color: colors.white,
@@ -67,6 +69,7 @@ export default class UnderDevelopmentScreen extends React.Component {
                 }}
                 onPress={() => { Linking.openURL(repoUrl) }}>{repoUrl}</Text>
             </View>
+            </Container>
         );
     }
 }

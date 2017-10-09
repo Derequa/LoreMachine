@@ -25,6 +25,7 @@ import { styles } from '../styles';
 import { colors } from '../colors';
 import { DocumentPicker, DocumentPickerUtil } from 'react-native-document-picker';
 import MainSideBar from '../components/MainSideBar';
+import NewCharacterPopup from '../components/NewCharacterPopup';
 import RootSiblings from 'react-native-root-siblings';
 import {
     Dimensions,
@@ -50,7 +51,19 @@ export default class CharacterSelectorScreen extends React.Component {
 
     componentWillMount() {
         this.setState({ data: this._loadCharacters()});
-        SettingsManager.get().then((settings) => {this.setState({renderMode: settings.selectorMode})})
+        SettingsManager.get().then((settings) => {this.setState({renderMode: settings.selectorMode})});
+        this._newCharacterPopupRoot = new RootSiblings(
+            <NewCharacterPopup ref={(popup) => { this._newCharacterPopupRef = popup; }} navigation={this.props.navigation}/>
+        );
+    }
+
+    componentWillUnmount() {
+        if (this._newCharacterPopupRef) {
+            this._newCharacterPopupRef.dismiss();
+            this._newCharacterPopupRef = null;
+        }
+        if (this._newCharacterPopupRoot)
+            this._newCharacterPopupRoot.destroy();
     }
 
     _closeDrawer = () => {
@@ -107,14 +120,14 @@ export default class CharacterSelectorScreen extends React.Component {
         return (
             <Drawer
             ref={(ref) => { this.drawer = ref; }}
-            content={<MainSideBar navigator={this.navigator}/>}
+            content={<MainSideBar navigator={this.navigator} navigation={this.props.navigation}/>}
             onClose={() => this._closeDrawer()}
             >
                 <Container style={{backgroundColor: colors.black}}>
-                <Fab style={{ backgroundColor: colors.orangeLight }} position="bottomRight">
+                <Fab style={{ backgroundColor: colors.orangeLight }} position="bottomRight" onPress={() => { this._newCharacterPopupRef.show() }}>
                     <Icon name="add" />
                 </Fab>
-                    <Header style={{backgroundColor: colors.transparent}}>
+                    <Header style={{backgroundColor: colors.transparent}} androidStatusBarColor={colors.black} iosBarStyle='light-content'>
                         <Left style={{flex: 1, flexDirection: 'row'}}>
                             <Button transparent onPress={this._openDrawer}>
                                 <Icon ios='ios-menu' android='md-menu'/>

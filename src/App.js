@@ -11,16 +11,20 @@ console.log(Config.MODE);
 
 export const MainAppStack = StackNavigator({
     Home: {
-        title: "Hello Stupid",
+        title: 'Hello Stupid',
         screen: (Config.MODE === 'develop' ? CharacterSelectorScreen : UnderDevelopmentScreen),
     },
     ChacterInfo: {
-        title: "Character Info",
+        title: 'Character Info',
         screen: CharacterInfoScreen,
     },
     CharcterEdit: {
-        title: "Edit Character",
+        title: 'Edit Character',
         screen: CharacterEditScreen,
+    },
+    NopeScreen: {
+        title: 'Nope',
+        screen: UnderDevelopmentScreen,
     }},
     { headerMode: 'screen' },
 );

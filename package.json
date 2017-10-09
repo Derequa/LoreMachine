@@ -20,6 +20,7 @@
     "react-native-fs": "^2.5.2",
     "react-native-get-real-path": "git+https://github.com/Wraptime/react-native-get-real-path.git",
     "react-native-material-kit": "^0.4.1",
+    "react-native-popup-dialog": "^0.9.36",
     "react-native-root-siblings": "^1.2.1",
     "react-native-vector-icons": "^4.2.0",
     "react-navigation": "^1.0.0-beta.11",
