@@ -1,0 +1,269 @@
+// TODO add +4 lvls to skills because level-up
+{
+    "name" : "Daerak",
+    "class" : "Paladin",
+    "level" : 5,
+    "deity" : "Pelor",
+    "race" : "half-elf",
+    "size" : "m",
+    "age" : 140,
+    "Base HP" : 63,
+    "Current HP" : 7,
+    "Total AC" : 20,
+    "Initiative" : 2,
+    "Base Attack": "6/1",
+    "XP" : 12800,
+    "stats" :
+    {
+        "STR":
+        {
+            "score" : 20,
+            "modifier" : 5
+        },
+        "DEX" :
+        {
+            "score" : 14,
+            "modifier" : 2
+        },
+        "CON" :
+        {
+            "score" : 14,
+            "modifier" : 2
+        },
+        "INT" :
+        {
+            "score" : 14,
+            "modifier" : 2
+        },
+        "WIS" :
+        {
+            "score" : 14,
+            "modifier" : 2
+        },
+        "CHA" :
+        {
+            "score" : 18,
+            "modifier" : 4
+        }
+    },
+    "saves" :
+    {
+        "FOR" :
+        {
+            "total" : 11,
+            "base save" : 5,
+            "modifier" : 2,
+            "magic modifier" : 0,
+            "misc modifier" : 4
+        },
+        "REF" :
+        {
+            "total" : 8,
+            "base save" : 2,
+            "modifier" : 2,
+            "magic modifier" : 0,
+            "misc modifier" : 4
+        },
+        "WIL" :
+        {
+            "total" : 11,
+            "base save" : 5,
+            "modifier" : 2,
+            "magic modifier" : 0,
+            "misc modifier" : 4
+        }
+    },
+    "speed" : 30,
+    "money" :
+    {
+        "BP" : 0,
+        "SP" : 0,
+        "GP" : 4564,
+        "PP" : 12
+    },
+    "Weapons" :
+    [
+        {
+            "name" : "Masterwork Greatsword",
+            "type" : "S",
+            "attack bonus" : 1,
+            "critical" : "19-20 x2",
+            "damage" : "2D6"
+        },
+        {
+            "name" : "Masterwork Longsword",
+            "type" : "S",
+            "attack bonus" : 1,
+            "critical" : "19-20 x2",
+            "damage" : "1D8"
+        },
+        {
+            "name" : "Bow",
+            "type" : "P",
+            "attack bonus" : 0,
+            "critical" : "x3",
+            "damage" : "1D6"
+        },
+        {
+            "name" : "Dragonbane Longsword",
+            "type" : "S",
+            "attack bonus" : 0,
+            "critical" : "19-20 x2",
+            "damage" : "2D6"
+        },
+        {
+            "name" : "Warhammer",
+            "type" : "B",
+            "attack bonus" : 0,
+            "critical" : "x3",
+            "damage" : "1D8"
+        },
+        {
+            "name" : "Javelin",
+            "type" : "P",
+            "attack bonus" : 0,
+            "critical" : "x2",
+            "damage" : "1D6",
+            "ammo": 4
+        }
+    ],
+    "AC Items" :
+    [
+        {
+            "name" : "Full Plate Armor",
+            "bonus" : 8,
+            "type" : "",
+            "check penalty" : -6,
+            "spell failure" : 0.35,
+            "weight" : 50,
+            "properties" : []
+        },
+        {
+            "name" : "Shield Bro",
+            "bonus" : 2,
+            "type" : "",
+            "check penalty" : -2,
+            "spell failure" : 0,
+            "weight" : 10,
+            "properties" :
+            [
+                "bless"
+            ]
+        }
+    ],
+    "Feats" :
+    [
+        "Power attack",
+        "Cleave",
+        "Great cleave"
+    ],
+    "Abilities" :
+    [
+        "Aura of Good",
+        "Detect Evil",
+        "Smite Evil",
+        "Divine Grace",
+        "Lay on Hands",
+        "Aura of Courage",
+        "Divine Health",
+        "Mercy (Sickened)",
+        "Mercy (Dazed)",
+        "Channel Positive Energy"
+    ],
+    "Spells" :
+    {
+        "0 level" : "",
+        "1st level" : 2,
+        "2nd level" : 0,
+        "3rd level" : 0,
+        "4th level" : 0,
+        "5th level" : 0,
+        "6th level" : 0,
+        "7th level" : 0,
+        "8th level" : 0,
+        "9th level" : 0
+    },
+    "Known Spells" :
+    [
+        {
+            "name" : "Bless Weapon",
+            "effect" : "Bless Weapon",
+            "level" : 1
+        }
+    ],
+    "Languages" :
+    [
+        "Elven",
+        "Dwarven"
+    ],
+    "Inventory" : [
+        {"name" : "pint of oil"},
+        {"name" : "scroll of cure light wounds"},
+        {"name" : "scroll of command"},
+        {"name" : "scroll of inflict light wounds"},
+        {"name" : "magical stone"}
+    ],
+    "Skills" :
+    [
+        {
+            "name" : "Acrobatics",
+            "total" : 2,
+            "ability modifier" :
+            {
+                "name" : "DEX",
+                "value" : 2
+            },
+            "ranks" : 0,
+            "misc modifier" : 0,
+            "class skill" : false
+        },
+        {
+            "name" : "Appraise",
+            "total" : 2,
+            "ability modifier" :
+            {
+                "name" : "INT",
+                "value" : 2
+            },
+            "ranks" : 0,
+            "misc modifier" : 0,
+            "class skill" : false
+        },
+        {
+            "name" : "Bluff",
+            "total" : 4,
+            "ability modifier" :
+            {
+                "name" : "CHA",
+                "value" : 4
+            },
+            "ranks" : 0,
+            "misc modifier" : 0,
+            "class skill" : false
+        },
+        {
+            "name" : "Craft",
+            "total" : 6,
+            "ability modifier" :
+            {
+                "name" : "INT",
+                "value" : 2
+            },
+            "ranks" : 2,
+            "misc modifier" : 2,
+            "class skill" : true
+        },
+        {
+            "name" : "Diplomacy",
+            "total" : 6,
+            "ability modifier" :
+            {
+                "name" : "CHA",
+                "value" : 4
+            },
+            "ranks" : 2,
+            "misc modifier" : 6,
+            "class skill" : true
+        }
+    ]
+}
