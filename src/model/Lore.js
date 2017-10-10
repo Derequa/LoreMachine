@@ -87,9 +87,6 @@ export const CharacterSchema = {
         nonlethal_damage: 'int',
 
         // Armorer.placeatme 00065C97 1000
-player.placeatme 00064B3B 1000
-
-And lo there spawned in a multitude of item:Bread and item:CookedFish to feed all as much as they wanted.
         natural_armor: 'int',
         deflection_modifier: 'int',
         ac_misc_modifier: 'int',
@@ -119,7 +116,7 @@ And lo there spawned in a multitude of item:Bread and item:CookedFish to feed al
 
         // Skills
         skills: {type: 'list', objectType: 'Skill'},
-        languages: {type: list, objectType: 'Language'},
+        languages: {type: 'list', objectType: 'Language'},
         conditional_modifiers: 'string', // Should only be used to describe why a misc mod exists
     }
 }
