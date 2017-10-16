@@ -138,7 +138,7 @@ export const SpellSchoolSchema = {
         id: 'int',
         name: 'string',
         description: 'string',
-        powers: {type: 'list', objectType: 'string'},
+        powers: {type: 'list', objectType: 'int'},
     }
 }
 
@@ -149,7 +149,7 @@ export const SpellSchema = {
         id: 'int',
         name: 'string',
         level: {type: 'list', objectType: 'ClassLevel'},
-        school: 'id', // link to school entry
+        school: 'int', // link to school entry
         casting_time: 'string',
         components: 'string',
         range: 'string',
@@ -238,19 +238,53 @@ export const SorcererBloodlineSchema = {
         class_skill: {type: 'Skill'},
         bonus_spells: {type: 'list', objectType: 'int'},
         bloodline_powers: {type: 'list', objectType: 'int'}, // IDs of bloodline powers
-        bloodline_arcana: 'int', // ID of bloodline arcana
+        bloodline_arcana: 'string',
+    }
+}
+
+export const BloodlinePowerSchema = {
+    name: 'BloodlinePower',
+    primaryKey: 'id',
+    properties: {
+        id: 'int',
+        name: 'string',
+        description: 'string',
+    }
+}
+
+export const ClericPowerSchema = {
+    name: 'ClericPower',
+    primaryKey: 'id',
+    properties: {
+        id: 'int',
+        name: 'string',
+        description: 'string',
+    }
+}
+
+export const ClassFeatureSchema = {
+    name: 'ClassFeature',
+    primaryKey: 'id',
+    properties: {
+        id: 'int',
+        name: 'string',
+        description: 'string',
+        clazz: 'string', // Will we also need IDs for classes? Or will classes be "headless" in the data model?
+    }
+}
+
+export const WizardSchoolPowerSchema = {
+    name: 'WizardSchoolPower',
+    primaryKey: 'id',
+    properties: {
+        id: 'int',
+        name: 'string',
+        description: 'string',
     }
 }
 
 /*
 Schemas still needed
-
-Bloodline powers
-Bloodline Arcana
-Cleric powers
-Class Features
-Wizzard School
-Wizzard School Powers
 
 Effects: a way to abstract the stat effects of some feats/special abilities
 */
@@ -335,6 +369,7 @@ export const CharacterSchema = {
         feats: {type: 'list', objectType: 'int'},
         domains: {type: 'list', objectType: 'int'},
         specialty_schools: {type: 'list', objectType: 'int'},
+        opposed_schools: {type: 'list', objectType: 'int'},
         bloodline: {type: 'list', objectType: 'int'},
 
         // Spells
@@ -349,5 +384,5 @@ export const CharacterSchema = {
 }
 
 export const Lore = [
-
+    // Lol list it all here?
 ];
