@@ -1,4 +1,5 @@
 import { SettingsSchema } from './SettingsManager';
+import { Lore } from '../model/Lore';
 
 let instance = null;
 
@@ -8,7 +9,10 @@ export default class RealmManager {
         if (!instance) {
             instance = this;
             // Setup new realm wrapper
-            this.realm = new Realm({schema: [SettingsSchema]});
+            let schemas = new Array();
+            schemas.concat(Lore);
+            schemas.push(SettingsSchema);
+            this.realm = new Realm({schema: schemas});
         }
 
         return instance;

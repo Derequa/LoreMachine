@@ -26,7 +26,7 @@ export const LanguageSchema = {
         id: 'int',
         name: 'string',
         description: 'string',
-        link: 'string',
+        url: 'string',
     }
 }
 
@@ -37,6 +37,7 @@ export const SkillInfoSchema = {
         id: 'int',
         name: 'string',
         details: 'string',
+        url: 'string',
     }
 }
 
@@ -71,6 +72,7 @@ export const BaseWeaponSchema = {
         id: 'int',
         name: 'string',
         description: 'string',
+        url: 'string',
         small_damage: 'string',
         medium_damage: 'string',
         large_damage: 'string',
@@ -103,6 +105,7 @@ export const BaseArmorSchema ={
         name: 'string',
         type: 'string',
         description: 'string',
+        url: 'string',
         ac_bonus: 'int',
         max_dex: 'int',
         check_penalty: 'int',
@@ -138,6 +141,7 @@ export const SpellSchoolSchema = {
         id: 'int',
         name: 'string',
         description: 'string',
+        url: 'string',
         powers: {type: 'list', objectType: 'int'},
     }
 }
@@ -158,6 +162,7 @@ export const SpellSchema = {
         saving_throw: 'string',
         spell_resistance: 'string',
         description: 'string',
+        url: 'string',
     }
 }
 
@@ -168,6 +173,7 @@ export const ItemSchema = {
         id: 'int',
         name: 'string',
         description: 'string',
+        url: 'string',
         weight: 'int',
         price: 'int',
         currency_type: 'string',
@@ -189,6 +195,7 @@ export const SpecialAbilitySchema = {
         id: 'int',
         name: 'string',
         description: 'string',
+        url: 'string',
     }
 }
 
@@ -199,6 +206,7 @@ export const FeatPreReqSchema = {
         base_attack: 'int',
         clazz: {type: 'list', objectType: 'ClassLevel'},
         feats: {type: 'list', objectType: 'int'},
+        class_features: {type: 'list', objectType: 'int'},
         skills: {type: 'list', objectType: 'Skill'},
         special_ability_names: {type: 'list', objectType: 'string'}
     }
@@ -210,7 +218,9 @@ export const FeatSchema = {
     properties: {
         id: 'int',
         name: 'string',
+        type: 'string',
         description: 'string',
+        url: 'string',
         prereqs: {type: 'list', objectType: 'FeatPreReq'}
     }
 }
@@ -221,6 +231,7 @@ export const ClericDomainSchema = {
     properties: {
         id: 'int',
         name: 'string',
+        url: 'string',
         alignment: 'string',
         deities: {type: 'list', objectType: 'int'}, // IDs of deity
         powers: {type: 'list', objectType: 'int'}, // IDs of cleric power
@@ -235,6 +246,7 @@ export const SorcererBloodlineSchema = {
         id: 'int',
         name: 'string',
         description: 'string',
+        url: 'string',
         class_skill: {type: 'Skill'},
         bonus_spells: {type: 'list', objectType: 'int'},
         bloodline_powers: {type: 'list', objectType: 'int'}, // IDs of bloodline powers
@@ -384,5 +396,29 @@ export const CharacterSchema = {
 }
 
 export const Lore = [
-    // Lol list it all here?
+    AbilitySchema,
+    SavingThrowSchema,
+    LanguageSchema,
+    SkillInfoSchema,
+    SkillSchema,
+    PropertySchema,
+    BaseWeaponSchema,
+    CustomWeaponSchema,
+    BaseArmorSchema,
+    CustomArmorSchema,
+    ClassLevelSchema,
+    SpellSchoolSchema,
+    SpellSchema,
+    ItemSchema,
+    InventoryItemSchema,
+    SpecialAbilitySchema,
+    FeatPreReqSchema,
+    FeatSchema,
+    ClericDomainSchema,
+    SorcererBloodlineSchema,
+    BloodlinePowerSchema,
+    ClericPowerSchema,
+    ClassFeatureSchema,
+    WizardSchoolPowerSchema,
+    CharacterSchema,
 ];
