@@ -20,6 +20,8 @@ import {
     Fab,
     List,
     ListItem,
+    Item,
+    Input,
 } from 'native-base';
 import { styles } from '../styles';
 import { colors } from '../colors';
@@ -30,6 +32,7 @@ import RootSiblings from 'react-native-root-siblings';
 import {
     Dimensions,
     Image,
+    Keyboard,
 } from 'react-native';
 const SCREEN_WIDTH = (Dimensions.get('screen').width);
 const SCREEN_HEIGHT = (Dimensions.get('screen').height);
@@ -46,6 +49,8 @@ export default class CharacterSelectorScreen extends React.Component {
             data: [],
             active: false,
             renderMode: DECK_MODE,
+            searching: false,
+            searchText: '',
         }
     }
 
@@ -55,6 +60,7 @@ export default class CharacterSelectorScreen extends React.Component {
         this._newCharacterPopupRoot = new RootSiblings(
             <NewCharacterPopup ref={(popup) => { this._newCharacterPopupRef = popup; }} navigation={this.props.navigation}/>
         );
+        this.keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', this._keyboardDidHide.bind(this));
     }
 
     componentWillUnmount() {
@@ -64,6 +70,14 @@ export default class CharacterSelectorScreen extends React.Component {
         }
         if (this._newCharacterPopupRoot)
             this._newCharacterPopupRoot.destroy();
+        
+        this.keyboardDidHideListener.remove();
+    }
+
+    _keyboardDidHide() {
+        if (this.state.searching){
+            this._onSearchCancel();
+        }
     }
 
     _closeDrawer = () => {
@@ -116,6 +130,15 @@ export default class CharacterSelectorScreen extends React.Component {
     }
 
 
+    _onSearchStart() {
+        this.setState({ searching: true });
+    }
+
+    _onSearchCancel() {
+        this.setState({ searching: false });
+    }
+
+
     render() {
         return (
             <Drawer
@@ -127,7 +150,34 @@ export default class CharacterSelectorScreen extends React.Component {
                 <Fab style={{ backgroundColor: colors.orangeLight }} position="bottomRight" onPress={() => { this._newCharacterPopupRef.show() }}>
                     <Icon name="add" />
                 </Fab>
-                    <Header style={{backgroundColor: colors.transparent}} androidStatusBarColor={colors.black} iosBarStyle='light-content'>
+                    {this.state.searching ? 
+                    (<Header
+                    style={{backgroundColor: colors.transparent}}
+                    androidStatusBarColor={colors.black}
+                    iosBarStyle='light-content'
+                    searchBar>
+                        <Item style={{paddingLeft: 0}}>
+                            <Button
+                            transparent
+                            style={{paddingRight: 0}}
+                            onPress={this._onSearchCancel.bind(this)}>
+                                <Icon name='arrow-back' style={{paddingRight: 0, color: colors.black}}/>
+                            </Button>
+                            <Icon name='ios-search'/>
+                            <Input ref={(search) => {this.searchRef = search}} autoFocus={true} placeholder='Search' onChangeText={(value) => {this.setState({searchText: value})}}/>
+                            {this.state.searchText.length > 0 && (
+                                <Button
+                                transparent
+                                onPress={() => {this.searchRef.setNativeProps({text: ''})}}>
+                                    <Icon name='close' style={{color: colors.black}}/>
+                                </Button>)}
+                        </Item>
+                    </Header>)
+                    : 
+                    (<Header
+                    style={{backgroundColor: colors.transparent}}
+                    androidStatusBarColor={colors.black}
+                    iosBarStyle='light-content'>
                         <Left style={{flex: 1, flexDirection: 'row'}}>
                             <Button transparent onPress={this._openDrawer}>
                                 <Icon ios='ios-menu' android='md-menu'/>
@@ -135,14 +185,14 @@ export default class CharacterSelectorScreen extends React.Component {
                             <Title style={{alignSelf: 'center', paddingLeft: 5}}>Characters</Title>
                         </Left>
                         <Right>
-                            <Button transparent >
+                            <Button transparent onPress={this._onSearchStart.bind(this)}>
                                 <Icon name='ios-search'/>
                             </Button>
                             <Button transparent onPress={this._changeRenderMode.bind(this)}>
                                 <Icon active name={(this.state.renderMode === LIST_MODE) ? 'list' : 'albums'} style={{ color: colors.white, fontSize: 26, width: 30 }}/>
                             </Button>
                         </Right>
-                    </Header>
+                        </Header>)}
                         {(this.state.renderMode === DECK_MODE) ? this._renderDeck() : this._renderList()}
                 </Container>
             </Drawer>

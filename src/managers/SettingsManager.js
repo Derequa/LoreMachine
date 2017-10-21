@@ -9,7 +9,7 @@ Promise.config({
     // Enable cancellation
     cancellation: true,
     // Enable monitoring
-    monitoring: true
+    monitoring: false
 });
 
 export const DECK_MODE = 'deck-mode';
@@ -40,10 +40,11 @@ export default class Settings {
 
     static async load() {
         return new Promise(async function (resolve, reject) {
-            let saved = await RealmManager.getRealm().objects('Settings').filtered('id = 0');
+            let realm = await RealmManager.getRealm();
+            let saved = realm.objects('Settings').filtered('id = 0');
             if(Object.keys(saved).length === 0 && saved.constructor === Object) {
                 console.log('creating setting object...');
-                let realm = RealmManager.getRealm(); 
+                //let realm = await RealmManager.getRealm(); 
                 await realm.write(async () => {
                     await realm.create('Settings', {id: 0});
                 });
@@ -71,7 +72,7 @@ export default class Settings {
     async save() {
         let settingsInstance = this;
         return new Promise(async function(resolve, reject) {
-            let realm = RealmManager.getRealm();
+            let realm = await RealmManager.getRealm();
             await realm.write(() => {
                 _db_result.selectorMode = settingsInstance.selectorMode;
                 resolve();
