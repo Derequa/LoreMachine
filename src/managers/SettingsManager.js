@@ -41,8 +41,8 @@ export default class Settings {
     static async load() {
         return new Promise(async function (resolve, reject) {
             let realm = await RealmManager.getRealm();
-            let saved = realm.objects('Settings').filtered('id = 0');
-            if(Object.keys(saved).length === 0 && saved.constructor === Object) {
+            let saved = await realm.objects('Settings').filtered('id = 0');
+            if(Object.keys(saved).length === 0) {
                 console.log('creating setting object...');
                 //let realm = await RealmManager.getRealm(); 
                 await realm.write(async () => {
@@ -56,6 +56,7 @@ export default class Settings {
     }
 
     constructor(setupSettings) {
+        console.log(setupSettings);
         if (!setupSettings) {
             this._setupError();
         }
@@ -64,8 +65,8 @@ export default class Settings {
 
         if (!setupSettings.selectorMode)
             this._setupError();
-        
-        this.selectorMode = setupSettings.selectorMode;
+        else
+            this.selectorMode = setupSettings.selectorMode;
         
     }
 
