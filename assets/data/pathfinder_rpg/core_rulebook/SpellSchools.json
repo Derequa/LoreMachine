@@ -1,0 +1,64 @@
+[
+    {
+        "id": 0,
+        "name": "Abjuration",
+        "description": "The abjurer uses magic against itself, and masters the art of defensive and warding magics.",
+        "url": "http://www.d20pfsrd.com/classes/core-classes/wizard/arcane-schools/paizo-arcane-schools/classic-arcane-schools/abjuration/",
+        "powers": ["Resistance", "Protective Ward", "Energy Absorption"]
+    },
+    { 
+        "id": 1,
+        "name": "Conjuration",
+        "description": "The conjurer focuses on the study of summoning monsters and magic alike to bend to his will.",
+        "url": "http://www.d20pfsrd.com/classes/core-classes/wizard/arcane-schools/paizo-arcane-schools/classic-arcane-schools/conjuration/", 
+        "powers": ["Summoner’s Charm", "Acid Dart", "Dimensional Steps"]
+    },
+    {
+        "id": 2,
+        "name": "Divination",
+        "description": "Diviners are masters of remote viewing, prophecies, and using magic to explore the world.",
+        "url": "http://www.d20pfsrd.com/classes/core-classes/wizard/arcane-schools/paizo-arcane-schools/classic-arcane-schools/divination/", 
+        "powers": ["Forewarned", "Diviner’s Fortune", "Scrying Adept"]
+    },
+    {
+        "id": 3,
+        "name": "Enchantment",
+        "description": "The enchanter uses magic to control and manipulate the minds of his victims.",
+        "url": "http://www.d20pfsrd.com/classes/core-classes/wizard/arcane-schools/paizo-arcane-schools/classic-arcane-schools/enchantment/", 
+        "powers": ["Enchanting Smile", "Dazing Touch", "Aura of Despair"]
+    },
+    {
+        "id": 4,
+        "name": "Evocation",
+        "description": "Evokers revel in the raw power of magic, and can use it to create and destroy with shocking ease.",
+        "url": "http://www.d20pfsrd.com/classes/core-classes/wizard/arcane-schools/paizo-arcane-schools/classic-arcane-schools/evocation/", 
+        "powers": ["Intense Spells", "Force Missile", "Elemental Wall"]
+    },
+    {
+        "id": 5,
+        "name": "Illusion",
+        "description": "Illusionists use magic to weave confounding images, figments, and phantoms to baffle and vex their foes.",
+        "url": "http://www.d20pfsrd.com/classes/core-classes/wizard/arcane-schools/paizo-arcane-schools/classic-arcane-schools/illusion/", 
+        "powers": ["Extended Illusions", "Blinding Ray", "Invisibility Field"]
+    },
+    {
+        "id": 6,
+        "name": "Necromancy",
+        "description": "The dread and feared necromancer commands undead and uses the foul power of unlife against his enemies.",
+        "url": "http://www.d20pfsrd.com/classes/core-classes/wizard/arcane-schools/paizo-arcane-schools/classic-arcane-schools/necromancy/", 
+        "powers": ["Power over Undead", "Grave Touch", "Life Sight"]
+    },
+    {   "id": 7,
+        "name": "Transmutation",
+        "description": "Transmuters use magic to change the world around them",
+        "url": "http://www.d20pfsrd.com/classes/core-classes/wizard/arcane-schools/paizo-arcane-schools/classic-arcane-schools/transmutation/", 
+        "powers": ["Physical Enhancement", "Telekinetic Fist", "Change Shape"]
+    },
+    {
+        "id": 8,
+        "name": "Universalist",
+        "description": "Wizards who do not specialize (known as as universalists) have the most diversity of all arcane spellcasters.",
+        "url": "http://www.d20pfsrd.com/classes/core-classes/wizard/arcane-schools/paizo-arcane-schools/classic-arcane-schools/universalist/", 
+        "powers": ["Hand of the Apprentice", "Metamagic Mastery"]
+    }
+]
