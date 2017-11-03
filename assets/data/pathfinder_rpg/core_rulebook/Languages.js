@@ -35,8 +35,6 @@ export const language_ids = {
     vegepygmy: 33,
 }
 
-// change
-// another change
 export const language_url = "http://www.d20pfsrd.com/skills/linguistics";
 
 export const language_data =

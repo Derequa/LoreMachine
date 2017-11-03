@@ -24,8 +24,8 @@ export const LanguageSchema = {
     primaryKey: 'id',
     properties: {
         id: 'int',
-        name: 'string',
-        description: 'string',
+        name: { type: 'string', indexed: true },
+        description: { type: 'string', indexed: true },
         url: 'string',
     }
 }
@@ -35,7 +35,7 @@ export const SkillInfoSchema = {
     primaryKey: 'id',
     properties: {
         id: 'int',
-        name: 'string',
+        name: { type: 'string', indexed: true },
         details: 'string',
         url: 'string',
     }
@@ -58,8 +58,8 @@ export const PropertySchema = {
     primaryKey: 'id', // Master list of all know properties. Integrated ones should affect stats automatically, custom ones will give description
     properties: {
         id: 'int',
-        name: 'string',
-        description: 'string',
+        name: { type: 'string', indexed: true },
+        description: { type: 'string', indexed: true },
     }
 }
 
@@ -70,8 +70,8 @@ export const BaseWeaponSchema = {
     primaryKey: 'id',
     properties: {
         id: 'int',
-        name: 'string',
-        description: 'string',
+        name: { type: 'string', indexed: true },
+        description: { type: 'string', indexed: true },
         url: 'string',
         small_damage: 'string',
         medium_damage: 'string',
@@ -102,9 +102,9 @@ export const BaseArmorSchema ={
     primaryKey: 'id',
     properties: {
         id: 'int',
-        name: 'string',
+        name: { type: 'string', indexed: true },
         type: 'string',
-        description: 'string',
+        description: { type: 'string', indexed: true },
         url: 'string',
         ac_bonus: 'int',
         max_dex: 'int',
@@ -139,10 +139,10 @@ export const SpellSchoolSchema = {
     primaryKey: 'id',
     properties: {
         id: 'int',
-        name: 'string',
-        description: 'string',
+        name: { type: 'string', indexed: true },
+        description: { type: 'string', indexed: true },
         url: 'string',
-        powers: {type: 'list', objectType: 'int'},
+        powers: {type: 'list', objectType: 'GenericSpecialAbility'},
     }
 }
 
@@ -151,9 +151,11 @@ export const SpellSchema = {
     primaryKey: 'id',
     properties: {
         id: 'int',
-        name: 'string',
+        name: { type: 'string', indexed: true },
         level: {type: 'list', objectType: 'ClassLevel'},
-        school: 'int', // link to school entry
+        spell_school_id: 'int', // link to school entry
+        school: 'string',
+        tags: {type: 'list', objectType: 'string'},
         casting_time: 'string',
         components: 'string',
         range: 'string',
@@ -161,7 +163,7 @@ export const SpellSchema = {
         duration: 'string',
         saving_throw: 'string',
         spell_resistance: 'string',
-        description: 'string',
+        description: { type: 'string', indexed: true },
         url: 'string',
     }
 }
@@ -171,8 +173,8 @@ export const ItemSchema = {
     primaryKey: 'id',
     properties: {
         id: 'int',
-        name: 'string',
-        description: 'string',
+        name: { type: 'string', indexed: true },
+        description: { type: 'string', indexed: true },
         url: 'string',
         weight: 'int',
         price: 'int',
@@ -188,13 +190,20 @@ export const InventoryItemSchema = {
     }
 }
 
+export const GenericSpecialAbilitySchema= {
+    name: 'GenericSpecialAbility',
+    properties: {
+        name: 'string',
+        description: 'string',
+    }
+}
+
 export const SpecialAbilitySchema = {
     name: 'SpecialAbility',
     primaryKey: 'id',
     properties: {
         id: 'int',
-        name: 'string',
-        description: 'string',
+        ability: {type: 'GenericSpecialAbility'},
         url: 'string',
     }
 }
@@ -217,9 +226,9 @@ export const FeatSchema = {
     primaryKey: 'id',
     properties: {
         id: 'int',
-        name: 'string',
+        name: { type: 'string', indexed: true },
         type: 'string',
-        description: 'string',
+        description: { type: 'string', indexed: true },
         url: 'string',
         prereqs: {type: 'list', objectType: 'FeatPreReq'}
     }
@@ -230,7 +239,7 @@ export const ClericDomainSchema = {
     primaryKey: 'int',
     properties: {
         id: 'int',
-        name: 'string',
+        name: { type: 'string', indexed: true },
         url: 'string',
         alignment: 'string',
         deities: {type: 'list', objectType: 'int'}, // IDs of deity
@@ -244,8 +253,8 @@ export const SorcererBloodlineSchema = {
     primaryKey: 'id',
     properties: {
         id: 'int',
-        name: 'string',
-        description: 'string',
+        name: { type: 'string', indexed: true },
+        description: { type: 'string', indexed: true },
         url: 'string',
         class_skill: {type: 'Skill'},
         bonus_spells: {type: 'list', objectType: 'int'},
@@ -259,8 +268,8 @@ export const BloodlinePowerSchema = {
     primaryKey: 'id',
     properties: {
         id: 'int',
-        name: 'string',
-        description: 'string',
+        name: { type: 'string', indexed: true },
+        description: { type: 'string', indexed: true },
     }
 }
 
@@ -269,8 +278,8 @@ export const ClericPowerSchema = {
     primaryKey: 'id',
     properties: {
         id: 'int',
-        name: 'string',
-        description: 'string',
+        name: { type: 'string', indexed: true },
+        description: { type: 'string', indexed: true },
     }
 }
 
@@ -279,19 +288,19 @@ export const ClassFeatureSchema = {
     primaryKey: 'id',
     properties: {
         id: 'int',
-        name: 'string',
-        description: 'string',
+        name: { type: 'string', indexed: true },
+        description: { type: 'string', indexed: true },
         clazz: 'string', // Will we also need IDs for classes? Or will classes be "headless" in the data model?
     }
 }
 
-export const WizardSchoolPowerSchema = {
-    name: 'WizardSchoolPower',
+export const SpellSchoolPowerSchema = {
+    name: 'SpellSchoolPower',
     primaryKey: 'id',
     properties: {
         id: 'int',
-        name: 'string',
-        description: 'string',
+        name: { type: 'string', indexed: true },
+        description: { type: 'string', indexed: true },
     }
 }
 
@@ -308,7 +317,7 @@ export const CharacterSchema = {
         id: 'int',
 
         // Character info
-        name: 'string',
+        name: { type: 'string', indexed: true },
         alignment: 'string',
         level: 'int',
         xp: 'int',
@@ -419,6 +428,6 @@ export const Lore = [
     BloodlinePowerSchema,
     ClericPowerSchema,
     ClassFeatureSchema,
-    WizardSchoolPowerSchema,
+    SpellSchoolPowerSchema,
     CharacterSchema,
 ];
