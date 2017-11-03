@@ -153,9 +153,8 @@ export const SpellSchema = {
         id: 'int',
         name: { type: 'string', indexed: true },
         level: {type: 'list', objectType: 'ClassLevel'},
-        spell_school_id: 'int', // link to school entry
         school: 'string',
-        tags: {type: 'list', objectType: 'string'},
+        type: 'string',
         casting_time: 'string',
         components: 'string',
         range: 'string',
