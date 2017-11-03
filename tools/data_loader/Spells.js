@@ -1,3 +1,5 @@
+// Data scraped from PC gen's data files. All credit for hauling in this data goes to the PC gen team: http://pcgen.org/
+
 export const spells_ids = {
     veil: 595,
     divine_power: 166,

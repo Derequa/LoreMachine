@@ -71,6 +71,7 @@ public class DataExtractor {
     }
     
     private static void generateFile(String filename, String dataTitle, HashSet<JSONObject> data) {
+    	String preamble = "// Data scraped from PC gen's data files. All credit for hauling in this data goes to the PC gen team: http://pcgen.org/";
     	String idContents =  "export const " + dataTitle + "_ids = {\n";
     	String dataContents = "export const " + dataTitle + "_data = \n[";
     	tabLevel = 1;
@@ -95,7 +96,7 @@ public class DataExtractor {
 			}
     	}
     	try (FileWriter fw = new FileWriter(f)) {
-    		fw.write(idContents + "\n\n" + dataContents + "\n\n");
+    		fw.write(preamble + "\n\n" + idContents + "\n\n" + dataContents + "\n\n");
     	} catch (IOException e) {
     		e.printStackTrace();
     	}
