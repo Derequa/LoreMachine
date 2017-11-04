@@ -37,6 +37,8 @@ import {
 const SCREEN_WIDTH = (Dimensions.get('screen').width);
 const SCREEN_HEIGHT = (Dimensions.get('screen').height);
 import SettingsManager, { DECK_MODE, LIST_MODE } from '../../managers/SettingsManager';
+
+
 export default class CharacterSelectorScreen extends React.Component {
 
     static navigationOptions = {
@@ -138,7 +140,11 @@ export default class CharacterSelectorScreen extends React.Component {
         this.setState({ searching: false });
     }
 
+    _onSearchSubmit() {
+        this.props.navigation.navigate('SearchResults', {query: this.state.searchText});
+    }
 
+    // TODO clean up, particularly inline anon callbacks
     render() {
         return (
             <Drawer
@@ -164,7 +170,12 @@ export default class CharacterSelectorScreen extends React.Component {
                                 <Icon name='arrow-back' style={{paddingRight: 0, color: colors.black}}/>
                             </Button>
                             <Icon name='ios-search'/>
-                            <Input ref={(search) => {this.searchRef = search}} autoFocus={true} placeholder='Search' onChangeText={(value) => {this.setState({searchText: value})}}/>
+                            <Input 
+                            ref={(search) => {this.searchRef = search}}
+                            autoFocus={true}
+                            placeholder='Search'
+                            onChangeText={(value) => { this.setState({searchText: value}) }}
+                            onSubmitEditing={this._onSearchSubmit.bind(this)}/>
                             {this.state.searchText.length > 0 && (
                                 <Button
                                 transparent

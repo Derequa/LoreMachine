@@ -60,17 +60,14 @@ public class DataExtractor {
     			e.printStackTrace();
     		}
     	}
-    	HashSet<JSONObject> jsonSpells = new HashSet<JSONObject>();
+    	LinkedList<JSONObject> jsonSpells = new LinkedList<JSONObject>();
     	for (Spell s : spells.values())
     		jsonSpells.add(s.toJSON());
-    	generateFile("Spells.js", "spells", jsonSpells);
-    	/*
-    	for (Spell s : spells.values()) {
-    		System.out.println(s.toJSON().toJSONString());
-    	}*/
+    	jsonSpells.sort(new JSONComparator());
+    	generateFile("output/Spells.js", "spells", jsonSpells);
     }
     
-    private static void generateFile(String filename, String dataTitle, HashSet<JSONObject> data) {
+    private static void generateFile(String filename, String dataTitle, List<JSONObject> data) {
     	String preamble = "// Data scraped from PC gen's data files. All credit for hauling in this data goes to the PC gen team: http://pcgen.org/";
     	String idContents =  "export const " + dataTitle + "_ids = {\n";
     	String dataContents = "export const " + dataTitle + "_data = \n[";
@@ -274,4 +271,5 @@ public class DataExtractor {
 		}
 		return ret;
 	}
+    
 }
