@@ -4,12 +4,15 @@ import {
     Content,
     Header,
     Left,
+    Body,
     Icon,
     Button,
     Title,
     Text,
     ListItem,
     View,
+    Card,
+    CardItem,
 } from 'native-base';
 import {
     SectionList,
@@ -17,6 +20,7 @@ import {
 import { NavigationActions } from 'react-navigation';
 import { searchAll } from '../../managers/RealmManager';
 import { colors } from '../colors';
+import { Linking } from 'react-native';
 
 export default class SearchResultsScreen extends React.Component {
 
@@ -51,7 +55,11 @@ export default class SearchResultsScreen extends React.Component {
                 data: [],
             }
             for (let j = 0 ; j < results[i].data.length ; j++) {
-                section.data.push({name: results[i].data[j].name, description: results[i].data[j].description});
+                section.data.push({
+                    name: results[i].data[j].name,
+                    description: results[i].data[j].description,
+                    url: results[i].data[j].url
+                });
             }
             newData.push(section);
         }
@@ -69,7 +77,7 @@ export default class SearchResultsScreen extends React.Component {
                         <Title style={{alignSelf: 'center', paddingLeft: 10,}}>Search Results</Title>
                     </Left>
                 </Header>
-                <View>
+                <Content>
                     <SectionList
                     sections={this.state.searchResults}
                     refreshing={this.state.refreshing}
@@ -77,27 +85,58 @@ export default class SearchResultsScreen extends React.Component {
                     renderSectionHeader={this._renderSection}
                     onRefresh={this._refreshData.bind(this)}
                     keyExtractor={this._keyExtractor}/>
-                </View>
+                </Content>
             </Container>
         );
     }
 
     _renderItem({item}) {
         return (
-            <ListItem button style={{flex: 1, flexDirection: 'column'}}>
-                <Title style={{color: colors.greyDark}}>{item.name}</Title>
-                <Text>{item.description}</Text>
-            </ListItem>
+            <Card>
+                <CardItem header>
+                    <Left>
+                        <Text style={{color: colors.greyDark, fontWeight: 'bold'}}>{item.name}</Text>
+                    </Left>
+                </CardItem>
+                <CardItem>
+                    <Body>
+                        <Text numberOfLines={3} >{item.description}</Text>
+                    </Body>
+                </CardItem>
+                {item.url  && (
+                <CardItem footer>
+                    <Left>
+                        <Button transparent onPress={() => {Linking.openURL(item.url)}}>
+                            <Text 
+                            style={{
+                                color: colors.tealLight,
+                                fontWeight: 'bold',
+                                textDecorationLine: 'underline'
+                            }}>
+                            Wiki Page
+                            </Text>
+                        </Button>
+                    </Left>
+                </CardItem>
+                )}
+            </Card>
         );
     }
 
     _renderSection({section}) {
         return (
-            <Title style={{color: colors.greyDark}}>{section.title}</Title>
+            <Text style={{
+                color: colors.greyDark,
+                fontSize: 18,
+                fontWeight: 'bold',
+                alignSelf: 'flex-start',
+                padding: 15,
+            }}>{section.title}</Text>
         );
     }
 
     _keyExtractor(item) {
         return item.name;
     }
+
 }
