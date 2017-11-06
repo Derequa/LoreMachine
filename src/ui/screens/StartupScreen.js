@@ -28,7 +28,7 @@ const messages =
     'we know',
     'seducing the npc...',
     'ignoring the main quest...',
-
+    'rolling to resist charm...',
 ];
 const msgIndex = Math.floor(Math.random() * messages.length);
 const max_show_off_time = 2000;
