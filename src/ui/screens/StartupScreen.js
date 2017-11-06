@@ -29,6 +29,14 @@ const messages =
     'seducing the npc...',
     'ignoring the main quest...',
     'rolling to resist charm...',
+    'fetching DM...',
+    'planning your demise...',
+    'building a dice tower...',
+    'formulating traumatic back stories...',
+    'killing the party...',
+    'forging the ring...',
+    'detecting evil...',
+    'kink-shaming the rogue...',
 ];
 const msgIndex = Math.floor(Math.random() * messages.length);
 const max_show_off_time = 2000;
