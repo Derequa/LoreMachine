@@ -10,8 +10,10 @@ import org.json.simple.*;
 
 public class Spell {
 	
+	// Field to count and uniquely ID all the spells we read in
 	private static int idMarker = 0;
 
+	
 	private int id;
 	private String name;
 	private HashMap<String, Integer> level;
@@ -27,7 +29,9 @@ public class Spell {
 	private String description;
 	private String url;
 	
+	
 	public Spell(HashMap<String, String> tags) {
+		
 		this.id = idMarker++;
 		this.name = DataExtractor.stringPurifier(tags.get("NAME"));
 		this.level = getLevels(tags.get("CLASSES"));
@@ -44,6 +48,13 @@ public class Spell {
 		this.setDesc(tags.get("DESC"));
 	}
 	
+	
+	/**
+	 * A helper for processing spell level requirements.
+	 * 
+	 * @param fromFile String from file containing class/level info.
+	 * @return A hash map containing class names mapped to levels.
+	 */
 	private HashMap<String, Integer> getLevels(String fromFile) {
 		HashMap<String, Integer> ret = new HashMap<String, Integer>();
 		String[] levels = fromFile.split("[|]");
@@ -59,18 +70,28 @@ public class Spell {
 		return ret;
 	}
 	
-	protected String getName() {
-		return this.name;
-	}
 	
-	protected void setDesc(String newDesc) {
+	/**
+	 * Setter to clean up description string before setting it.
+	 * 
+	 * @param newDesc New description to check and set.
+	 */
+	private void setDesc(String newDesc) {
 		if (newDesc.indexOf('|') != -1)
 			newDesc = newDesc.substring(0, newDesc.indexOf('|'));
 		newDesc = DataExtractor.stringPurifier(newDesc);
 		this.description = newDesc;
 	}
 	
+	
+	/**
+	 * This will turn this object into a JSON object.
+	 * 
+	 * @return This in JSON form.
+	 */
+	@SuppressWarnings("unchecked")
 	protected JSONObject toJSON() {
+		
 		JSONArray classLevels = new JSONArray();
 		for (String clazz : this.level.keySet()) {
 			JSONObject arrayObject = new JSONObject();
@@ -97,6 +118,9 @@ public class Spell {
 		return obj;
 	}
 	
+	
+	/** Create a string to represent this spell */
+	@Override
 	public String toString() {
 		return "ID: " + this.id + "\n"
 			 + "NAME: " + this.name + "\n"
@@ -114,28 +138,48 @@ public class Spell {
 			 + "URL: " + this.url + "\n";
 	}
 	
+	
 	/**
+     * This will process a list of data files and write them all out to JS spell files.
      * 
-     * @param files
+     * This expects two "sections" for a given spell data file.
+     * A "<data>" section for all the spell data to map in and create a spell object.
+     * An optional "<desc>" section for longer descriptions, because thats how its set in the PC gen data file so yeah.
+     * @param files A list of files to process.
      */
     protected static void processSpells(HashSet<File> files) {
-    	HashMap<String, Spell> spells = new HashMap<String, Spell>();
+    	
+    	// Go through all the files and process them
     	for (File f: files) {
+    		// Create a map for spell names to spell objects
+        	HashMap<String, Spell> spells = new HashMap<String, Spell>();
+        	
+    		// Surround everything in a big try-catch because fuck it
     		try (Scanner fScan = new Scanner(f)) {
+    			
+    			// A bool flag for which section of the file we are in
     			boolean makingNewSpells = true;
+    			// Scan through file lines
     			while (fScan.hasNextLine()) {
+    				
+    				// Check for section tags
     				String line = fScan.nextLine();
     				if (line.matches("<.*>*")) {
     					if (line.equals("<desc>"))
     						makingNewSpells = false;
     					continue;
     				}
+    				
+    				// Ignore empty lines
     				if (line.length() == 0)
     					continue;
+    				
+    				// Make a new spell if are not in the "<desc>" section
     				if (makingNewSpells) {
     					Spell s = new Spell(DataExtractor.tokenator("NAME", line));
-    					spells.put(s.getName(), s);
+    					spells.put(s.name, s);
     				}
+    				// Read in long descriptions
     				else {
     					HashMap<String, String> tagMap = DataExtractor.tokenator("NAME", line);
     					String spellName = tagMap.get("NAME");
@@ -146,14 +190,20 @@ public class Spell {
     					}
     				}
     			}
-    		} catch (FileNotFoundException e) {
-    			e.printStackTrace();
+    			
+    			// Turn the map into a list of JSON objects
+    	    	LinkedList<JSONObject> jsonSpells = new LinkedList<JSONObject>();
+    	    	for (Spell s : spells.values())
+    	    		jsonSpells.add(s.toJSON());
+    	    	// Sort them because reasons
+    	    	jsonSpells.sort(new JSONComparator());
+    	    	
+    	    	// Write to file
+    	    	DataExtractor.generateFiles(DataExtractor.getFileTitle(f.getName()), DataExtractor.getDataTitle(f.getName()), jsonSpells);
     		}
+    		catch (FileNotFoundException e) { e.printStackTrace(); }
     	}
-    	LinkedList<JSONObject> jsonSpells = new LinkedList<JSONObject>();
-    	for (Spell s : spells.values())
-    		jsonSpells.add(s.toJSON());
-    	jsonSpells.sort(new JSONComparator());
-    	DataExtractor.generateFiles("Spells", "spells", jsonSpells);
+    	
+    	
     }
 }

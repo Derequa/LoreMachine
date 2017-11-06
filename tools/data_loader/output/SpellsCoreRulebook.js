@@ -1,7 +1,7 @@
 // Data scraped from PC gen's data files. All credit for hauling in this data goes to the PC gen team: http://pcgen.org/
 
-import { spells_ids } from './ids/SpellsIDs';
-export const spells_data = 
+import { spells_core_rulebook_ids } from './ids/SpellsCoreRulebookIDs';
+export const spells_core_rulebook_data = 
 [    
     {
         components: 'V, S, M, F',
@@ -25,7 +25,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'One arrow of acid',
         name: 'Acid Arrow',
-        id: spells_ids.acid_arrow,
+        id: spells_core_rulebook_ids.acid_arrow,
         casting_time: '1 standard action',
     },    
     {
@@ -50,7 +50,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'Fog spreads in 20-ft. radius, 20 ft. high',
         name: 'Acid Fog',
-        id: spells_ids.acid_fog,
+        id: spells_core_rulebook_ids.acid_fog,
         casting_time: '1 standard action',
     },    
     {
@@ -75,7 +75,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'One missile of acid',
         name: 'Acid Splash',
-        id: spells_ids.acid_splash,
+        id: spells_core_rulebook_ids.acid_splash,
         casting_time: '1 standard action',
     },    
     {
@@ -96,7 +96,7 @@ export const spells_data =
         school: 'Enchantment',
         effect: 'Living creature touched',
         name: 'Aid',
-        id: spells_ids.aid,
+        id: spells_core_rulebook_ids.aid,
         casting_time: '1 standard action',
     },    
     {
@@ -121,7 +121,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'Creature (Gargantuan or smaller) touched',
         name: 'Air Walk',
-        id: spells_ids.air_walk,
+        id: spells_core_rulebook_ids.air_walk,
         casting_time: '1 standard action',
     },    
     {
@@ -154,7 +154,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: '20-ft.-radius emanation centered on a point in space',
         name: 'Alarm',
-        id: spells_ids.alarm,
+        id: spells_core_rulebook_ids.alarm,
         casting_time: '1 standard action',
     },    
     {
@@ -175,7 +175,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'Weapon touched or 50 projectiles (all of which must be together at the time of casting)',
         name: 'Align Weapon',
-        id: spells_ids.align_weapon,
+        id: spells_core_rulebook_ids.align_weapon,
         casting_time: '1 standard action',
     },    
     {
@@ -204,7 +204,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'You',
         name: 'Alter Self',
-        id: spells_ids.alter_self,
+        id: spells_core_rulebook_ids.alter_self,
         casting_time: '1 standard action',
     },    
     {
@@ -233,7 +233,7 @@ export const spells_data =
         school: 'Divination',
         effect: '(CASTERLEVEL) objects or creatures',
         name: 'Analyze Dweomer',
-        id: spells_ids.analyze_dweomer,
+        id: spells_core_rulebook_ids.analyze_dweomer,
         casting_time: '1 standard action',
     },    
     {
@@ -266,7 +266,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'One animal (Gargantuan or smaller)',
         name: 'Animal Growth',
-        id: spells_ids.animal_growth,
+        id: spells_core_rulebook_ids.animal_growth,
         casting_time: '1 standard action',
     },    
     {
@@ -295,7 +295,7 @@ export const spells_data =
         school: 'Enchantment',
         effect: 'One Tiny animal',
         name: 'Animal Messenger',
-        id: spells_ids.animal_messenger,
+        id: spells_core_rulebook_ids.animal_messenger,
         casting_time: '1 minute',
     },    
     {
@@ -316,7 +316,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'Up to (CASTERLEVEL) willing creatures, all within 30 ft. of each other.',
         name: 'Animal Shapes',
-        id: spells_ids.animal_shapes,
+        id: spells_core_rulebook_ids.animal_shapes,
         casting_time: '1 standard action',
     },    
     {
@@ -341,7 +341,7 @@ export const spells_data =
         school: 'Enchantment',
         effect: 'Animals or magical beasts with Intelligence 1 or 2',
         name: 'Animal Trance',
-        id: spells_ids.animal_trance,
+        id: spells_core_rulebook_ids.animal_trance,
         casting_time: '1 standard action',
     },    
     {
@@ -370,7 +370,7 @@ export const spells_data =
         school: 'Necromancy',
         effect: 'One or more corpses touched',
         name: 'Animate Dead',
-        id: spells_ids.animate_dead,
+        id: spells_core_rulebook_ids.animate_dead,
         casting_time: '1 standard action',
     },    
     {
@@ -395,7 +395,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: '(CASTERLEVEL) Small objects; see text',
         name: 'Animate Objects',
-        id: spells_ids.animate_objects,
+        id: spells_core_rulebook_ids.animate_objects,
         casting_time: '1 standard action',
     },    
     {
@@ -416,7 +416,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'One Large plant per three caster levels or all plants within range; see text',
         name: 'Animate Plants',
-        id: spells_ids.animate_plants,
+        id: spells_core_rulebook_ids.animate_plants,
         casting_time: '1 standard action',
     },    
     {
@@ -445,7 +445,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'One rope-like object, length up to ((CASTERLEVEL*5)+50)ft.; see text',
         name: 'Animate Rope',
-        id: spells_ids.animate_rope,
+        id: spells_core_rulebook_ids.animate_rope,
         casting_time: '1 standard action',
     },    
     {
@@ -470,7 +470,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: '10-ft.-radius emanation, centered on you',
         name: 'Antilife Shell',
-        id: spells_ids.antilife_shell,
+        id: spells_core_rulebook_ids.antilife_shell,
         casting_time: '1 round',
     },    
     {
@@ -499,7 +499,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: '10-ft.-radius emanation, centered on you',
         name: 'Antimagic Field',
-        id: spells_ids.antimagic_field,
+        id: spells_core_rulebook_ids.antimagic_field,
         casting_time: '1 standard action',
     },    
     {
@@ -528,7 +528,7 @@ export const spells_data =
         school: 'Enchantment',
         effect: 'One location, up to (CASTERLEVEL) 10-ft. cubes, or one object',
         name: 'Antipathy',
-        id: spells_ids.antipathy,
+        id: spells_core_rulebook_ids.antipathy,
         casting_time: '1 hour',
     },    
     {
@@ -549,7 +549,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: '10-ft.-radius emanation, centered on you',
         name: 'Antiplant Shell',
-        id: spells_ids.antiplant_shell,
+        id: spells_core_rulebook_ids.antiplant_shell,
         casting_time: '1 standard action',
     },    
     {
@@ -574,7 +574,7 @@ export const spells_data =
         school: 'Divination',
         effect: 'Magical sensor',
         name: 'Arcane Eye',
-        id: spells_ids.arcane_eye,
+        id: spells_core_rulebook_ids.arcane_eye,
         casting_time: '10 minutes',
     },    
     {
@@ -599,7 +599,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: 'Door, chest, or portal touched, up to (CASTERLEVEL*30) sq. ft. in size',
         name: 'Arcane Lock',
-        id: spells_ids.arcane_lock,
+        id: spells_core_rulebook_ids.arcane_lock,
         casting_time: '1 standard action',
     },    
     {
@@ -624,7 +624,7 @@ export const spells_data =
         school: 'Universal',
         effect: 'One personal rune or mark, all of which must fit within 1 sq. ft.',
         name: 'Arcane Mark',
-        id: spells_ids.arcane_mark,
+        id: spells_core_rulebook_ids.arcane_mark,
         casting_time: '1 standard action',
     },    
     {
@@ -649,7 +649,7 @@ export const spells_data =
         school: 'Divination',
         effect: 'You',
         name: 'Arcane Sight',
-        id: spells_ids.arcane_sight,
+        id: spells_core_rulebook_ids.arcane_sight,
         casting_time: '1 standard action',
     },    
     {
@@ -674,7 +674,7 @@ export const spells_data =
         school: 'Divination',
         effect: 'You',
         name: 'Arcane Sight (Greater)',
-        id: spells_ids.arcane_sight_greater,
+        id: spells_core_rulebook_ids.arcane_sight_greater,
         casting_time: '1 standard action',
     },    
     {
@@ -703,7 +703,7 @@ export const spells_data =
         school: 'Necromancy',
         effect: 'You plus (CASTERLEVEL/2) additional willing creatures touched',
         name: 'Astral Projection',
-        id: spells_ids.astral_projection,
+        id: spells_core_rulebook_ids.astral_projection,
         casting_time: '30 minutes',
     },    
     {
@@ -728,7 +728,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: 'Living creature touched',
         name: 'Atonement',
-        id: spells_ids.atonement,
+        id: spells_core_rulebook_ids.atonement,
         casting_time: '1 hour',
     },    
     {
@@ -749,7 +749,7 @@ export const spells_data =
         school: 'Divination',
         effect: 'You',
         name: 'Augury',
-        id: spells_ids.augury,
+        id: spells_core_rulebook_ids.augury,
         casting_time: '1 minute',
     },    
     {
@@ -770,7 +770,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'Animal or tree touched',
         name: 'Awaken',
-        id: spells_ids.awaken,
+        id: spells_core_rulebook_ids.awaken,
         casting_time: '24 hours',
     },    
     {
@@ -799,7 +799,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'One creature',
         name: 'Baleful Polymorph',
-        id: spells_ids.baleful_polymorph,
+        id: spells_core_rulebook_ids.baleful_polymorph,
         casting_time: '1 standard action',
     },    
     {
@@ -820,7 +820,7 @@ export const spells_data =
         school: 'Enchantment',
         effect: '50-ft.-radius burst, centered on you',
         name: 'Bane',
-        id: spells_ids.bane,
+        id: spells_core_rulebook_ids.bane,
         casting_time: '1 standard action',
     },    
     {
@@ -849,7 +849,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: 'One or more extraplanar creatures, no two of which can be more than 30 ft. apart',
         name: 'Banishment',
-        id: spells_ids.banishment,
+        id: spells_core_rulebook_ids.banishment,
         casting_time: '1 standard action',
     },    
     {
@@ -874,7 +874,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'Living creature touched',
         name: 'Barkskin',
-        id: spells_ids.barkskin,
+        id: spells_core_rulebook_ids.barkskin,
         casting_time: '1 standard action',
     },    
     {
@@ -911,7 +911,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'Creature touched',
         name: 'Bear\'s Endurance',
-        id: spells_ids.bears_endurance,
+        id: spells_core_rulebook_ids.bears_endurance,
         casting_time: '1 standard action',
     },    
     {
@@ -944,7 +944,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'One creature/level, no two of which can be more than 30ft. apart',
         name: 'Bear\'s Endurance (Mass)',
-        id: spells_ids.bears_endurance_mass,
+        id: spells_core_rulebook_ids.bears_endurance_mass,
         casting_time: '1 standard action',
     },    
     {
@@ -969,7 +969,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'You',
         name: 'Beast Shape I',
-        id: spells_ids.beast_shape_i,
+        id: spells_core_rulebook_ids.beast_shape_i,
         casting_time: '1 standard action',
     },    
     {
@@ -994,7 +994,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'You',
         name: 'Beast Shape II',
-        id: spells_ids.beast_shape_ii,
+        id: spells_core_rulebook_ids.beast_shape_ii,
         casting_time: '1 standard action',
     },    
     {
@@ -1019,7 +1019,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'You',
         name: 'Beast Shape III',
-        id: spells_ids.beast_shape_iii,
+        id: spells_core_rulebook_ids.beast_shape_iii,
         casting_time: '1 standard action',
     },    
     {
@@ -1044,7 +1044,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'You',
         name: 'Beast Shape IV',
-        id: spells_ids.beast_shape_iv,
+        id: spells_core_rulebook_ids.beast_shape_iv,
         casting_time: '1 standard action',
     },    
     {
@@ -1073,7 +1073,7 @@ export const spells_data =
         school: 'Necromancy',
         effect: 'Creature touched',
         name: 'Bestow Curse',
-        id: spells_ids.bestow_curse,
+        id: spells_core_rulebook_ids.bestow_curse,
         casting_time: '1 standard action',
     },    
     {
@@ -1098,7 +1098,7 @@ export const spells_data =
         school: 'Enchantment',
         effect: 'One living creature',
         name: 'Binding',
-        id: spells_ids.binding,
+        id: spells_core_rulebook_ids.binding,
         casting_time: '1 minute',
     },    
     {
@@ -1123,7 +1123,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: '20-ft.-radius spread',
         name: 'Black Tentacles',
-        id: spells_ids.black_tentacles,
+        id: spells_core_rulebook_ids.black_tentacles,
         casting_time: '1 standard action',
     },    
     {
@@ -1144,7 +1144,7 @@ export const spells_data =
         school: 'Evocation',
         effect: 'Wall of whirling blades up to (CASTERLEVEL*20)ft. long, or a ringed wall of whirling blades with a radius of up to ((CASTERLEVEL/2)*5) ft.; either form is 20 ft. high',
         name: 'Blade Barrier',
-        id: spells_ids.blade_barrier,
+        id: spells_core_rulebook_ids.blade_barrier,
         casting_time: '1 standard action',
     },    
     {
@@ -1165,7 +1165,7 @@ export const spells_data =
         school: 'Evocation',
         effect: 'Nonevil creatures in a 40-ft.-radius spread centered on you',
         name: 'Blasphemy',
-        id: spells_ids.blasphemy,
+        id: spells_core_rulebook_ids.blasphemy,
         casting_time: '1 standard action',
     },    
     {
@@ -1194,7 +1194,7 @@ export const spells_data =
         school: 'Necromancy',
         effect: 'One living creature',
         name: 'Bleed',
-        id: spells_ids.bleed,
+        id: spells_core_rulebook_ids.bleed,
         casting_time: '1 standard action',
     },    
     {
@@ -1219,7 +1219,7 @@ export const spells_data =
         school: 'Enchantment',
         effect: 'The caster and all allies within a 50-ft. burst, centered on the caster',
         name: 'Bless',
-        id: spells_ids.bless,
+        id: spells_core_rulebook_ids.bless,
         casting_time: '1 standard action',
     },    
     {
@@ -1244,7 +1244,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'Flask of water touched',
         name: 'Bless Water',
-        id: spells_ids.bless_water,
+        id: spells_core_rulebook_ids.bless_water,
         casting_time: '1 minute',
     },    
     {
@@ -1265,7 +1265,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'Weapon touched',
         name: 'Bless Weapon',
-        id: spells_ids.bless_weapon,
+        id: spells_core_rulebook_ids.bless_weapon,
         casting_time: '1 standard action',
     },    
     {
@@ -1294,7 +1294,7 @@ export const spells_data =
         school: 'Necromancy',
         effect: 'Plant touched',
         name: 'Blight',
-        id: spells_ids.blight,
+        id: spells_core_rulebook_ids.blight,
         casting_time: '1 standard action',
     },    
     {
@@ -1327,7 +1327,7 @@ export const spells_data =
         school: 'Necromancy',
         effect: 'One living creature',
         name: 'Blindness/Deafness',
-        id: spells_ids.blindnessdeafness,
+        id: spells_core_rulebook_ids.blindnessdeafness,
         casting_time: '1 standard action',
     },    
     {
@@ -1356,7 +1356,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'You',
         name: 'Blink',
-        id: spells_ids.blink,
+        id: spells_core_rulebook_ids.blink,
         casting_time: '1 standard action',
     },    
     {
@@ -1385,7 +1385,7 @@ export const spells_data =
         school: 'Illusion',
         effect: 'Creature touched',
         name: 'Blur',
-        id: spells_ids.blur,
+        id: spells_core_rulebook_ids.blur,
         casting_time: '1 standard action',
     },    
     {
@@ -1422,7 +1422,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: 'Up to one creature per level, all within 30 ft. of each other',
         name: 'Break Enchantment',
-        id: spells_ids.break_enchantment,
+        id: spells_core_rulebook_ids.break_enchantment,
         casting_time: '1 minute',
     },    
     {
@@ -1443,7 +1443,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'Creature touched',
         name: 'Breath of Life',
-        id: spells_ids.breath_of_life,
+        id: spells_core_rulebook_ids.breath_of_life,
         casting_time: '1 standard action',
     },    
     {
@@ -1480,7 +1480,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'Creature touched',
         name: 'Bull\'s Strength',
-        id: spells_ids.bulls_strength,
+        id: spells_core_rulebook_ids.bulls_strength,
         casting_time: '1 standard action',
     },    
     {
@@ -1513,7 +1513,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: '(CASTERLEVEL) creatures, no two of which can be more than 30ft. apart',
         name: 'Bull\'s Strength (Mass)',
-        id: spells_ids.bulls_strength_mass,
+        id: spells_core_rulebook_ids.bulls_strength_mass,
         casting_time: '1 standard action',
     },    
     {
@@ -1538,7 +1538,7 @@ export const spells_data =
         school: 'Evocation',
         effect: 'Cone-shaped burst',
         name: 'Burning Hands',
-        id: spells_ids.burning_hands,
+        id: spells_core_rulebook_ids.burning_hands,
         casting_time: '1 standard action',
     },    
     {
@@ -1559,7 +1559,7 @@ export const spells_data =
         school: 'Evocation',
         effect: 'One or more 30-ft.-long vertical lines of lightning',
         name: 'Call Lightning',
-        id: spells_ids.call_lightning,
+        id: spells_core_rulebook_ids.call_lightning,
         casting_time: '1 round',
     },    
     {
@@ -1580,7 +1580,7 @@ export const spells_data =
         school: 'Evocation',
         effect: 'One or more 30-ft.-long vertical lines of lightning',
         name: 'Call Lightning Storm',
-        id: spells_ids.call_lightning_storm,
+        id: spells_core_rulebook_ids.call_lightning_storm,
         casting_time: '1 round',
     },    
     {
@@ -1605,7 +1605,7 @@ export const spells_data =
         school: 'Enchantment',
         effect: 'Animals within 30 ft. of each other',
         name: 'Calm Animals',
-        id: spells_ids.calm_animals,
+        id: spells_core_rulebook_ids.calm_animals,
         casting_time: '1 standard action',
     },    
     {
@@ -1630,7 +1630,7 @@ export const spells_data =
         school: 'Enchantment',
         effect: 'Creatures in a 20-ft.-radius spread',
         name: 'Calm Emotions',
-        id: spells_ids.calm_emotions,
+        id: spells_core_rulebook_ids.calm_emotions,
         casting_time: '1 standard action',
     },    
     {
@@ -1667,7 +1667,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'Creature touched',
         name: 'Cat\'s Grace',
-        id: spells_ids.cats_grace,
+        id: spells_core_rulebook_ids.cats_grace,
         casting_time: '1 standard action',
     },    
     {
@@ -1700,7 +1700,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: '(CASTERLEVEL) creatures, no two of which can be more than 30 ft. apart',
         name: 'Cat\'s Grace (Mass)',
-        id: spells_ids.cats_grace_mass,
+        id: spells_core_rulebook_ids.cats_grace_mass,
         casting_time: '1 standard action',
     },    
     {
@@ -1733,7 +1733,7 @@ export const spells_data =
         school: 'Necromancy',
         effect: 'One living creature with 5 or fewer HD',
         name: 'Cause Fear',
-        id: spells_ids.cause_fear,
+        id: spells_core_rulebook_ids.cause_fear,
         casting_time: '1 standard action',
     },    
     {
@@ -1758,7 +1758,7 @@ export const spells_data =
         school: 'Evocation',
         effect: 'One primary target, plus (CASTERLEVEL) secondary targets (each of which must be within 30 ft. of the primary target)',
         name: 'Chain Lightning',
-        id: spells_ids.chain_lightning,
+        id: spells_core_rulebook_ids.chain_lightning,
         casting_time: '1 standard action',
     },    
     {
@@ -1779,7 +1779,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'Your touched staff',
         name: 'Changestaff',
-        id: spells_ids.changestaff,
+        id: spells_core_rulebook_ids.changestaff,
         casting_time: '1 round',
     },    
     {
@@ -1800,7 +1800,7 @@ export const spells_data =
         school: 'Evocation',
         effect: '20-ft.-radius burst',
         name: 'Chaos Hammer',
-        id: spells_ids.chaos_hammer,
+        id: spells_core_rulebook_ids.chaos_hammer,
         casting_time: '1 standard action',
     },    
     {
@@ -1825,7 +1825,7 @@ export const spells_data =
         school: 'Enchantment',
         effect: 'One animal',
         name: 'Charm Animal',
-        id: spells_ids.charm_animal,
+        id: spells_core_rulebook_ids.charm_animal,
         casting_time: '1 standard action',
     },    
     {
@@ -1854,7 +1854,7 @@ export const spells_data =
         school: 'Enchantment',
         effect: 'One living creature',
         name: 'Charm Monster',
-        id: spells_ids.charm_monster,
+        id: spells_core_rulebook_ids.charm_monster,
         casting_time: '1 standard action',
     },    
     {
@@ -1883,7 +1883,7 @@ export const spells_data =
         school: 'Enchantment',
         effect: 'One or more creatures, no two of which can be more than 30 ft. apart',
         name: 'Charm Monster (Mass)',
-        id: spells_ids.charm_monster_mass,
+        id: spells_core_rulebook_ids.charm_monster_mass,
         casting_time: '1 standard action',
     },    
     {
@@ -1912,7 +1912,7 @@ export const spells_data =
         school: 'Enchantment',
         effect: 'One humanoid creature',
         name: 'Charm Person',
-        id: spells_ids.charm_person,
+        id: spells_core_rulebook_ids.charm_person,
         casting_time: '1 standard action',
     },    
     {
@@ -1933,7 +1933,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'Metal equipment of (CASTERLEVEL/2) creatures, no two of which can be more than 30 ft. apart; or (CASTERLEVEL*25) lbs. of metal, none of which can be more than 30 ft. away from any of the rest',
         name: 'Chill Metal',
-        id: spells_ids.chill_metal,
+        id: spells_core_rulebook_ids.chill_metal,
         casting_time: '1 standard action',
     },    
     {
@@ -1958,7 +1958,7 @@ export const spells_data =
         school: 'Necromancy',
         effect: 'Up to (CASTERLEVEL) creatures touched',
         name: 'Chill Touch',
-        id: spells_ids.chill_touch,
+        id: spells_core_rulebook_ids.chill_touch,
         casting_time: '1 standard action',
     },    
     {
@@ -1983,7 +1983,7 @@ export const spells_data =
         school: 'Necromancy',
         effect: 'Several living creatures within a 40-ft.-radius burst',
         name: 'Circle of Death',
-        id: spells_ids.circle_of_death,
+        id: spells_core_rulebook_ids.circle_of_death,
         casting_time: '1 standard action',
     },    
     {
@@ -2012,7 +2012,7 @@ export const spells_data =
         school: 'Divination',
         effect: 'Magical sensor',
         name: 'Clairaudience/Clairvoyance',
-        id: spells_ids.clairaudienceclairvoyance,
+        id: spells_core_rulebook_ids.clairaudienceclairvoyance,
         casting_time: '10 minutes',
     },    
     {
@@ -2037,7 +2037,7 @@ export const spells_data =
         school: 'Evocation',
         effect: '10-ft. hand',
         name: 'Clenched Fist',
-        id: spells_ids.clenched_fist,
+        id: spells_core_rulebook_ids.clenched_fist,
         casting_time: '1 standard action',
     },    
     {
@@ -2058,7 +2058,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: '(CASTERLEVEL) creatures in a 20-ft.-radius burst centered on you',
         name: 'Cloak of Chaos',
-        id: spells_ids.cloak_of_chaos,
+        id: spells_core_rulebook_ids.cloak_of_chaos,
         casting_time: '1 standard action',
     },    
     {
@@ -2083,7 +2083,7 @@ export const spells_data =
         school: 'Necromancy',
         effect: 'One clone',
         name: 'Clone',
-        id: spells_ids.clone,
+        id: spells_core_rulebook_ids.clone,
         casting_time: '10 minutes',
     },    
     {
@@ -2108,7 +2108,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'Cloud spreads in 20-ft. radius, 20 ft. high',
         name: 'Cloudkill',
-        id: spells_ids.cloudkill,
+        id: spells_core_rulebook_ids.cloudkill,
         casting_time: '1 standard action',
     },    
     {
@@ -2133,7 +2133,7 @@ export const spells_data =
         school: 'Illusion',
         effect: 'Cone-shaped burst',
         name: 'Color Spray',
-        id: spells_ids.color_spray,
+        id: spells_core_rulebook_ids.color_spray,
         casting_time: '1 standard action',
     },    
     {
@@ -2154,7 +2154,7 @@ export const spells_data =
         school: 'Enchantment',
         effect: 'One living creature',
         name: 'Command',
-        id: spells_ids.command,
+        id: spells_core_rulebook_ids.command,
         casting_time: '1 standard action',
     },    
     {
@@ -2175,7 +2175,7 @@ export const spells_data =
         school: 'Enchantment',
         effect: '(CASTERLEVEL) creatures, no two of which can be more than 30 ft. apart',
         name: 'Command (Greater)',
-        id: spells_ids.command_greater,
+        id: spells_core_rulebook_ids.command_greater,
         casting_time: '1 standard action',
     },    
     {
@@ -2200,7 +2200,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'Up to (CASTERLEVEL*2) HD of plant creatures, no two of which can be more than 30 ft. apart',
         name: 'Command Plants',
-        id: spells_ids.command_plants,
+        id: spells_core_rulebook_ids.command_plants,
         casting_time: '1 standard action',
     },    
     {
@@ -2225,7 +2225,7 @@ export const spells_data =
         school: 'Necromancy',
         effect: 'One undead creature',
         name: 'Command Undead',
-        id: spells_ids.command_undead,
+        id: spells_core_rulebook_ids.command_undead,
         casting_time: '1 standard action',
     },    
     {
@@ -2246,7 +2246,7 @@ export const spells_data =
         school: 'Divination',
         effect: 'You',
         name: 'Commune',
-        id: spells_ids.commune,
+        id: spells_core_rulebook_ids.commune,
         casting_time: '10 minutes',
     },    
     {
@@ -2271,7 +2271,7 @@ export const spells_data =
         school: 'Divination',
         effect: 'You',
         name: 'Commune with Nature',
-        id: spells_ids.commune_with_nature,
+        id: spells_core_rulebook_ids.commune_with_nature,
         casting_time: '10 minutes',
     },    
     {
@@ -2304,7 +2304,7 @@ export const spells_data =
         school: 'Divination',
         effect: 'You',
         name: 'Comprehend Languages',
-        id: spells_ids.comprehend_languages,
+        id: spells_core_rulebook_ids.comprehend_languages,
         casting_time: '1 standard action',
     },    
     {
@@ -2329,7 +2329,7 @@ export const spells_data =
         school: 'Evocation',
         effect: 'Cone-shaped burst',
         name: 'Cone of Cold',
-        id: spells_ids.cone_of_cold,
+        id: spells_core_rulebook_ids.cone_of_cold,
         casting_time: '1 standard action',
     },    
     {
@@ -2358,7 +2358,7 @@ export const spells_data =
         school: 'Enchantment',
         effect: 'All creatures in a 15-ft.-radius burst',
         name: 'Confusion',
-        id: spells_ids.confusion,
+        id: spells_core_rulebook_ids.confusion,
         casting_time: '1 standard action',
     },    
     {
@@ -2379,7 +2379,7 @@ export const spells_data =
         school: 'Enchantment',
         effect: 'One living creature',
         name: 'Confusion (Lesser)',
-        id: spells_ids.confusion_lesser,
+        id: spells_core_rulebook_ids.confusion_lesser,
         casting_time: '1 standard action',
     },    
     {
@@ -2400,7 +2400,7 @@ export const spells_data =
         school: 'Evocation',
         effect: '20-ft.-radius emanation',
         name: 'Consecrate',
-        id: spells_ids.consecrate,
+        id: spells_core_rulebook_ids.consecrate,
         casting_time: '1 standard action',
     },    
     {
@@ -2425,7 +2425,7 @@ export const spells_data =
         school: 'Divination',
         effect: 'You',
         name: 'Contact Other Plane',
-        id: spells_ids.contact_other_plane,
+        id: spells_core_rulebook_ids.contact_other_plane,
         casting_time: '10 minutes',
     },    
     {
@@ -2458,7 +2458,7 @@ export const spells_data =
         school: 'Necromancy',
         effect: 'Living creature touched',
         name: 'Contagion',
-        id: spells_ids.contagion,
+        id: spells_core_rulebook_ids.contagion,
         casting_time: '1 standard action',
     },    
     {
@@ -2483,7 +2483,7 @@ export const spells_data =
         school: 'Evocation',
         effect: 'You',
         name: 'Contingency',
-        id: spells_ids.contingency,
+        id: spells_core_rulebook_ids.contingency,
         casting_time: 'at least 10 minutes; see text',
     },    
     {
@@ -2512,7 +2512,7 @@ export const spells_data =
         school: 'Evocation',
         effect: 'Object touched',
         name: 'Continual Flame',
-        id: spells_ids.continual_flame,
+        id: spells_core_rulebook_ids.continual_flame,
         casting_time: '1 standard action',
     },    
     {
@@ -2533,7 +2533,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'Up to (CASTERLEVEL*2) of plant creatures, no two of which can be more than 30 ft. apart',
         name: 'Control Plants',
-        id: spells_ids.control_plants,
+        id: spells_core_rulebook_ids.control_plants,
         casting_time: '1 standard action',
     },    
     {
@@ -2558,7 +2558,7 @@ export const spells_data =
         school: 'Necromancy',
         effect: 'Up to (CASTERLEVEL*2) of undead creatures, no two of which can be more than 30 ft. apart',
         name: 'Control Undead',
-        id: spells_ids.control_undead,
+        id: spells_core_rulebook_ids.control_undead,
         casting_time: '1 standard action',
     },    
     {
@@ -2591,7 +2591,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'Water in a volume of (CASTERLEVEL*10) ft. by (CASTERLEVEL*10) ft. by (CASTERLEVEL*2) ft. (S)',
         name: 'Control Water',
-        id: spells_ids.control_water,
+        id: spells_core_rulebook_ids.control_water,
         casting_time: '1 standard action',
     },    
     {
@@ -2624,7 +2624,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: '2-mile-radius circle, centered on you; see text',
         name: 'Control Weather',
-        id: spells_ids.control_weather,
+        id: spells_core_rulebook_ids.control_weather,
         casting_time: '10 minutes; see text',
     },    
     {
@@ -2645,7 +2645,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: '(CASTERLEVEL*40) ft. radius cylinder 40 ft. high',
         name: 'Control Winds',
-        id: spells_ids.control_winds,
+        id: spells_core_rulebook_ids.control_winds,
         casting_time: '1 standard action',
     },    
     {
@@ -2666,7 +2666,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'Food and water to sustain (CASTERLEVEL*3) humans or (CASTERLEVEL) horses for 24 hours',
         name: 'Create Food and Water',
-        id: spells_ids.create_food_and_water,
+        id: spells_core_rulebook_ids.create_food_and_water,
         casting_time: '10 minutes',
     },    
     {
@@ -2695,7 +2695,7 @@ export const spells_data =
         school: 'Necromancy',
         effect: 'One corpse',
         name: 'Create Greater Undead',
-        id: spells_ids.create_greater_undead,
+        id: spells_core_rulebook_ids.create_greater_undead,
         casting_time: '1 hour',
     },    
     {
@@ -2724,7 +2724,7 @@ export const spells_data =
         school: 'Necromancy',
         effect: 'One corpse',
         name: 'Create Undead',
-        id: spells_ids.create_undead,
+        id: spells_core_rulebook_ids.create_undead,
         casting_time: '1 hour',
     },    
     {
@@ -2757,7 +2757,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'Up to (CASTERLEVEL*2) gallons of water',
         name: 'Create Water',
-        id: spells_ids.create_water,
+        id: spells_core_rulebook_ids.create_water,
         casting_time: '1 standard action',
     },    
     {
@@ -2778,7 +2778,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'Four swarms of insects',
         name: 'Creeping Doom',
-        id: spells_ids.creeping_doom,
+        id: spells_core_rulebook_ids.creeping_doom,
         casting_time: '1 standard action',
     },    
     {
@@ -2807,7 +2807,7 @@ export const spells_data =
         school: 'Enchantment',
         effect: 'Cone-shaped burst',
         name: 'Crushing Despair',
-        id: spells_ids.crushing_despair,
+        id: spells_core_rulebook_ids.crushing_despair,
         casting_time: '1 standard action',
     },    
     {
@@ -2832,7 +2832,7 @@ export const spells_data =
         school: 'Evocation',
         effect: '10-ft. hand',
         name: 'Crushing Hand',
-        id: spells_ids.crushing_hand,
+        id: spells_core_rulebook_ids.crushing_hand,
         casting_time: '1 standard action',
     },    
     {
@@ -2861,7 +2861,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'Creature touched',
         name: 'Cure Critical Wounds',
-        id: spells_ids.cure_critical_wounds,
+        id: spells_core_rulebook_ids.cure_critical_wounds,
         casting_time: '1 standard action',
     },    
     {
@@ -2886,7 +2886,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: '(CASTERLEVEL) creatures, no two of which can be more than 30 ft. apart',
         name: 'Cure Critical Wounds (Mass)',
-        id: spells_ids.cure_critical_wounds_mass,
+        id: spells_core_rulebook_ids.cure_critical_wounds_mass,
         casting_time: '1 standard action',
     },    
     {
@@ -2923,7 +2923,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'Creature touched',
         name: 'Cure Light Wounds',
-        id: spells_ids.cure_light_wounds,
+        id: spells_core_rulebook_ids.cure_light_wounds,
         casting_time: '1 standard action',
     },    
     {
@@ -2952,7 +2952,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: '(CASTERLEVEL) creatures, no two of which can be more than 30 ft. apart',
         name: 'Cure Light Wounds (Mass)',
-        id: spells_ids.cure_light_wounds_mass,
+        id: spells_core_rulebook_ids.cure_light_wounds_mass,
         casting_time: '1 standard action',
     },    
     {
@@ -2989,7 +2989,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'Creature touched',
         name: 'Cure Moderate Wounds',
-        id: spells_ids.cure_moderate_wounds,
+        id: spells_core_rulebook_ids.cure_moderate_wounds,
         casting_time: '1 standard action',
     },    
     {
@@ -3018,7 +3018,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: '(CASTERLEVEL) creatures, no two of which can be more than 30 ft. apart',
         name: 'Cure Moderate Wounds (Mass)',
-        id: spells_ids.cure_moderate_wounds_mass,
+        id: spells_core_rulebook_ids.cure_moderate_wounds_mass,
         casting_time: '1 standard action',
     },    
     {
@@ -3055,7 +3055,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'Creature touched',
         name: 'Cure Serious Wounds',
-        id: spells_ids.cure_serious_wounds,
+        id: spells_core_rulebook_ids.cure_serious_wounds,
         casting_time: '1 standard action',
     },    
     {
@@ -3080,7 +3080,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: '(CASTERLEVEL) creatures, no two of which can be more than 30 ft. apart',
         name: 'Cure Serious Wounds (Mass)',
-        id: spells_ids.cure_serious_wounds_mass,
+        id: spells_core_rulebook_ids.cure_serious_wounds_mass,
         casting_time: '1 standard action',
     },    
     {
@@ -3101,7 +3101,7 @@ export const spells_data =
         school: 'Necromancy',
         effect: 'Flask of water touched',
         name: 'Curse Water',
-        id: spells_ids.curse_water,
+        id: spells_core_rulebook_ids.curse_water,
         casting_time: '1 minute',
     },    
     {
@@ -3130,7 +3130,7 @@ export const spells_data =
         school: 'Evocation',
         effect: 'Up to four lights, all within a 10-ft.-radius area',
         name: 'Dancing Lights',
-        id: spells_ids.dancing_lights,
+        id: spells_core_rulebook_ids.dancing_lights,
         casting_time: '1 standard action',
     },    
     {
@@ -3163,7 +3163,7 @@ export const spells_data =
         school: 'Evocation',
         effect: 'Object touched',
         name: 'Darkness',
-        id: spells_ids.darkness,
+        id: spells_core_rulebook_ids.darkness,
         casting_time: '1 standard action',
     },    
     {
@@ -3192,7 +3192,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'Creature touched',
         name: 'Darkvision',
-        id: spells_ids.darkvision,
+        id: spells_core_rulebook_ids.darkvision,
         casting_time: '1 standard action',
     },    
     {
@@ -3233,7 +3233,7 @@ export const spells_data =
         school: 'Evocation',
         effect: 'Object touched',
         name: 'Daylight',
-        id: spells_ids.daylight,
+        id: spells_core_rulebook_ids.daylight,
         casting_time: '1 standard action',
     },    
     {
@@ -3262,7 +3262,7 @@ export const spells_data =
         school: 'Enchantment',
         effect: 'One humanoid creature of 4 HD or less',
         name: 'Daze',
-        id: spells_ids.daze,
+        id: spells_core_rulebook_ids.daze,
         casting_time: '1 standard action',
     },    
     {
@@ -3291,7 +3291,7 @@ export const spells_data =
         school: 'Enchantment',
         effect: 'One living creature of 6 HD or less',
         name: 'Daze Monster',
-        id: spells_ids.daze_monster,
+        id: spells_core_rulebook_ids.daze_monster,
         casting_time: '1 standard action',
     },    
     {
@@ -3312,7 +3312,7 @@ export const spells_data =
         school: 'Necromancy',
         effect: 'Living creature touched',
         name: 'Death Knell',
-        id: spells_ids.death_knell,
+        id: spells_core_rulebook_ids.death_knell,
         casting_time: '1 standard action',
     },    
     {
@@ -3341,7 +3341,7 @@ export const spells_data =
         school: 'Necromancy',
         effect: 'Living creature touched',
         name: 'Death Ward',
-        id: spells_ids.death_ward,
+        id: spells_core_rulebook_ids.death_ward,
         casting_time: '1 standard action',
     },    
     {
@@ -3362,7 +3362,7 @@ export const spells_data =
         school: 'Necromancy',
         effect: 'Cone-shaped emanation',
         name: 'Deathwatch',
-        id: spells_ids.deathwatch,
+        id: spells_core_rulebook_ids.deathwatch,
         casting_time: '1 standard action',
     },    
     {
@@ -3391,7 +3391,7 @@ export const spells_data =
         school: 'Enchantment',
         effect: 'One or more living creatures within a 10-ft.-radius burst',
         name: 'Deep Slumber',
-        id: spells_ids.deep_slumber,
+        id: spells_core_rulebook_ids.deep_slumber,
         casting_time: '1 round',
     },    
     {
@@ -3412,7 +3412,7 @@ export const spells_data =
         school: 'Evocation',
         effect: 'Object touched',
         name: 'Deeper Darkness',
-        id: spells_ids.deeper_darkness,
+        id: spells_core_rulebook_ids.deeper_darkness,
         casting_time: '1 standard action',
     },    
     {
@@ -3449,7 +3449,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'Creature touched',
         name: 'Delay Poison',
-        id: spells_ids.delay_poison,
+        id: spells_core_rulebook_ids.delay_poison,
         casting_time: '1 standard action',
     },    
     {
@@ -3474,7 +3474,7 @@ export const spells_data =
         school: 'Evocation',
         effect: '20-ft.-radius spread',
         name: 'Delayed Blast Fireball',
-        id: spells_ids.delayed_blast_fireball,
+        id: spells_core_rulebook_ids.delayed_blast_fireball,
         casting_time: '1 standard action',
     },    
     {
@@ -3499,7 +3499,7 @@ export const spells_data =
         school: 'Enchantment',
         effect: 'One creature',
         name: 'Demand',
-        id: spells_ids.demand,
+        id: spells_core_rulebook_ids.demand,
         casting_time: '10 minutes',
     },    
     {
@@ -3520,7 +3520,7 @@ export const spells_data =
         school: 'Evocation',
         effect: '20-ft.-radius emanation',
         name: 'Desecrate',
-        id: spells_ids.desecrate,
+        id: spells_core_rulebook_ids.desecrate,
         casting_time: '1 standard action',
     },    
     {
@@ -3541,7 +3541,7 @@ export const spells_data =
         school: 'Necromancy',
         effect: 'One creature',
         name: 'Destruction',
-        id: spells_ids.destruction,
+        id: spells_core_rulebook_ids.destruction,
         casting_time: '1 standard action',
     },    
     {
@@ -3566,7 +3566,7 @@ export const spells_data =
         school: 'Divination',
         effect: 'Cone-shaped emanation',
         name: 'Detect Animals or Plants',
-        id: spells_ids.detect_animals_or_plants,
+        id: spells_core_rulebook_ids.detect_animals_or_plants,
         casting_time: '1 standard action',
     },    
     {
@@ -3587,7 +3587,7 @@ export const spells_data =
         school: 'Divination',
         effect: 'Cone-shaped emanation',
         name: 'Detect Chaos',
-        id: spells_ids.detect_chaos,
+        id: spells_core_rulebook_ids.detect_chaos,
         casting_time: '1 standard action',
     },    
     {
@@ -3608,7 +3608,7 @@ export const spells_data =
         school: 'Divination',
         effect: 'Cone-shaped emanation',
         name: 'Detect Evil',
-        id: spells_ids.detect_evil,
+        id: spells_core_rulebook_ids.detect_evil,
         casting_time: '1 standard action',
     },    
     {
@@ -3629,7 +3629,7 @@ export const spells_data =
         school: 'Divination',
         effect: 'Cone-shaped emanation',
         name: 'Detect Good',
-        id: spells_ids.detect_good,
+        id: spells_core_rulebook_ids.detect_good,
         casting_time: '1 standard action',
     },    
     {
@@ -3650,7 +3650,7 @@ export const spells_data =
         school: 'Divination',
         effect: 'Cone-shaped emanation',
         name: 'Detect Law',
-        id: spells_ids.detect_law,
+        id: spells_core_rulebook_ids.detect_law,
         casting_time: '1 standard action',
     },    
     {
@@ -3687,7 +3687,7 @@ export const spells_data =
         school: 'Divination',
         effect: 'Cone-shaped emanation',
         name: 'Detect Magic',
-        id: spells_ids.detect_magic,
+        id: spells_core_rulebook_ids.detect_magic,
         casting_time: '1 standard action',
     },    
     {
@@ -3728,7 +3728,7 @@ export const spells_data =
         school: 'Divination',
         effect: 'Or Area one creature, one object, or a 5-ft. cube',
         name: 'Detect Poison',
-        id: spells_ids.detect_poison,
+        id: spells_core_rulebook_ids.detect_poison,
         casting_time: '1 standard action',
     },    
     {
@@ -3757,7 +3757,7 @@ export const spells_data =
         school: 'Divination',
         effect: '40-ft.-radius emanation centered on you',
         name: 'Detect Scrying',
-        id: spells_ids.detect_scrying,
+        id: spells_core_rulebook_ids.detect_scrying,
         casting_time: '1 standard action',
     },    
     {
@@ -3786,7 +3786,7 @@ export const spells_data =
         school: 'Divination',
         effect: 'Cone-shaped emanation',
         name: 'Detect Secret Doors',
-        id: spells_ids.detect_secret_doors,
+        id: spells_core_rulebook_ids.detect_secret_doors,
         casting_time: '1 standard action',
     },    
     {
@@ -3811,7 +3811,7 @@ export const spells_data =
         school: 'Divination',
         effect: 'Cone-shaped emanation',
         name: 'Detect Snares and Pits',
-        id: spells_ids.detect_snares_and_pits,
+        id: spells_core_rulebook_ids.detect_snares_and_pits,
         casting_time: '1 standard action',
     },    
     {
@@ -3840,7 +3840,7 @@ export const spells_data =
         school: 'Divination',
         effect: 'Cone-shaped emanation',
         name: 'Detect Thoughts',
-        id: spells_ids.detect_thoughts,
+        id: spells_core_rulebook_ids.detect_thoughts,
         casting_time: '1 standard action',
     },    
     {
@@ -3873,7 +3873,7 @@ export const spells_data =
         school: 'Divination',
         effect: 'Cone-shaped emanation',
         name: 'Detect Undead',
-        id: spells_ids.detect_undead,
+        id: spells_core_rulebook_ids.detect_undead,
         casting_time: '1 standard action',
     },    
     {
@@ -3894,7 +3894,7 @@ export const spells_data =
         school: 'Evocation',
         effect: 'Nonlawful creatures in a 40-ft.-radius spread centered on you',
         name: 'Dictum',
-        id: spells_ids.dictum,
+        id: spells_core_rulebook_ids.dictum,
         casting_time: '1 standard action',
     },    
     {
@@ -3923,7 +3923,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'You and touched objects or other touched willing creatures',
         name: 'Dimension Door',
-        id: spells_ids.dimension_door,
+        id: spells_core_rulebook_ids.dimension_door,
         casting_time: '1 standard action',
     },    
     {
@@ -3952,7 +3952,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: 'Ray',
         name: 'Dimensional Anchor',
-        id: spells_ids.dimensional_anchor,
+        id: spells_core_rulebook_ids.dimensional_anchor,
         casting_time: '1 standard action',
     },    
     {
@@ -3981,7 +3981,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: '20-ft.-radius emanation centered on a point in space',
         name: 'Dimensional Lock',
-        id: spells_ids.dimensional_lock,
+        id: spells_core_rulebook_ids.dimensional_lock,
         casting_time: '1 standard action',
     },    
     {
@@ -4006,7 +4006,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'Or Area see text',
         name: 'Diminish Plants',
-        id: spells_ids.diminish_plants,
+        id: spells_core_rulebook_ids.diminish_plants,
         casting_time: '1 standard action',
     },    
     {
@@ -4031,7 +4031,7 @@ export const spells_data =
         school: 'Divination',
         effect: '(CASTERLEVEL) creatures, no two of which can be more than 30 ft. apart',
         name: 'Discern Lies',
-        id: spells_ids.discern_lies,
+        id: spells_core_rulebook_ids.discern_lies,
         casting_time: '1 standard action',
     },    
     {
@@ -4060,7 +4060,7 @@ export const spells_data =
         school: 'Divination',
         effect: 'One creature or object',
         name: 'Discern Location',
-        id: spells_ids.discern_location,
+        id: spells_core_rulebook_ids.discern_location,
         casting_time: '10 minutes',
     },    
     {
@@ -4089,7 +4089,7 @@ export const spells_data =
         school: 'Illusion',
         effect: 'You',
         name: 'Disguise Self',
-        id: spells_ids.disguise_self,
+        id: spells_core_rulebook_ids.disguise_self,
         casting_time: '1 standard action',
     },    
     {
@@ -4114,7 +4114,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'Ray',
         name: 'Disintegrate',
-        id: spells_ids.disintegrate,
+        id: spells_core_rulebook_ids.disintegrate,
         casting_time: '1 standard action',
     },    
     {
@@ -4143,7 +4143,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: 'One extraplanar creature',
         name: 'Dismissal',
-        id: spells_ids.dismissal,
+        id: spells_core_rulebook_ids.dismissal,
         casting_time: '1 standard action',
     },    
     {
@@ -4168,7 +4168,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: 'You and a touched chaotic creature from another plane, or you and an enchantment or chaotic spell on a touched creature or object',
         name: 'Dispel Chaos',
-        id: spells_ids.dispel_chaos,
+        id: spells_core_rulebook_ids.dispel_chaos,
         casting_time: '1 standard action',
     },    
     {
@@ -4193,7 +4193,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: 'You and a touched evil creature from another plane, or you and an enchantment or evil spell on a touched creature or object',
         name: 'Dispel Evil',
-        id: spells_ids.dispel_evil,
+        id: spells_core_rulebook_ids.dispel_evil,
         casting_time: '1 standard action',
     },    
     {
@@ -4214,7 +4214,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: 'You and a touched good creature from another plane, or you and an enchantment or good spell on a touched creature or object',
         name: 'Dispel Good',
-        id: spells_ids.dispel_good,
+        id: spells_core_rulebook_ids.dispel_good,
         casting_time: '1 standard action',
     },    
     {
@@ -4235,7 +4235,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: 'You and a touched lawful creature from another plane, or you and an enchantment or lawful spell on a touched creature or object',
         name: 'Dispel Law',
-        id: spells_ids.dispel_law,
+        id: spells_core_rulebook_ids.dispel_law,
         casting_time: '1 standard action',
     },    
     {
@@ -4276,7 +4276,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: 'One spellcaster, creature, or object',
         name: 'Dispel Magic',
-        id: spells_ids.dispel_magic,
+        id: spells_core_rulebook_ids.dispel_magic,
         casting_time: '1 standard action',
     },    
     {
@@ -4313,7 +4313,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: 'One spellcaster, creature, or object; or a 20-ft.- radius burst',
         name: 'Dispel Magic (Greater)',
-        id: spells_ids.dispel_magic_greater,
+        id: spells_core_rulebook_ids.dispel_magic_greater,
         casting_time: '1 standard action',
     },    
     {
@@ -4342,7 +4342,7 @@ export const spells_data =
         school: 'Illusion',
         effect: 'Creature touched',
         name: 'Displacement',
-        id: spells_ids.displacement,
+        id: spells_core_rulebook_ids.displacement,
         casting_time: '1 standard action',
     },    
     {
@@ -4367,7 +4367,7 @@ export const spells_data =
         school: 'Necromancy',
         effect: 'Ray',
         name: 'Disrupt Undead',
-        id: spells_ids.disrupt_undead,
+        id: spells_core_rulebook_ids.disrupt_undead,
         casting_time: '1 standard action',
     },    
     {
@@ -4388,7 +4388,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'One melee weapon',
         name: 'Disrupting Weapon',
-        id: spells_ids.disrupting_weapon,
+        id: spells_core_rulebook_ids.disrupting_weapon,
         casting_time: '1 standard action',
     },    
     {
@@ -4409,7 +4409,7 @@ export const spells_data =
         school: 'Divination',
         effect: 'You',
         name: 'Divination',
-        id: spells_ids.divination,
+        id: spells_core_rulebook_ids.divination,
         casting_time: '10 minutes',
     },    
     {
@@ -4434,7 +4434,7 @@ export const spells_data =
         school: 'Evocation',
         effect: 'You',
         name: 'Divine Favor',
-        id: spells_ids.divine_favor,
+        id: spells_core_rulebook_ids.divine_favor,
         casting_time: '1 standard action',
     },    
     {
@@ -4455,7 +4455,7 @@ export const spells_data =
         school: 'Evocation',
         effect: 'You',
         name: 'Divine Power',
-        id: spells_ids.divine_power,
+        id: spells_core_rulebook_ids.divine_power,
         casting_time: '1 standard action',
     },    
     {
@@ -4476,7 +4476,7 @@ export const spells_data =
         school: 'Enchantment',
         effect: 'One animal',
         name: 'Dominate Animal',
-        id: spells_ids.dominate_animal,
+        id: spells_core_rulebook_ids.dominate_animal,
         casting_time: '1 round',
     },    
     {
@@ -4501,7 +4501,7 @@ export const spells_data =
         school: 'Enchantment',
         effect: 'One creature',
         name: 'Dominate Monster',
-        id: spells_ids.dominate_monster,
+        id: spells_core_rulebook_ids.dominate_monster,
         casting_time: '1 round',
     },    
     {
@@ -4530,7 +4530,7 @@ export const spells_data =
         school: 'Enchantment',
         effect: 'One humanoid',
         name: 'Dominate Person',
-        id: spells_ids.dominate_person,
+        id: spells_core_rulebook_ids.dominate_person,
         casting_time: '1 round',
     },    
     {
@@ -4551,7 +4551,7 @@ export const spells_data =
         school: 'Necromancy',
         effect: 'One living creature',
         name: 'Doom',
-        id: spells_ids.doom,
+        id: spells_core_rulebook_ids.doom,
         casting_time: '1 standard action',
     },    
     {
@@ -4580,7 +4580,7 @@ export const spells_data =
         school: 'Illusion',
         effect: 'One living creature touched',
         name: 'Dream',
-        id: spells_ids.dream,
+        id: spells_core_rulebook_ids.dream,
         casting_time: '1 minute',
     },    
     {
@@ -4617,7 +4617,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'Creature touched',
         name: 'Eagle\'s Splendor',
-        id: spells_ids.eagles_splendor,
+        id: spells_core_rulebook_ids.eagles_splendor,
         casting_time: '1 standard action',
     },    
     {
@@ -4650,7 +4650,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: '(CASTERLEVEL) creatures, no two of which can be more than 30 ft. apart',
         name: 'Eagle\'s Splendor (Mass)',
-        id: spells_ids.eagles_splendor_mass,
+        id: spells_core_rulebook_ids.eagles_splendor_mass,
         casting_time: '1 standard action',
     },    
     {
@@ -4675,7 +4675,7 @@ export const spells_data =
         school: 'Evocation',
         effect: '80-ft.-radius spread (S)',
         name: 'Earthquake',
-        id: spells_ids.earthquake,
+        id: spells_core_rulebook_ids.earthquake,
         casting_time: '1 standard action',
     },    
     {
@@ -4700,7 +4700,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'You',
         name: 'Elemental Body I',
-        id: spells_ids.elemental_body_i,
+        id: spells_core_rulebook_ids.elemental_body_i,
         casting_time: '1 standard action',
     },    
     {
@@ -4725,7 +4725,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'You',
         name: 'Elemental Body II',
-        id: spells_ids.elemental_body_ii,
+        id: spells_core_rulebook_ids.elemental_body_ii,
         casting_time: '1 standard action',
     },    
     {
@@ -4750,7 +4750,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'You',
         name: 'Elemental Body III',
-        id: spells_ids.elemental_body_iii,
+        id: spells_core_rulebook_ids.elemental_body_iii,
         casting_time: '1 standard action',
     },    
     {
@@ -4775,7 +4775,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'You',
         name: 'Elemental Body IV',
-        id: spells_ids.elemental_body_iv,
+        id: spells_core_rulebook_ids.elemental_body_iv,
         casting_time: '1 standard action',
     },    
     {
@@ -4796,7 +4796,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'Two or more summoned creatures, no two of which can be more than 30 ft. apart',
         name: 'Elemental Swarm',
-        id: spells_ids.elemental_swarm,
+        id: spells_core_rulebook_ids.elemental_swarm,
         casting_time: '10 minutes',
     },    
     {
@@ -4837,7 +4837,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: 'Creature touched',
         name: 'Endure Elements',
-        id: spells_ids.endure_elements,
+        id: spells_core_rulebook_ids.endure_elements,
         casting_time: '1 standard action',
     },    
     {
@@ -4866,7 +4866,7 @@ export const spells_data =
         school: 'Necromancy',
         effect: 'Ray of negative energy',
         name: 'Energy Drain',
-        id: spells_ids.energy_drain,
+        id: spells_core_rulebook_ids.energy_drain,
         casting_time: '1 standard action',
     },    
     {
@@ -4891,7 +4891,7 @@ export const spells_data =
         school: 'Necromancy',
         effect: 'Ray of negative energy',
         name: 'Enervation',
-        id: spells_ids.enervation,
+        id: spells_core_rulebook_ids.enervation,
         casting_time: '1 standard action',
     },    
     {
@@ -4916,7 +4916,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'One humanoid creature',
         name: 'Enlarge Person',
-        id: spells_ids.enlarge_person,
+        id: spells_core_rulebook_ids.enlarge_person,
         casting_time: '1 round',
     },    
     {
@@ -4941,7 +4941,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: '(CASTERLEVEL) humanoid creatures, no two of which can be more than 30 ft. apart',
         name: 'Enlarge Person (Mass)',
-        id: spells_ids.enlarge_person_mass,
+        id: spells_core_rulebook_ids.enlarge_person_mass,
         casting_time: '1 round',
     },    
     {
@@ -4966,7 +4966,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'Plants in a 40-ft.-radius spread',
         name: 'Entangle',
-        id: spells_ids.entangle,
+        id: spells_core_rulebook_ids.entangle,
         casting_time: '1 standard action',
     },    
     {
@@ -4991,7 +4991,7 @@ export const spells_data =
         school: 'Enchantment',
         effect: 'Any number of creatures',
         name: 'Enthrall',
-        id: spells_ids.enthrall,
+        id: spells_core_rulebook_ids.enthrall,
         casting_time: '1 round',
     },    
     {
@@ -5012,7 +5012,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: 'You',
         name: 'Entropic Shield',
-        id: spells_ids.entropic_shield,
+        id: spells_core_rulebook_ids.entropic_shield,
         casting_time: '1 standard action',
     },    
     {
@@ -5041,7 +5041,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'One scroll or two pages',
         name: 'Erase',
-        id: spells_ids.erase,
+        id: spells_core_rulebook_ids.erase,
         casting_time: '1 standard action',
     },    
     {
@@ -5070,7 +5070,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'You',
         name: 'Ethereal Jaunt',
-        id: spells_ids.ethereal_jaunt,
+        id: spells_core_rulebook_ids.ethereal_jaunt,
         casting_time: '1 standard action',
     },    
     {
@@ -5099,7 +5099,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'You and (CASTERLEVEL/3) others touched',
         name: 'Etherealness',
-        id: spells_ids.etherealness,
+        id: spells_core_rulebook_ids.etherealness,
         casting_time: '1 standard action',
     },    
     {
@@ -5128,7 +5128,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'You',
         name: 'Expeditious Retreat',
-        id: spells_ids.expeditious_retreat,
+        id: spells_core_rulebook_ids.expeditious_retreat,
         casting_time: '1 standard action',
     },    
     {
@@ -5153,7 +5153,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: 'One touched object weighing no more than 10 lbs.',
         name: 'Explosive Runes',
-        id: spells_ids.explosive_runes,
+        id: spells_core_rulebook_ids.explosive_runes,
         casting_time: '1 standard action',
     },    
     {
@@ -5182,7 +5182,7 @@ export const spells_data =
         school: 'Necromancy',
         effect: 'One living creature',
         name: 'Eyebite',
-        id: spells_ids.eyebite,
+        id: spells_core_rulebook_ids.eyebite,
         casting_time: '1 standard action',
     },    
     {
@@ -5207,7 +5207,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'Up to (CASTERLEVEL*10) cu. ft.; see text',
         name: 'Fabricate',
-        id: spells_ids.fabricate,
+        id: spells_core_rulebook_ids.fabricate,
         casting_time: 'see text',
     },    
     {
@@ -5228,7 +5228,7 @@ export const spells_data =
         school: 'Evocation',
         effect: 'Creatures and objects within a 5-ft.-radius burst',
         name: 'Faerie Fire',
-        id: spells_ids.faerie_fire,
+        id: spells_core_rulebook_ids.faerie_fire,
         casting_time: '1 standard action',
     },    
     {
@@ -5253,7 +5253,7 @@ export const spells_data =
         school: 'Necromancy',
         effect: 'You',
         name: 'False Life',
-        id: spells_ids.false_life,
+        id: spells_core_rulebook_ids.false_life,
         casting_time: '1 standard action',
     },    
     {
@@ -5282,7 +5282,7 @@ export const spells_data =
         school: 'Illusion',
         effect: '40-ft.-radius emanation',
         name: 'False Vision',
-        id: spells_ids.false_vision,
+        id: spells_core_rulebook_ids.false_vision,
         casting_time: '1 standard action',
     },    
     {
@@ -5311,7 +5311,7 @@ export const spells_data =
         school: 'Necromancy',
         effect: 'Cone-shaped burst',
         name: 'Fear',
-        id: spells_ids.fear,
+        id: spells_core_rulebook_ids.fear,
         casting_time: '1 standard action',
     },    
     {
@@ -5340,7 +5340,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: '(CASTERLEVEL) Medium or smaller free-falling objects or creatures, no two of which may be more than 20 ft. apart',
         name: 'Feather Fall',
-        id: spells_ids.feather_fall,
+        id: spells_core_rulebook_ids.feather_fall,
         casting_time: '1 immediate action',
     },    
     {
@@ -5365,7 +5365,7 @@ export const spells_data =
         school: 'Enchantment',
         effect: 'One creature',
         name: 'Feeblemind',
-        id: spells_ids.feeblemind,
+        id: spells_core_rulebook_ids.feeblemind,
         casting_time: '1 standard action',
     },    
     {
@@ -5386,7 +5386,7 @@ export const spells_data =
         school: 'Divination',
         effect: 'You',
         name: 'Find Traps',
-        id: spells_ids.find_traps,
+        id: spells_core_rulebook_ids.find_traps,
         casting_time: '1 standard action',
     },    
     {
@@ -5415,7 +5415,7 @@ export const spells_data =
         school: 'Divination',
         effect: 'You or creature touched',
         name: 'Find the Path',
-        id: spells_ids.find_the_path,
+        id: spells_core_rulebook_ids.find_the_path,
         casting_time: '3 rounds',
     },    
     {
@@ -5444,7 +5444,7 @@ export const spells_data =
         school: 'Necromancy',
         effect: 'One creature',
         name: 'Finger of Death',
-        id: spells_ids.finger_of_death,
+        id: spells_core_rulebook_ids.finger_of_death,
         casting_time: '1 standard action',
     },    
     {
@@ -5465,7 +5465,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'Up to four acorns or up to eight holly berries',
         name: 'Fire Seeds',
-        id: spells_ids.fire_seeds,
+        id: spells_core_rulebook_ids.fire_seeds,
         casting_time: '1 standard action',
     },    
     {
@@ -5490,7 +5490,7 @@ export const spells_data =
         school: 'Evocation',
         effect: 'You',
         name: 'Fire Shield',
-        id: spells_ids.fire_shield,
+        id: spells_core_rulebook_ids.fire_shield,
         casting_time: '1 standard action',
     },    
     {
@@ -5515,7 +5515,7 @@ export const spells_data =
         school: 'Evocation',
         effect: '(CASTERLEVEL*2) 10-ft. cubes (S)',
         name: 'Fire Storm',
-        id: spells_ids.fire_storm,
+        id: spells_core_rulebook_ids.fire_storm,
         casting_time: '1 standard action',
     },    
     {
@@ -5544,7 +5544,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: 'Object touched',
         name: 'Fire Trap',
-        id: spells_ids.fire_trap,
+        id: spells_core_rulebook_ids.fire_trap,
         casting_time: '10 minutes',
     },    
     {
@@ -5569,7 +5569,7 @@ export const spells_data =
         school: 'Evocation',
         effect: '20-ft.-radius spread',
         name: 'Fireball',
-        id: spells_ids.fireball,
+        id: spells_core_rulebook_ids.fireball,
         casting_time: '1 standard action',
     },    
     {
@@ -5594,7 +5594,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'Fifty projectiles, all of which must be together at the time of casting',
         name: 'Flame Arrow',
-        id: spells_ids.flame_arrow,
+        id: spells_core_rulebook_ids.flame_arrow,
         casting_time: '1 standard action',
     },    
     {
@@ -5615,7 +5615,7 @@ export const spells_data =
         school: 'Evocation',
         effect: 'Sword-like beam',
         name: 'Flame Blade',
-        id: spells_ids.flame_blade,
+        id: spells_core_rulebook_ids.flame_blade,
         casting_time: '1 standard action',
     },    
     {
@@ -5640,7 +5640,7 @@ export const spells_data =
         school: 'Evocation',
         effect: 'Cylinder (10-ft. radius, 40-ft. high)',
         name: 'Flame Strike',
-        id: spells_ids.flame_strike,
+        id: spells_core_rulebook_ids.flame_strike,
         casting_time: '1 standard action',
     },    
     {
@@ -5669,7 +5669,7 @@ export const spells_data =
         school: 'Evocation',
         effect: '5-ft.-diameter sphere',
         name: 'Flaming Sphere',
-        id: spells_ids.flaming_sphere,
+        id: spells_core_rulebook_ids.flaming_sphere,
         casting_time: '1 standard action',
     },    
     {
@@ -5702,7 +5702,7 @@ export const spells_data =
         school: 'Evocation',
         effect: 'Burst of light',
         name: 'Flare',
-        id: spells_ids.flare,
+        id: spells_core_rulebook_ids.flare,
         casting_time: '1 standard action',
     },    
     {
@@ -5727,7 +5727,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'One creature',
         name: 'Flesh to Stone',
-        id: spells_ids.flesh_to_stone,
+        id: spells_core_rulebook_ids.flesh_to_stone,
         casting_time: '1 standard action',
     },    
     {
@@ -5752,7 +5752,7 @@ export const spells_data =
         school: 'Evocation',
         effect: '3-ft.-diameter disk of force',
         name: 'Floating Disk',
-        id: spells_ids.floating_disk,
+        id: spells_core_rulebook_ids.floating_disk,
         casting_time: '1 standard action',
     },    
     {
@@ -5777,7 +5777,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'Creature touched',
         name: 'Fly',
-        id: spells_ids.fly,
+        id: spells_core_rulebook_ids.fly,
         casting_time: '1 standard action',
     },    
     {
@@ -5806,7 +5806,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'Fog spreads in 20-ft. radius',
         name: 'Fog Cloud',
-        id: spells_ids.fog_cloud,
+        id: spells_core_rulebook_ids.fog_cloud,
         casting_time: '1 standard action',
     },    
     {
@@ -5827,7 +5827,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: '(CASTERLEVEL) 60-ft. cubes [S]',
         name: 'Forbiddance',
-        id: spells_ids.forbiddance,
+        id: spells_core_rulebook_ids.forbiddance,
         casting_time: '6 rounds',
     },    
     {
@@ -5852,7 +5852,7 @@ export const spells_data =
         school: 'Evocation',
         effect: 'Barred cage (20-ft. cube) or windowless cell (10-ft. cube)',
         name: 'Forcecage',
-        id: spells_ids.forcecage,
+        id: spells_core_rulebook_ids.forcecage,
         casting_time: '1 standard action',
     },    
     {
@@ -5877,7 +5877,7 @@ export const spells_data =
         school: 'Evocation',
         effect: '10-ft. hand',
         name: 'Forceful Hand',
-        id: spells_ids.forceful_hand,
+        id: spells_core_rulebook_ids.forceful_hand,
         casting_time: '1 standard action',
     },    
     {
@@ -5906,7 +5906,7 @@ export const spells_data =
         school: 'Divination',
         effect: 'See text',
         name: 'Foresight',
-        id: spells_ids.foresight,
+        id: spells_core_rulebook_ids.foresight,
         casting_time: '1 standard action',
     },    
     {
@@ -5931,7 +5931,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'You',
         name: 'Form of the Dragon I',
-        id: spells_ids.form_of_the_dragon_i,
+        id: spells_core_rulebook_ids.form_of_the_dragon_i,
         casting_time: '1 standard action',
     },    
     {
@@ -5956,7 +5956,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'You',
         name: 'Form of the Dragon II',
-        id: spells_ids.form_of_the_dragon_ii,
+        id: spells_core_rulebook_ids.form_of_the_dragon_ii,
         casting_time: '1 standard action',
     },    
     {
@@ -5981,7 +5981,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'You',
         name: 'Form of the Dragon III',
-        id: spells_ids.form_of_the_dragon_iii,
+        id: spells_core_rulebook_ids.form_of_the_dragon_iii,
         casting_time: '1 standard action',
     },    
     {
@@ -6010,7 +6010,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'Creature touched',
         name: 'Fox\'s Cunning',
-        id: spells_ids.foxs_cunning,
+        id: spells_core_rulebook_ids.foxs_cunning,
         casting_time: '1 standard action',
     },    
     {
@@ -6039,7 +6039,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: '(CASTERLEVEL) creatures, no two of which can be more than 30 ft. apart',
         name: 'Fox\'s Cunning (Mass)',
-        id: spells_ids.foxs_cunning_mass,
+        id: spells_core_rulebook_ids.foxs_cunning_mass,
         casting_time: '1 standard action',
     },    
     {
@@ -6064,7 +6064,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: 'One creature',
         name: 'Freedom',
-        id: spells_ids.freedom,
+        id: spells_core_rulebook_ids.freedom,
         casting_time: '1 standard action',
     },    
     {
@@ -6097,7 +6097,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: 'You or creature touched',
         name: 'Freedom of Movement',
-        id: spells_ids.freedom_of_movement,
+        id: spells_core_rulebook_ids.freedom_of_movement,
         casting_time: '1 standard action',
     },    
     {
@@ -6122,7 +6122,7 @@ export const spells_data =
         school: 'Evocation',
         effect: 'See text',
         name: 'Freezing Sphere',
-        id: spells_ids.freezing_sphere,
+        id: spells_core_rulebook_ids.freezing_sphere,
         casting_time: '1 standard action',
     },    
     {
@@ -6151,7 +6151,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'Willing corporeal creature touched',
         name: 'Gaseous Form',
-        id: spells_ids.gaseous_form,
+        id: spells_core_rulebook_ids.gaseous_form,
         casting_time: '1 standard action',
     },    
     {
@@ -6180,7 +6180,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'See text',
         name: 'Gate',
-        id: spells_ids.gate,
+        id: spells_core_rulebook_ids.gate,
         casting_time: '1 standard action',
     },    
     {
@@ -6209,7 +6209,7 @@ export const spells_data =
         school: 'Enchantment',
         effect: 'One living creature with 7 HD or less',
         name: 'Geas (Lesser)',
-        id: spells_ids.geas_lesser,
+        id: spells_core_rulebook_ids.geas_lesser,
         casting_time: '1 round',
     },    
     {
@@ -6242,7 +6242,7 @@ export const spells_data =
         school: 'Enchantment',
         effect: 'One living creature',
         name: 'Geas/Quest',
-        id: spells_ids.geasquest,
+        id: spells_core_rulebook_ids.geasquest,
         casting_time: '10 minutes',
     },    
     {
@@ -6271,7 +6271,7 @@ export const spells_data =
         school: 'Necromancy',
         effect: 'Corpse touched',
         name: 'Gentle Repose',
-        id: spells_ids.gentle_repose,
+        id: spells_core_rulebook_ids.gentle_repose,
         casting_time: '1 standard action',
     },    
     {
@@ -6300,7 +6300,7 @@ export const spells_data =
         school: 'Illusion',
         effect: 'Illusory sounds',
         name: 'Ghost Sound',
-        id: spells_ids.ghost_sound,
+        id: spells_core_rulebook_ids.ghost_sound,
         casting_time: '1 standard action',
     },    
     {
@@ -6325,7 +6325,7 @@ export const spells_data =
         school: 'Necromancy',
         effect: 'Living humanoid touched',
         name: 'Ghoul Touch',
-        id: spells_ids.ghoul_touch,
+        id: spells_core_rulebook_ids.ghoul_touch,
         casting_time: '1 standard action',
     },    
     {
@@ -6350,7 +6350,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'You',
         name: 'Giant Form I',
-        id: spells_ids.giant_form_i,
+        id: spells_core_rulebook_ids.giant_form_i,
         casting_time: '1 standard action',
     },    
     {
@@ -6375,7 +6375,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'You',
         name: 'Giant Form II',
-        id: spells_ids.giant_form_ii,
+        id: spells_core_rulebook_ids.giant_form_ii,
         casting_time: '1 standard action',
     },    
     {
@@ -6400,7 +6400,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: '1 or more vermin, no two of which can be more than 30 ft. apart',
         name: 'Giant Vermin',
-        id: spells_ids.giant_vermin,
+        id: spells_core_rulebook_ids.giant_vermin,
         casting_time: '1 standard action',
     },    
     {
@@ -6421,7 +6421,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'You',
         name: 'Glibness',
-        id: spells_ids.glibness,
+        id: spells_core_rulebook_ids.glibness,
         casting_time: '1 standard action',
     },    
     {
@@ -6450,7 +6450,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'Creatures and objects within 10-ft.-radius spread',
         name: 'Glitterdust',
-        id: spells_ids.glitterdust,
+        id: spells_core_rulebook_ids.glitterdust,
         casting_time: '1 standard action',
     },    
     {
@@ -6475,7 +6475,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: '10-ft.-radius spherical emanation, centered on you',
         name: 'Globe of Invulnerability',
-        id: spells_ids.globe_of_invulnerability,
+        id: spells_core_rulebook_ids.globe_of_invulnerability,
         casting_time: '1 standard action',
     },    
     {
@@ -6500,7 +6500,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: '10-ft.-radius spherical emanation, centered on you',
         name: 'Globe of Invulnerability (Lesser)',
-        id: spells_ids.globe_of_invulnerability_lesser,
+        id: spells_core_rulebook_ids.globe_of_invulnerability_lesser,
         casting_time: '1 standard action',
     },    
     {
@@ -6521,7 +6521,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: 'Object touched or up to (CASTERLEVEL*5) sq. ft.',
         name: 'Glyph of Warding',
-        id: spells_ids.glyph_of_warding,
+        id: spells_core_rulebook_ids.glyph_of_warding,
         casting_time: '10 minutes',
     },    
     {
@@ -6542,7 +6542,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: 'Object touched or up to (CASTERLEVEL*5) sq. ft.',
         name: 'Glyph of Warding (Greater)',
-        id: spells_ids.glyph_of_warding_greater,
+        id: spells_core_rulebook_ids.glyph_of_warding_greater,
         casting_time: '10 minutes',
     },    
     {
@@ -6563,7 +6563,7 @@ export const spells_data =
         school: 'Enchantment',
         effect: '(CASTERLEVEL) living creatures, no two of which may be more than 30 ft. apart',
         name: 'Good Hope',
-        id: spells_ids.good_hope,
+        id: spells_core_rulebook_ids.good_hope,
         casting_time: '1 standard action',
     },    
     {
@@ -6584,7 +6584,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: '2d4 fresh berries touched',
         name: 'Goodberry',
-        id: spells_ids.goodberry,
+        id: spells_core_rulebook_ids.goodberry,
         casting_time: '1 standard action',
     },    
     {
@@ -6609,7 +6609,7 @@ export const spells_data =
         school: 'Evocation',
         effect: '10-ft. hand',
         name: 'Grasping Hand',
-        id: spells_ids.grasping_hand,
+        id: spells_core_rulebook_ids.grasping_hand,
         casting_time: '1 standard action',
     },    
     {
@@ -6638,7 +6638,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'One object or 10-ft. square',
         name: 'Grease',
-        id: spells_ids.grease,
+        id: spells_core_rulebook_ids.grease,
         casting_time: '1 standard action',
     },    
     {
@@ -6663,7 +6663,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: 'Up to (CASTERLEVEL*200) sq. ft. [S]',
         name: 'Guards and Wards',
-        id: spells_ids.guards_and_wards,
+        id: spells_core_rulebook_ids.guards_and_wards,
         casting_time: '30 minutes',
     },    
     {
@@ -6688,7 +6688,7 @@ export const spells_data =
         school: 'Divination',
         effect: 'Creature touched',
         name: 'Guidance',
-        id: spells_ids.guidance,
+        id: spells_core_rulebook_ids.guidance,
         casting_time: '1 standard action',
     },    
     {
@@ -6717,7 +6717,7 @@ export const spells_data =
         school: 'Evocation',
         effect: 'Line-shaped gust of severe wind emanating out from you to the extreme of the range',
         name: 'Gust of Wind',
-        id: spells_ids.gust_of_wind,
+        id: spells_core_rulebook_ids.gust_of_wind,
         casting_time: '1 standard action',
     },    
     {
@@ -6742,7 +6742,7 @@ export const spells_data =
         school: 'Evocation',
         effect: '40-ft. radius emanating from the touched point',
         name: 'Hallow',
-        id: spells_ids.hallow,
+        id: spells_core_rulebook_ids.hallow,
         casting_time: '24 hours',
     },    
     {
@@ -6771,7 +6771,7 @@ export const spells_data =
         school: 'Illusion',
         effect: '(CASTERLEVEL) 30-ft. cubes [S]',
         name: 'Hallucinatory Terrain',
-        id: spells_ids.hallucinatory_terrain,
+        id: spells_core_rulebook_ids.hallucinatory_terrain,
         casting_time: '10 minutes',
     },    
     {
@@ -6796,7 +6796,7 @@ export const spells_data =
         school: 'Necromancy',
         effect: 'Up to three undead creatures, no two of which can be more than 30 ft. apart',
         name: 'Halt Undead',
-        id: spells_ids.halt_undead,
+        id: spells_core_rulebook_ids.halt_undead,
         casting_time: '1 standard action',
     },    
     {
@@ -6817,7 +6817,7 @@ export const spells_data =
         school: 'Necromancy',
         effect: 'Creature touched',
         name: 'Harm',
-        id: spells_ids.harm,
+        id: spells_core_rulebook_ids.harm,
         casting_time: '1 standard action',
     },    
     {
@@ -6846,7 +6846,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: '(CASTERLEVEL) creatures, no two of which can be more than 30 ft. apart',
         name: 'Haste',
-        id: spells_ids.haste,
+        id: spells_core_rulebook_ids.haste,
         casting_time: '1 standard action',
     },    
     {
@@ -6871,7 +6871,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'Creature touched',
         name: 'Heal',
-        id: spells_ids.heal,
+        id: spells_core_rulebook_ids.heal,
         casting_time: '1 standard action',
     },    
     {
@@ -6892,7 +6892,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'One or more creatures, no two of which can be more than 30 ft. apart',
         name: 'Heal (Mass)',
-        id: spells_ids.heal_mass,
+        id: spells_core_rulebook_ids.heal_mass,
         casting_time: '1 standard action',
     },    
     {
@@ -6913,7 +6913,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'Your mount touched',
         name: 'Heal Mount',
-        id: spells_ids.heal_mount,
+        id: spells_core_rulebook_ids.heal_mount,
         casting_time: '1 standard action',
     },    
     {
@@ -6934,7 +6934,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'Metal equipment of one creature per two levels, no two of which can be more than 30 ft. apart; or (CASTERLEVEL*25) lbs. of metal, all of which must be within a 30-ft. circle',
         name: 'Heat Metal',
-        id: spells_ids.heat_metal,
+        id: spells_core_rulebook_ids.heat_metal,
         casting_time: '1 standard action',
     },    
     {
@@ -6955,7 +6955,7 @@ export const spells_data =
         school: 'Evocation',
         effect: 'Ghostly hand',
         name: 'Helping Hand',
-        id: spells_ids.helping_hand,
+        id: spells_core_rulebook_ids.helping_hand,
         casting_time: '1 standard action',
     },    
     {
@@ -6980,7 +6980,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'Feast for (CASTERLEVEL) creatures',
         name: 'Heroes\' Feast',
-        id: spells_ids.heroes_feast,
+        id: spells_core_rulebook_ids.heroes_feast,
         casting_time: '10 minutes',
     },    
     {
@@ -7009,7 +7009,7 @@ export const spells_data =
         school: 'Enchantment',
         effect: 'Creature touched',
         name: 'Heroism',
-        id: spells_ids.heroism,
+        id: spells_core_rulebook_ids.heroism,
         casting_time: '1 standard action',
     },    
     {
@@ -7038,7 +7038,7 @@ export const spells_data =
         school: 'Enchantment',
         effect: 'Creature touched',
         name: 'Heroism (Greater)',
-        id: spells_ids.heroism_greater,
+        id: spells_core_rulebook_ids.heroism_greater,
         casting_time: '1 standard action',
     },    
     {
@@ -7063,7 +7063,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: '(CASTERLEVEL) creatures touched',
         name: 'Hide from Animals',
-        id: spells_ids.hide_from_animals,
+        id: spells_core_rulebook_ids.hide_from_animals,
         casting_time: '1 standard action',
     },    
     {
@@ -7084,7 +7084,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: '(CASTERLEVEL) creatures touched',
         name: 'Hide from Undead',
-        id: spells_ids.hide_from_undead,
+        id: spells_core_rulebook_ids.hide_from_undead,
         casting_time: '1 standard action',
     },    
     {
@@ -7113,7 +7113,7 @@ export const spells_data =
         school: 'Enchantment',
         effect: 'One creature; see text',
         name: 'Hideous Laughter',
-        id: spells_ids.hideous_laughter,
+        id: spells_core_rulebook_ids.hideous_laughter,
         casting_time: '1 standard action',
     },    
     {
@@ -7138,7 +7138,7 @@ export const spells_data =
         school: 'Enchantment',
         effect: 'One animal',
         name: 'Hold Animal',
-        id: spells_ids.hold_animal,
+        id: spells_core_rulebook_ids.hold_animal,
         casting_time: null,
     },    
     {
@@ -7167,7 +7167,7 @@ export const spells_data =
         school: 'Enchantment',
         effect: 'One living creature',
         name: 'Hold Monster',
-        id: spells_ids.hold_monster,
+        id: spells_core_rulebook_ids.hold_monster,
         casting_time: '1 standard action',
     },    
     {
@@ -7192,7 +7192,7 @@ export const spells_data =
         school: 'Enchantment',
         effect: 'One or more creatures, no two of which can be more than 30 ft. apart',
         name: 'Hold Monster (Mass)',
-        id: spells_ids.hold_monster_mass,
+        id: spells_core_rulebook_ids.hold_monster_mass,
         casting_time: '1 standard action',
     },    
     {
@@ -7225,7 +7225,7 @@ export const spells_data =
         school: 'Enchantment',
         effect: 'One humanoid creature',
         name: 'Hold Person',
-        id: spells_ids.hold_person,
+        id: spells_core_rulebook_ids.hold_person,
         casting_time: '1 standard action',
     },    
     {
@@ -7250,7 +7250,7 @@ export const spells_data =
         school: 'Enchantment',
         effect: 'One or more humanoid creatures, no two of which can be more than 30 ft. apart',
         name: 'Hold Person (Mass)',
-        id: spells_ids.hold_person_mass,
+        id: spells_core_rulebook_ids.hold_person_mass,
         casting_time: '1 standard action',
     },    
     {
@@ -7275,7 +7275,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: 'One portal, up to (CASTERLEVEL*20) sq. ft.',
         name: 'Hold Portal',
-        id: spells_ids.hold_portal,
+        id: spells_core_rulebook_ids.hold_portal,
         casting_time: '1 standard action',
     },    
     {
@@ -7296,7 +7296,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: '(CASTERLEVEL) creatures in a 20-ft.-radius burst centered on you',
         name: 'Holy Aura',
-        id: spells_ids.holy_aura,
+        id: spells_core_rulebook_ids.holy_aura,
         casting_time: '1 standard action',
     },    
     {
@@ -7317,7 +7317,7 @@ export const spells_data =
         school: 'Evocation',
         effect: '20-ft.-radius burst',
         name: 'Holy Smite',
-        id: spells_ids.holy_smite,
+        id: spells_core_rulebook_ids.holy_smite,
         casting_time: '1 standard action',
     },    
     {
@@ -7338,7 +7338,7 @@ export const spells_data =
         school: 'Evocation',
         effect: 'Melee weapon touched',
         name: 'Holy Sword',
-        id: spells_ids.holy_sword,
+        id: spells_core_rulebook_ids.holy_sword,
         casting_time: '1 standard action',
     },    
     {
@@ -7359,7 +7359,7 @@ export const spells_data =
         school: 'Evocation',
         effect: 'Nongood creatures in a 40-ft.-radius spread centered on you',
         name: 'Holy Word',
-        id: spells_ids.holy_word,
+        id: spells_core_rulebook_ids.holy_word,
         casting_time: '1 standard action',
     },    
     {
@@ -7384,7 +7384,7 @@ export const spells_data =
         school: 'Necromancy',
         effect: 'Living creatures, no two of which can be more than 60 ft. apart',
         name: 'Horrid Wilting',
-        id: spells_ids.horrid_wilting,
+        id: spells_core_rulebook_ids.horrid_wilting,
         casting_time: '1 standard action',
     },    
     {
@@ -7413,7 +7413,7 @@ export const spells_data =
         school: 'Illusion',
         effect: 'Colorful lights in a 10-ft.-radius spread',
         name: 'Hypnotic Pattern',
-        id: spells_ids.hypnotic_pattern,
+        id: spells_core_rulebook_ids.hypnotic_pattern,
         casting_time: '1 standard action',
     },    
     {
@@ -7442,7 +7442,7 @@ export const spells_data =
         school: 'Enchantment',
         effect: 'Several living creatures, no two of which may be more than 30 ft. apart',
         name: 'Hypnotism',
-        id: spells_ids.hypnotism,
+        id: spells_core_rulebook_ids.hypnotism,
         casting_time: '1 round',
     },    
     {
@@ -7471,7 +7471,7 @@ export const spells_data =
         school: 'Evocation',
         effect: 'Cylinder (20-ft. radius, 40 ft. high)',
         name: 'Ice Storm',
-        id: spells_ids.ice_storm,
+        id: spells_core_rulebook_ids.ice_storm,
         casting_time: '1 standard action',
     },    
     {
@@ -7500,7 +7500,7 @@ export const spells_data =
         school: 'Divination',
         effect: 'Cone-shaped emanation',
         name: 'Identify',
-        id: spells_ids.identify,
+        id: spells_core_rulebook_ids.identify,
         casting_time: '1 standard action',
     },    
     {
@@ -7529,7 +7529,7 @@ export const spells_data =
         school: 'Illusion',
         effect: 'One touched object weighing no more than 10 lbs.',
         name: 'Illusory Script',
-        id: spells_ids.illusory_script,
+        id: spells_core_rulebook_ids.illusory_script,
         casting_time: '1 minute per page',
     },    
     {
@@ -7554,7 +7554,7 @@ export const spells_data =
         school: 'Illusion',
         effect: 'Image 1 ft. by 10 ft. by 10 ft.',
         name: 'Illusory Wall',
-        id: spells_ids.illusory_wall,
+        id: spells_core_rulebook_ids.illusory_wall,
         casting_time: '1 standard action',
     },    
     {
@@ -7575,7 +7575,7 @@ export const spells_data =
         school: 'Evocation',
         effect: 'Creature touched; see text',
         name: 'Imbue with Spell Ability',
-        id: spells_ids.imbue_with_spell_ability,
+        id: spells_core_rulebook_ids.imbue_with_spell_ability,
         casting_time: '10 minutes',
     },    
     {
@@ -7596,7 +7596,7 @@ export const spells_data =
         school: 'Evocation',
         effect: 'One corporeal creature/round',
         name: 'Implosion',
-        id: spells_ids.implosion,
+        id: spells_core_rulebook_ids.implosion,
         casting_time: '1 standard action',
     },    
     {
@@ -7621,7 +7621,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: 'Creature touched',
         name: 'Imprisonment',
-        id: spells_ids.imprisonment,
+        id: spells_core_rulebook_ids.imprisonment,
         casting_time: '1 standard action',
     },    
     {
@@ -7646,7 +7646,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'Cloud spreads in 20-ft. radius, 20 ft. high',
         name: 'Incendiary Cloud',
-        id: spells_ids.incendiary_cloud,
+        id: spells_core_rulebook_ids.incendiary_cloud,
         casting_time: '1 standard action',
     },    
     {
@@ -7667,7 +7667,7 @@ export const spells_data =
         school: 'Necromancy',
         effect: 'Creature touched',
         name: 'Inflict Critical Wounds',
-        id: spells_ids.inflict_critical_wounds,
+        id: spells_core_rulebook_ids.inflict_critical_wounds,
         casting_time: '1 standard action',
     },    
     {
@@ -7688,7 +7688,7 @@ export const spells_data =
         school: 'Necromancy',
         effect: '(CASTERLEVEL) creatures, no two of which can be more than 30 ft. apart',
         name: 'Inflict Critical Wounds (Mass)',
-        id: spells_ids.inflict_critical_wounds_mass,
+        id: spells_core_rulebook_ids.inflict_critical_wounds_mass,
         casting_time: '1 standard action',
     },    
     {
@@ -7709,7 +7709,7 @@ export const spells_data =
         school: 'Necromancy',
         effect: 'Creature touched',
         name: 'Inflict Light Wounds',
-        id: spells_ids.inflict_light_wounds,
+        id: spells_core_rulebook_ids.inflict_light_wounds,
         casting_time: '1 standard action',
     },    
     {
@@ -7730,7 +7730,7 @@ export const spells_data =
         school: 'Necromancy',
         effect: '(CASTERLEVEL) creatures, no two of which can be more than 30 ft. apart',
         name: 'Inflict Light Wounds (Mass)',
-        id: spells_ids.inflict_light_wounds_mass,
+        id: spells_core_rulebook_ids.inflict_light_wounds_mass,
         casting_time: '1 standard action',
     },    
     {
@@ -7751,7 +7751,7 @@ export const spells_data =
         school: 'Necromancy',
         effect: 'Creature touched',
         name: 'Inflict Moderate Wounds',
-        id: spells_ids.inflict_moderate_wounds,
+        id: spells_core_rulebook_ids.inflict_moderate_wounds,
         casting_time: '1 standard action',
     },    
     {
@@ -7772,7 +7772,7 @@ export const spells_data =
         school: 'Necromancy',
         effect: '(CASTERLEVEL) creatures, no two of which can be more than 30 ft. apart',
         name: 'Inflict Moderate Wounds (Mass)',
-        id: spells_ids.inflict_moderate_wounds_mass,
+        id: spells_core_rulebook_ids.inflict_moderate_wounds_mass,
         casting_time: '1 standard action',
     },    
     {
@@ -7793,7 +7793,7 @@ export const spells_data =
         school: 'Necromancy',
         effect: 'Creature touched',
         name: 'Inflict Serious Wounds',
-        id: spells_ids.inflict_serious_wounds,
+        id: spells_core_rulebook_ids.inflict_serious_wounds,
         casting_time: '1 standard action',
     },    
     {
@@ -7814,7 +7814,7 @@ export const spells_data =
         school: 'Necromancy',
         effect: '(CASTERLEVEL) creatures, no two of which can be more than 30 ft. apart',
         name: 'Inflict Serious Wounds (Mass)',
-        id: spells_ids.inflict_serious_wounds_mass,
+        id: spells_core_rulebook_ids.inflict_serious_wounds_mass,
         casting_time: '1 standard action',
     },    
     {
@@ -7839,7 +7839,7 @@ export const spells_data =
         school: 'Enchantment',
         effect: 'One living creature',
         name: 'Insanity',
-        id: spells_ids.insanity,
+        id: spells_core_rulebook_ids.insanity,
         casting_time: '1 standard action',
     },    
     {
@@ -7864,7 +7864,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'One swarm of wasps per three levels, each of which must be adjacent to at least one other swarm',
         name: 'Insect Plague',
-        id: spells_ids.insect_plague,
+        id: spells_core_rulebook_ids.insect_plague,
         casting_time: '1 round',
     },    
     {
@@ -7889,7 +7889,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'One object weighing 10 lbs. or less whose longest dimension is 6 ft. or less',
         name: 'Instant Summons',
-        id: spells_ids.instant_summons,
+        id: spells_core_rulebook_ids.instant_summons,
         casting_time: '1 standard action',
     },    
     {
@@ -7914,7 +7914,7 @@ export const spells_data =
         school: 'Evocation',
         effect: '10-ft. hand',
         name: 'Interposing Hand',
-        id: spells_ids.interposing_hand,
+        id: spells_core_rulebook_ids.interposing_hand,
         casting_time: '1 standard action',
     },    
     {
@@ -7943,7 +7943,7 @@ export const spells_data =
         school: 'Illusion',
         effect: 'You or a creature or object weighing no more than (CASTERLEVEL*100) lbs.',
         name: 'Invisibility',
-        id: spells_ids.invisibility,
+        id: spells_core_rulebook_ids.invisibility,
         casting_time: '1 standard action',
     },    
     {
@@ -7972,7 +7972,7 @@ export const spells_data =
         school: 'Illusion',
         effect: 'You or creature touched',
         name: 'Invisibility (Greater)',
-        id: spells_ids.invisibility_greater,
+        id: spells_core_rulebook_ids.invisibility_greater,
         casting_time: '1 standard action',
     },    
     {
@@ -7997,7 +7997,7 @@ export const spells_data =
         school: 'Illusion',
         effect: 'Any number of creatures, no two of which can be more than 180 ft. apart',
         name: 'Invisibility (Mass)',
-        id: spells_ids.invisibility_mass,
+        id: spells_core_rulebook_ids.invisibility_mass,
         casting_time: '1 standard action',
     },    
     {
@@ -8018,7 +8018,7 @@ export const spells_data =
         school: 'Evocation',
         effect: 'You',
         name: 'Invisibility Purge',
-        id: spells_ids.invisibility_purge,
+        id: spells_core_rulebook_ids.invisibility_purge,
         casting_time: '1 standard action',
     },    
     {
@@ -8047,7 +8047,7 @@ export const spells_data =
         school: 'Illusion',
         effect: '10-ft.-radius emanation around the creature',
         name: 'Invisibility Sphere',
-        id: spells_ids.invisibility_sphere,
+        id: spells_core_rulebook_ids.invisibility_sphere,
         casting_time: '1 standard action',
     },    
     {
@@ -8072,7 +8072,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'You',
         name: 'Iron Body',
-        id: spells_ids.iron_body,
+        id: spells_core_rulebook_ids.iron_body,
         casting_time: '1 standard action',
     },    
     {
@@ -8093,7 +8093,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'An ironwood object weighing up to (CASTERLEVEL*5) lbs.',
         name: 'Ironwood',
-        id: spells_ids.ironwood,
+        id: spells_core_rulebook_ids.ironwood,
         casting_time: '1 minute/lb. created',
     },    
     {
@@ -8122,7 +8122,7 @@ export const spells_data =
         school: 'Enchantment',
         effect: 'Living creature touched',
         name: 'Irresistible Dance',
-        id: spells_ids.irresistible_dance,
+        id: spells_core_rulebook_ids.irresistible_dance,
         casting_time: '1 standard action',
     },    
     {
@@ -8155,7 +8155,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'Creature touched',
         name: 'Jump',
-        id: spells_ids.jump,
+        id: spells_core_rulebook_ids.jump,
         casting_time: '1 standard action',
     },    
     {
@@ -8180,7 +8180,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'One weapon or 50 projectiles, all of which must be together at the time of casting',
         name: 'Keen Edge',
-        id: spells_ids.keen_edge,
+        id: spells_core_rulebook_ids.keen_edge,
         casting_time: '1 standard action',
     },    
     {
@@ -8205,7 +8205,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'One door, box, or chest with an area of up to (CASTERLEVEL*10) sq. ft.',
         name: 'Knock',
-        id: spells_ids.knock,
+        id: spells_core_rulebook_ids.knock,
         casting_time: '1 standard action',
     },    
     {
@@ -8230,7 +8230,7 @@ export const spells_data =
         school: 'Divination',
         effect: 'You',
         name: 'Know Direction',
-        id: spells_ids.know_direction,
+        id: spells_core_rulebook_ids.know_direction,
         casting_time: '1 standard action',
     },    
     {
@@ -8259,7 +8259,7 @@ export const spells_data =
         school: 'Divination',
         effect: 'You',
         name: 'Legend Lore',
-        id: spells_ids.legend_lore,
+        id: spells_core_rulebook_ids.legend_lore,
         casting_time: 'see text',
     },    
     {
@@ -8284,7 +8284,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'You or one willing creature or one object [total weight up to (CASTERLEVEL*100) lbs.]',
         name: 'Levitate',
-        id: spells_ids.levitate,
+        id: spells_core_rulebook_ids.levitate,
         casting_time: '1 standard action',
     },    
     {
@@ -8321,7 +8321,7 @@ export const spells_data =
         school: 'Evocation',
         effect: 'Object touched',
         name: 'Light',
-        id: spells_ids.light,
+        id: spells_core_rulebook_ids.light,
         casting_time: '1 standard action',
     },    
     {
@@ -8346,7 +8346,7 @@ export const spells_data =
         school: 'Evocation',
         effect: '120-ft. line',
         name: 'Lightning Bolt',
-        id: spells_ids.lightning_bolt,
+        id: spells_core_rulebook_ids.lightning_bolt,
         casting_time: '1 standard action',
     },    
     {
@@ -8371,7 +8371,7 @@ export const spells_data =
         school: 'Universal',
         effect: 'See text',
         name: 'Limited Wish',
-        id: spells_ids.limited_wish,
+        id: spells_core_rulebook_ids.limited_wish,
         casting_time: '1 standard action',
     },    
     {
@@ -8392,7 +8392,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'Tree touched',
         name: 'Liveoak',
-        id: spells_ids.liveoak,
+        id: spells_core_rulebook_ids.liveoak,
         casting_time: '10 minutes',
     },    
     {
@@ -8421,7 +8421,7 @@ export const spells_data =
         school: 'Divination',
         effect: 'Circle, centered on you, with a radius of ((CASTERLEVEL*40)+400) ft.',
         name: 'Locate Creature',
-        id: spells_ids.locate_creature,
+        id: spells_core_rulebook_ids.locate_creature,
         casting_time: '1 standard action',
     },    
     {
@@ -8454,7 +8454,7 @@ export const spells_data =
         school: 'Divination',
         effect: 'Circle, centered on you, with a radius of ((CASTERLEVEL*40)+400) ft.',
         name: 'Locate Object',
-        id: spells_ids.locate_object,
+        id: spells_core_rulebook_ids.locate_object,
         casting_time: '1 standard action',
     },    
     {
@@ -8479,7 +8479,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'You',
         name: 'Longstrider',
-        id: spells_ids.longstrider,
+        id: spells_core_rulebook_ids.longstrider,
         casting_time: '1 standard action',
     },    
     {
@@ -8500,7 +8500,7 @@ export const spells_data =
         school: 'Enchantment',
         effect: 'Living creatures within a 10-ft.-radius burst',
         name: 'Lullaby',
-        id: spells_ids.lullaby,
+        id: spells_core_rulebook_ids.lullaby,
         casting_time: '1 standard action',
     },    
     {
@@ -8525,7 +8525,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'Creature touched',
         name: 'Mage Armor',
-        id: spells_ids.mage_armor,
+        id: spells_core_rulebook_ids.mage_armor,
         casting_time: '1 standard action',
     },    
     {
@@ -8554,7 +8554,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'One nonmagical, unattended object weighing up to 5 lbs.',
         name: 'Mage Hand',
-        id: spells_ids.mage_hand,
+        id: spells_core_rulebook_ids.mage_hand,
         casting_time: '1 standard action',
     },    
     {
@@ -8579,7 +8579,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: 'All magical effects and magic items within a 40-ft.-radius burst, or one magic item (see text)',
         name: 'Mage\'s Disjunction',
-        id: spells_ids.mages_disjunction,
+        id: spells_core_rulebook_ids.mages_disjunction,
         casting_time: '1 standard action',
     },    
     {
@@ -8604,7 +8604,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'Phantom watchdog',
         name: 'Mage\'s Faithful Hound',
-        id: spells_ids.mages_faithful_hound,
+        id: spells_core_rulebook_ids.mages_faithful_hound,
         casting_time: '1 standard action',
     },    
     {
@@ -8625,7 +8625,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'You',
         name: 'Mage\'s Lucubration',
-        id: spells_ids.mages_lucubration,
+        id: spells_core_rulebook_ids.mages_lucubration,
         casting_time: '1 standard action',
     },    
     {
@@ -8650,7 +8650,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'Extradimensional mansion, up to (CASTERLEVEL*3) 10-ft. cubes [S]',
         name: 'Mage\'s Magnificent Mansion',
-        id: spells_ids.mages_magnificent_mansion,
+        id: spells_core_rulebook_ids.mages_magnificent_mansion,
         casting_time: '1 standard action',
     },    
     {
@@ -8675,7 +8675,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: '(CASTERLEVEL) 30-ft. cubes [S]',
         name: 'Mage\'s Private Sanctum',
-        id: spells_ids.mages_private_sanctum,
+        id: spells_core_rulebook_ids.mages_private_sanctum,
         casting_time: '10 minutes',
     },    
     {
@@ -8700,7 +8700,7 @@ export const spells_data =
         school: 'Evocation',
         effect: 'One sword',
         name: 'Mage\'s Sword',
-        id: spells_ids.mages_sword,
+        id: spells_core_rulebook_ids.mages_sword,
         casting_time: '1 standard action',
     },    
     {
@@ -8729,7 +8729,7 @@ export const spells_data =
         school: 'Illusion',
         effect: 'One touched object weighing up to (CASTERLEVEL*5) lbs.',
         name: 'Magic Aura',
-        id: spells_ids.magic_aura,
+        id: spells_core_rulebook_ids.magic_aura,
         casting_time: '1 standard action',
     },    
     {
@@ -8762,7 +8762,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: '10-ft.-radius emanation from touched creature',
         name: 'Magic Circle against Chaos',
-        id: spells_ids.magic_circle_against_chaos,
+        id: spells_core_rulebook_ids.magic_circle_against_chaos,
         casting_time: '1 standard action',
     },    
     {
@@ -8795,7 +8795,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: '10-ft.-radius emanation from touched creature',
         name: 'Magic Circle against Evil',
-        id: spells_ids.magic_circle_against_evil,
+        id: spells_core_rulebook_ids.magic_circle_against_evil,
         casting_time: '1 standard action',
     },    
     {
@@ -8824,7 +8824,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: '10-ft.-radius emanation from touched creature',
         name: 'Magic Circle against Good',
-        id: spells_ids.magic_circle_against_good,
+        id: spells_core_rulebook_ids.magic_circle_against_good,
         casting_time: '1 standard action',
     },    
     {
@@ -8853,7 +8853,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: '10-ft.-radius emanation from touched creature',
         name: 'Magic Circle against Law',
-        id: spells_ids.magic_circle_against_law,
+        id: spells_core_rulebook_ids.magic_circle_against_law,
         casting_time: '1 standard action',
     },    
     {
@@ -8878,7 +8878,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'Living creature touched',
         name: 'Magic Fang',
-        id: spells_ids.magic_fang,
+        id: spells_core_rulebook_ids.magic_fang,
         casting_time: '1 standard action',
     },    
     {
@@ -8903,7 +8903,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'One living creature',
         name: 'Magic Fang (Greater)',
-        id: spells_ids.magic_fang_greater,
+        id: spells_core_rulebook_ids.magic_fang_greater,
         casting_time: '1 standard action',
     },    
     {
@@ -8928,7 +8928,7 @@ export const spells_data =
         school: 'Necromancy',
         effect: 'One creature',
         name: 'Magic Jar',
-        id: spells_ids.magic_jar,
+        id: spells_core_rulebook_ids.magic_jar,
         casting_time: '1 standard action',
     },    
     {
@@ -8953,7 +8953,7 @@ export const spells_data =
         school: 'Evocation',
         effect: 'Up to five creatures, no two of which can be more than 15 ft. apart',
         name: 'Magic Missile',
-        id: spells_ids.magic_missile,
+        id: spells_core_rulebook_ids.magic_missile,
         casting_time: '1 standard action',
     },    
     {
@@ -8982,7 +8982,7 @@ export const spells_data =
         school: 'Illusion',
         effect: 'One creature or object',
         name: 'Magic Mouth',
-        id: spells_ids.magic_mouth,
+        id: spells_core_rulebook_ids.magic_mouth,
         casting_time: '1 standard action',
     },    
     {
@@ -9007,7 +9007,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'Up to three pebbles touched',
         name: 'Magic Stone',
-        id: spells_ids.magic_stone,
+        id: spells_core_rulebook_ids.magic_stone,
         casting_time: '1 standard action',
     },    
     {
@@ -9028,7 +9028,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'Armor or shield touched',
         name: 'Magic Vestment',
-        id: spells_ids.magic_vestment,
+        id: spells_core_rulebook_ids.magic_vestment,
         casting_time: '1 standard action',
     },    
     {
@@ -9061,7 +9061,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'Weapon touched',
         name: 'Magic Weapon',
-        id: spells_ids.magic_weapon,
+        id: spells_core_rulebook_ids.magic_weapon,
         casting_time: '1 standard action',
     },    
     {
@@ -9094,7 +9094,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'One weapon or 50 projectiles (all of which must be together at the time of casting)',
         name: 'Magic Weapon (Greater)',
-        id: spells_ids.magic_weapon_greater,
+        id: spells_core_rulebook_ids.magic_weapon_greater,
         casting_time: '1 standard action',
     },    
     {
@@ -9119,7 +9119,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'Unattended, nonmagical object of nonliving plant matter, up to (CASTERLEVEL) cu. ft.',
         name: 'Major Creation',
-        id: spells_ids.major_creation,
+        id: spells_core_rulebook_ids.major_creation,
         casting_time: '10 minutes',
     },    
     {
@@ -9148,7 +9148,7 @@ export const spells_data =
         school: 'Illusion',
         effect: 'Visual figment that cannot extend beyond (CASTERLEVEL+4) 10-ft. cubes [S]',
         name: 'Major Image',
-        id: spells_ids.major_image,
+        id: spells_core_rulebook_ids.major_image,
         casting_time: '1 standard action',
     },    
     {
@@ -9177,7 +9177,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'One object of up to (CASTERLEVEL*10) cu. ft. or one construct creature of any size',
         name: 'Make Whole',
-        id: spells_ids.make_whole,
+        id: spells_core_rulebook_ids.make_whole,
         casting_time: '10 minutes',
     },    
     {
@@ -9202,7 +9202,7 @@ export const spells_data =
         school: 'Necromancy',
         effect: 'Creature touched',
         name: 'Mark of Justice',
-        id: spells_ids.mark_of_justice,
+        id: spells_core_rulebook_ids.mark_of_justice,
         casting_time: '10 minutes',
     },    
     {
@@ -9227,7 +9227,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'One creature',
         name: 'Maze',
-        id: spells_ids.maze,
+        id: spells_core_rulebook_ids.maze,
         casting_time: '1 standard action',
     },    
     {
@@ -9252,7 +9252,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'You',
         name: 'Meld into Stone',
-        id: spells_ids.meld_into_stone,
+        id: spells_core_rulebook_ids.meld_into_stone,
         casting_time: '1 standard action',
     },    
     {
@@ -9289,7 +9289,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'One object of up to (CASTERLEVEL) lb.',
         name: 'Mending',
-        id: spells_ids.mending,
+        id: spells_core_rulebook_ids.mending,
         casting_time: '10 minutes',
     },    
     {
@@ -9318,7 +9318,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: '(CASTERLEVEL) creatures',
         name: 'Message',
-        id: spells_ids.message,
+        id: spells_core_rulebook_ids.message,
         casting_time: '1 standard action',
     },    
     {
@@ -9343,7 +9343,7 @@ export const spells_data =
         school: 'Evocation',
         effect: 'Four 40-ft.-radius spreads, see text',
         name: 'Meteor Swarm',
-        id: spells_ids.meteor_swarm,
+        id: spells_core_rulebook_ids.meteor_swarm,
         casting_time: '1 standard action',
     },    
     {
@@ -9368,7 +9368,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: 'One creature',
         name: 'Mind Blank',
-        id: spells_ids.mind_blank,
+        id: spells_core_rulebook_ids.mind_blank,
         casting_time: '1 standard action',
     },    
     {
@@ -9397,7 +9397,7 @@ export const spells_data =
         school: 'Enchantment',
         effect: 'Fog spreads in 20-ft. radius, 20 ft. high',
         name: 'Mind Fog',
-        id: spells_ids.mind_fog,
+        id: spells_core_rulebook_ids.mind_fog,
         casting_time: '1 standard action',
     },    
     {
@@ -9422,7 +9422,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'Unattended, nonmagical object of nonliving plant matter, up to (CASTERLEVEL) cu. ft.',
         name: 'Minor Creation',
-        id: spells_ids.minor_creation,
+        id: spells_core_rulebook_ids.minor_creation,
         casting_time: '1 minute',
     },    
     {
@@ -9451,7 +9451,7 @@ export const spells_data =
         school: 'Illusion',
         effect: 'Visual figment that cannot extend beyond (CASTERLEVEL+4) 10-ft. cubes [S]',
         name: 'Minor Image',
-        id: spells_ids.minor_image,
+        id: spells_core_rulebook_ids.minor_image,
         casting_time: '1 standard action',
     },    
     {
@@ -9472,7 +9472,7 @@ export const spells_data =
         school: 'Evocation',
         effect: 'See text',
         name: 'Miracle',
-        id: spells_ids.miracle,
+        id: spells_core_rulebook_ids.miracle,
         casting_time: '1 standard action',
     },    
     {
@@ -9501,7 +9501,7 @@ export const spells_data =
         school: 'Illusion',
         effect: '(CASTERLEVEL) 20-ft. cubes [S]',
         name: 'Mirage Arcana',
-        id: spells_ids.mirage_arcana,
+        id: spells_core_rulebook_ids.mirage_arcana,
         casting_time: '1 standard action',
     },    
     {
@@ -9530,7 +9530,7 @@ export const spells_data =
         school: 'Illusion',
         effect: 'You',
         name: 'Mirror Image',
-        id: spells_ids.mirror_image,
+        id: spells_core_rulebook_ids.mirror_image,
         casting_time: '1 standard action',
     },    
     {
@@ -9559,7 +9559,7 @@ export const spells_data =
         school: 'Illusion',
         effect: 'One creature or object, up to a 10-ft. cube in size',
         name: 'Misdirection',
-        id: spells_ids.misdirection,
+        id: spells_core_rulebook_ids.misdirection,
         casting_time: '1 standard action',
     },    
     {
@@ -9588,7 +9588,7 @@ export const spells_data =
         school: 'Illusion',
         effect: 'You/one illusory double',
         name: 'Mislead',
-        id: spells_ids.mislead,
+        id: spells_core_rulebook_ids.mislead,
         casting_time: '1 standard action',
     },    
     {
@@ -9609,7 +9609,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'You',
         name: 'Mnemonic Enhancer',
-        id: spells_ids.mnemonic_enhancer,
+        id: spells_core_rulebook_ids.mnemonic_enhancer,
         casting_time: '10 minutes',
     },    
     {
@@ -9630,7 +9630,7 @@ export const spells_data =
         school: 'Enchantment',
         effect: 'One living creature',
         name: 'Modify Memory',
-        id: spells_ids.modify_memory,
+        id: spells_core_rulebook_ids.modify_memory,
         casting_time: '1 round; see text',
     },    
     {
@@ -9655,7 +9655,7 @@ export const spells_data =
         school: 'Divination',
         effect: 'You',
         name: 'Moment of Prescience',
-        id: spells_ids.moment_of_prescience,
+        id: spells_core_rulebook_ids.moment_of_prescience,
         casting_time: '1 standard action',
     },    
     {
@@ -9680,7 +9680,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'One mount',
         name: 'Mount',
-        id: spells_ids.mount,
+        id: spells_core_rulebook_ids.mount,
         casting_time: '1 round',
     },    
     {
@@ -9709,7 +9709,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'Dirt in an area up to 750 ft. square and up to 10 ft. deep (S)',
         name: 'Move Earth',
-        id: spells_ids.move_earth,
+        id: spells_core_rulebook_ids.move_earth,
         casting_time: 'see text',
     },    
     {
@@ -9746,7 +9746,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'Creature or object of up to (CASTERLEVEL) cu. ft. touched',
         name: 'Neutralize Poison',
-        id: spells_ids.neutralize_poison,
+        id: spells_core_rulebook_ids.neutralize_poison,
         casting_time: '1 standard action',
     },    
     {
@@ -9775,7 +9775,7 @@ export const spells_data =
         school: 'Illusion',
         effect: 'One living creature',
         name: 'Nightmare',
-        id: spells_ids.nightmare,
+        id: spells_core_rulebook_ids.nightmare,
         casting_time: '10 minutes',
     },    
     {
@@ -9804,7 +9804,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: 'Creature or object touched',
         name: 'Nondetection',
-        id: spells_ids.nondetection,
+        id: spells_core_rulebook_ids.nondetection,
         casting_time: '1 standard action',
     },    
     {
@@ -9837,7 +9837,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: 'One object touched of up to (CASTERLEVEL*100) lbs.',
         name: 'Obscure Object',
-        id: spells_ids.obscure_object,
+        id: spells_core_rulebook_ids.obscure_object,
         casting_time: '1 standard action',
     },    
     {
@@ -9870,7 +9870,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'Cloud spreads in 20-ft. radius from you, 20 ft. high',
         name: 'Obscuring Mist',
-        id: spells_ids.obscuring_mist,
+        id: spells_core_rulebook_ids.obscuring_mist,
         casting_time: '1 standard action',
     },    
     {
@@ -9899,7 +9899,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'Object weighing up to 30 lbs. or portal that can be opened or closed',
         name: 'Open/Close',
-        id: spells_ids.openclose,
+        id: spells_core_rulebook_ids.openclose,
         casting_time: '1 standard action',
     },    
     {
@@ -9920,7 +9920,7 @@ export const spells_data =
         school: 'Evocation',
         effect: 'Nonlawful creatures within a burst that fills a 30-ft. cube',
         name: 'Order\'s Wrath',
-        id: spells_ids.orders_wrath,
+        id: spells_core_rulebook_ids.orders_wrath,
         casting_time: '1 standard action',
     },    
     {
@@ -9945,7 +9945,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'You',
         name: 'Overland Flight',
-        id: spells_ids.overland_flight,
+        id: spells_core_rulebook_ids.overland_flight,
         casting_time: '1 standard action',
     },    
     {
@@ -9986,7 +9986,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'Creature touched',
         name: 'Owl\'s Wisdom',
-        id: spells_ids.owls_wisdom,
+        id: spells_core_rulebook_ids.owls_wisdom,
         casting_time: '1 standard action',
     },    
     {
@@ -10019,7 +10019,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: '(CASTERLEVEL) creatures, no two of which can be more than 30 ft. apart',
         name: 'Owl\'s Wisdom (Mass)',
-        id: spells_ids.owls_wisdom_mass,
+        id: spells_core_rulebook_ids.owls_wisdom_mass,
         casting_time: '1 standard action',
     },    
     {
@@ -10044,7 +10044,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: '(CASTERLEVEL) creatures touched',
         name: 'Pass without Trace',
-        id: spells_ids.pass_without_trace,
+        id: spells_core_rulebook_ids.pass_without_trace,
         casting_time: '1 standard action',
     },    
     {
@@ -10069,7 +10069,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: '5-ft.-by-8-ft. opening, (10+((CASTERLEVEL/3)*5)) ft. deep',
         name: 'Passwall',
-        id: spells_ids.passwall,
+        id: spells_core_rulebook_ids.passwall,
         casting_time: '1 standard action',
     },    
     {
@@ -10094,7 +10094,7 @@ export const spells_data =
         school: 'Universal',
         effect: 'See text',
         name: 'Permanency',
-        id: spells_ids.permanency,
+        id: spells_core_rulebook_ids.permanency,
         casting_time: '2 rounds',
     },    
     {
@@ -10123,7 +10123,7 @@ export const spells_data =
         school: 'Illusion',
         effect: 'Figment that cannot extend beyond a 20-ft. cube + (CASTERLEVEL) 10-ft. cubes (S)',
         name: 'Permanent Image',
-        id: spells_ids.permanent_image,
+        id: spells_core_rulebook_ids.permanent_image,
         casting_time: '1 standard action',
     },    
     {
@@ -10152,7 +10152,7 @@ export const spells_data =
         school: 'Illusion',
         effect: 'Figment that cannot extend beyond (CASTERLEVEL+4) 10-ft. cubes [S]',
         name: 'Persistent Image',
-        id: spells_ids.persistent_image,
+        id: spells_core_rulebook_ids.persistent_image,
         casting_time: '1 standard action',
     },    
     {
@@ -10177,7 +10177,7 @@ export const spells_data =
         school: 'Illusion',
         effect: 'One living creature',
         name: 'Phantasmal Killer',
-        id: spells_ids.phantasmal_killer,
+        id: spells_core_rulebook_ids.phantasmal_killer,
         casting_time: '1 standard action',
     },    
     {
@@ -10206,7 +10206,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'One quasi-real, horselike creature',
         name: 'Phantom Steed',
-        id: spells_ids.phantom_steed,
+        id: spells_core_rulebook_ids.phantom_steed,
         casting_time: '10 minutes',
     },    
     {
@@ -10231,7 +10231,7 @@ export const spells_data =
         school: 'Illusion',
         effect: 'Object touched',
         name: 'Phantom Trap',
-        id: spells_ids.phantom_trap,
+        id: spells_core_rulebook_ids.phantom_trap,
         casting_time: '1 standard action',
     },    
     {
@@ -10256,7 +10256,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'Ethereal 5-ft.-by-8-ft. opening, (10+(5*(CASTERLEVEL/3))) ft. deep',
         name: 'Phase Door',
-        id: spells_ids.phase_door,
+        id: spells_core_rulebook_ids.phase_door,
         casting_time: '1 standard action',
     },    
     {
@@ -10277,7 +10277,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'One or two called outsiders, totaling no more than 12 HD, which cannot be more than 30 ft. apart when they appear',
         name: 'Planar Ally',
-        id: spells_ids.planar_ally,
+        id: spells_core_rulebook_ids.planar_ally,
         casting_time: '10 minutes',
     },    
     {
@@ -10298,7 +10298,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'Up to three called outsiders, totaling no more than 18 HD, no two of which can be more than 30 ft. apart when they appear.',
         name: 'Planar Ally (Greater)',
-        id: spells_ids.planar_ally_greater,
+        id: spells_core_rulebook_ids.planar_ally_greater,
         casting_time: '10 minutes',
     },    
     {
@@ -10319,7 +10319,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'One called outsider of 6 HD or less',
         name: 'Planar Ally (Lesser)',
-        id: spells_ids.planar_ally_lesser,
+        id: spells_core_rulebook_ids.planar_ally_lesser,
         casting_time: '10 minutes',
     },    
     {
@@ -10344,7 +10344,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'Up to three elementals or outsiders, totaling no more than 12 HD, no two of which can be more than 30 ft. apart when they appear',
         name: 'Planar Binding',
-        id: spells_ids.planar_binding,
+        id: spells_core_rulebook_ids.planar_binding,
         casting_time: '10 minutes',
     },    
     {
@@ -10369,7 +10369,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'Up to three elementals or outsiders, totaling no more than 18 HD, no two of which can be more than 30 ft. apart when they appear.',
         name: 'Planar Binding (Greater)',
-        id: spells_ids.planar_binding_greater,
+        id: spells_core_rulebook_ids.planar_binding_greater,
         casting_time: '10 minutes',
     },    
     {
@@ -10394,7 +10394,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'One elemental or outsider with 6 HD or less',
         name: 'Planar Binding (Lesser)',
-        id: spells_ids.planar_binding_lesser,
+        id: spells_core_rulebook_ids.planar_binding_lesser,
         casting_time: '10 minutes',
     },    
     {
@@ -10423,7 +10423,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'Creature touched, or up to eight willing creatures joining hands',
         name: 'Plane Shift',
-        id: spells_ids.plane_shift,
+        id: spells_core_rulebook_ids.plane_shift,
         casting_time: '1 standard action',
     },    
     {
@@ -10448,7 +10448,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'Or Area see text',
         name: 'Plant Growth',
-        id: spells_ids.plant_growth,
+        id: spells_core_rulebook_ids.plant_growth,
         casting_time: '1 standard action',
     },    
     {
@@ -10473,7 +10473,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'You',
         name: 'Plant Shape I',
-        id: spells_ids.plant_shape_i,
+        id: spells_core_rulebook_ids.plant_shape_i,
         casting_time: '1 standard action',
     },    
     {
@@ -10498,7 +10498,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'You',
         name: 'Plant Shape II',
-        id: spells_ids.plant_shape_ii,
+        id: spells_core_rulebook_ids.plant_shape_ii,
         casting_time: '1 standard action',
     },    
     {
@@ -10523,7 +10523,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'You',
         name: 'Plant Shape III',
-        id: spells_ids.plant_shape_iii,
+        id: spells_core_rulebook_ids.plant_shape_iii,
         casting_time: '1 standard action',
     },    
     {
@@ -10548,7 +10548,7 @@ export const spells_data =
         school: 'Necromancy',
         effect: 'Living creature touched',
         name: 'Poison',
-        id: spells_ids.poison,
+        id: spells_core_rulebook_ids.poison,
         casting_time: '1 standard action',
     },    
     {
@@ -10573,7 +10573,7 @@ export const spells_data =
         school: 'Evocation',
         effect: 'Ray',
         name: 'Polar Ray',
-        id: spells_ids.polar_ray,
+        id: spells_core_rulebook_ids.polar_ray,
         casting_time: '1 standard action',
     },    
     {
@@ -10598,7 +10598,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'Living creature touched',
         name: 'Polymorph',
-        id: spells_ids.polymorph,
+        id: spells_core_rulebook_ids.polymorph,
         casting_time: '1 standard action',
     },    
     {
@@ -10623,7 +10623,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'One creature, or one nonmagical object of up to (CASTERLEVEL*100) cu. ft.',
         name: 'Polymorph (Greater)',
-        id: spells_ids.polymorph_greater,
+        id: spells_core_rulebook_ids.polymorph_greater,
         casting_time: '1 standard action',
     },    
     {
@@ -10648,7 +10648,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'One creature, or one nonmagical object of up to (CASTERLEVEL*100) cu. ft.',
         name: 'Polymorph Any Object',
-        id: spells_ids.polymorph_any_object,
+        id: spells_core_rulebook_ids.polymorph_any_object,
         casting_time: '1 standard action',
     },    
     {
@@ -10673,7 +10673,7 @@ export const spells_data =
         school: 'Enchantment',
         effect: 'One creature with 200 hp or less',
         name: 'Power Word Blind',
-        id: spells_ids.power_word_blind,
+        id: spells_core_rulebook_ids.power_word_blind,
         casting_time: '1 standard action',
     },    
     {
@@ -10698,7 +10698,7 @@ export const spells_data =
         school: 'Enchantment',
         effect: 'One living creature with 100 hp or less',
         name: 'Power Word Kill',
-        id: spells_ids.power_word_kill,
+        id: spells_core_rulebook_ids.power_word_kill,
         casting_time: '1 standard action',
     },    
     {
@@ -10723,7 +10723,7 @@ export const spells_data =
         school: 'Enchantment',
         effect: 'One creature with 150 hp or less',
         name: 'Power Word Stun',
-        id: spells_ids.power_word_stun,
+        id: spells_core_rulebook_ids.power_word_stun,
         casting_time: '1 standard action',
     },    
     {
@@ -10748,7 +10748,7 @@ export const spells_data =
         school: 'Enchantment',
         effect: 'All allies and foes within a 40-ft.-radius burst centered on you',
         name: 'Prayer',
-        id: spells_ids.prayer,
+        id: spells_core_rulebook_ids.prayer,
         casting_time: '1 standard action',
     },    
     {
@@ -10777,7 +10777,7 @@ export const spells_data =
         school: 'Universal',
         effect: 'See text',
         name: 'Prestidigitation',
-        id: spells_ids.prestidigitation,
+        id: spells_core_rulebook_ids.prestidigitation,
         casting_time: '1 standard action',
     },    
     {
@@ -10802,7 +10802,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: '10-ft.-radius sphere centered on you',
         name: 'Prismatic Sphere',
-        id: spells_ids.prismatic_sphere,
+        id: spells_core_rulebook_ids.prismatic_sphere,
         casting_time: '1 standard action',
     },    
     {
@@ -10827,7 +10827,7 @@ export const spells_data =
         school: 'Evocation',
         effect: 'Cone-shaped burst',
         name: 'Prismatic Spray',
-        id: spells_ids.prismatic_spray,
+        id: spells_core_rulebook_ids.prismatic_spray,
         casting_time: '1 standard action',
     },    
     {
@@ -10852,7 +10852,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: 'Wall (CASTERLEVEL*4) ft. wide, (CASTERLEVEL*2) ft. high',
         name: 'Prismatic Wall',
-        id: spells_ids.prismatic_wall,
+        id: spells_core_rulebook_ids.prismatic_wall,
         casting_time: '1 standard action',
     },    
     {
@@ -10873,7 +10873,7 @@ export const spells_data =
         school: 'Evocation',
         effect: 'Flame in your palm',
         name: 'Produce Flame',
-        id: spells_ids.produce_flame,
+        id: spells_core_rulebook_ids.produce_flame,
         casting_time: '1 standard action',
     },    
     {
@@ -10902,7 +10902,7 @@ export const spells_data =
         school: 'Illusion',
         effect: 'Visual figment that cannot extend beyond a 20-ft. cube + (CASTERLEVEL) 10-ft. cubes (S)',
         name: 'Programmed Image',
-        id: spells_ids.programmed_image,
+        id: spells_core_rulebook_ids.programmed_image,
         casting_time: '1 standard action',
     },    
     {
@@ -10931,7 +10931,7 @@ export const spells_data =
         school: 'Illusion',
         effect: 'One shadow duplicate',
         name: 'Project Image',
-        id: spells_ids.project_image,
+        id: spells_core_rulebook_ids.project_image,
         casting_time: '1 standard action',
     },    
     {
@@ -10956,7 +10956,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: 'Creature touched',
         name: 'Protection from Arrows',
-        id: spells_ids.protection_from_arrows,
+        id: spells_core_rulebook_ids.protection_from_arrows,
         casting_time: '1 standard action',
     },    
     {
@@ -10989,7 +10989,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: 'Creature touched',
         name: 'Protection from Chaos',
-        id: spells_ids.protection_from_chaos,
+        id: spells_core_rulebook_ids.protection_from_chaos,
         casting_time: '1 standard action',
     },    
     {
@@ -11026,7 +11026,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: 'Creature touched',
         name: 'Protection from Energy',
-        id: spells_ids.protection_from_energy,
+        id: spells_core_rulebook_ids.protection_from_energy,
         casting_time: '1 standard action',
     },    
     {
@@ -11059,7 +11059,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: 'Creature touched',
         name: 'Protection from Evil',
-        id: spells_ids.protection_from_evil,
+        id: spells_core_rulebook_ids.protection_from_evil,
         casting_time: '1 standard action',
     },    
     {
@@ -11088,7 +11088,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: 'Creature touched',
         name: 'Protection from Good',
-        id: spells_ids.protection_from_good,
+        id: spells_core_rulebook_ids.protection_from_good,
         casting_time: '1 standard action',
     },    
     {
@@ -11117,7 +11117,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: 'Creature touched',
         name: 'Protection from Law',
-        id: spells_ids.protection_from_law,
+        id: spells_core_rulebook_ids.protection_from_law,
         casting_time: '1 standard action',
     },    
     {
@@ -11142,7 +11142,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: 'Up to one creature touched per four levels',
         name: 'Protection from Spells',
-        id: spells_ids.protection_from_spells,
+        id: spells_core_rulebook_ids.protection_from_spells,
         casting_time: '1 standard action',
     },    
     {
@@ -11167,7 +11167,7 @@ export const spells_data =
         school: 'Divination',
         effect: '10 or more levitating eyes',
         name: 'Prying Eyes',
-        id: spells_ids.prying_eyes,
+        id: spells_core_rulebook_ids.prying_eyes,
         casting_time: '1 minute',
     },    
     {
@@ -11192,7 +11192,7 @@ export const spells_data =
         school: 'Divination',
         effect: '10 or more levitating eyes',
         name: 'Prying Eyes (Greater)',
-        id: spells_ids.prying_eyes_greater,
+        id: spells_core_rulebook_ids.prying_eyes_greater,
         casting_time: '1 minute',
     },    
     {
@@ -11217,7 +11217,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: '(CASTERLEVEL) cu. ft. of contaminated food and water',
         name: 'Purify Food and Drink',
-        id: spells_ids.purify_food_and_drink,
+        id: spells_core_rulebook_ids.purify_food_and_drink,
         casting_time: '1 standard action',
     },    
     {
@@ -11246,7 +11246,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'One fire source, up to a 20-ft. cube',
         name: 'Pyrotechnics',
-        id: spells_ids.pyrotechnics,
+        id: spells_core_rulebook_ids.pyrotechnics,
         casting_time: '1 standard action',
     },    
     {
@@ -11267,7 +11267,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: '(CASTERLEVEL) 20-ft. cubes [S] or one fire-based magic item',
         name: 'Quench',
-        id: spells_ids.quench,
+        id: spells_core_rulebook_ids.quench,
         casting_time: '1 standard action',
     },    
     {
@@ -11296,7 +11296,7 @@ export const spells_data =
         school: 'Enchantment',
         effect: '(CASTERLEVEL/3) willing living creatures, no two of which may be more than 30 ft. apart',
         name: 'Rage',
-        id: spells_ids.rage,
+        id: spells_core_rulebook_ids.rage,
         casting_time: '1 standard action',
     },    
     {
@@ -11325,7 +11325,7 @@ export const spells_data =
         school: 'Illusion',
         effect: 'Colorful lights with a 20-ft.-radius spread',
         name: 'Rainbow Pattern',
-        id: spells_ids.rainbow_pattern,
+        id: spells_core_rulebook_ids.rainbow_pattern,
         casting_time: '1 standard action',
     },    
     {
@@ -11346,7 +11346,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'Dead creature touched',
         name: 'Raise Dead',
-        id: spells_ids.raise_dead,
+        id: spells_core_rulebook_ids.raise_dead,
         casting_time: '1 minute',
     },    
     {
@@ -11371,7 +11371,7 @@ export const spells_data =
         school: 'Necromancy',
         effect: 'Ray',
         name: 'Ray of Enfeeblement',
-        id: spells_ids.ray_of_enfeeblement,
+        id: spells_core_rulebook_ids.ray_of_enfeeblement,
         casting_time: '1 standard action',
     },    
     {
@@ -11396,7 +11396,7 @@ export const spells_data =
         school: 'Necromancy',
         effect: 'Ray',
         name: 'Ray of Exhaustion',
-        id: spells_ids.ray_of_exhaustion,
+        id: spells_core_rulebook_ids.ray_of_exhaustion,
         casting_time: '1 standard action',
     },    
     {
@@ -11421,7 +11421,7 @@ export const spells_data =
         school: 'Evocation',
         effect: 'Ray',
         name: 'Ray of Frost',
-        id: spells_ids.ray_of_frost,
+        id: spells_core_rulebook_ids.ray_of_frost,
         casting_time: '1 standard action',
     },    
     {
@@ -11466,7 +11466,7 @@ export const spells_data =
         school: 'Divination',
         effect: 'You',
         name: 'Read Magic',
-        id: spells_ids.read_magic,
+        id: spells_core_rulebook_ids.read_magic,
         casting_time: '1 standard action',
     },    
     {
@@ -11491,7 +11491,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'One willing animal of Small, Medium, Large, or Huge size',
         name: 'Reduce Animal',
-        id: spells_ids.reduce_animal,
+        id: spells_core_rulebook_ids.reduce_animal,
         casting_time: '1 standard action',
     },    
     {
@@ -11516,7 +11516,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'One humanoid creature',
         name: 'Reduce Person',
-        id: spells_ids.reduce_person,
+        id: spells_core_rulebook_ids.reduce_person,
         casting_time: '1 round',
     },    
     {
@@ -11541,7 +11541,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: '(CASTERLEVEL) humanoid creatures, no two of which can be more than 30 ft. apart',
         name: 'Reduce Person (Mass)',
-        id: spells_ids.reduce_person_mass,
+        id: spells_core_rulebook_ids.reduce_person_mass,
         casting_time: '1 round',
     },    
     {
@@ -11570,7 +11570,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'Object touched',
         name: 'Refuge',
-        id: spells_ids.refuge,
+        id: spells_core_rulebook_ids.refuge,
         casting_time: '1 standard action',
     },    
     {
@@ -11595,7 +11595,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'Living creature touched',
         name: 'Regenerate',
-        id: spells_ids.regenerate,
+        id: spells_core_rulebook_ids.regenerate,
         casting_time: '3 full rounds',
     },    
     {
@@ -11616,7 +11616,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'Dead creature touched',
         name: 'Reincarnate',
-        id: spells_ids.reincarnate,
+        id: spells_core_rulebook_ids.reincarnate,
         casting_time: '10 minutes',
     },    
     {
@@ -11641,7 +11641,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'Creature touched',
         name: 'Remove Blindness/Deafness',
-        id: spells_ids.remove_blindnessdeafness,
+        id: spells_core_rulebook_ids.remove_blindnessdeafness,
         casting_time: '1 standard action',
     },    
     {
@@ -11678,7 +11678,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: 'Creature or object touched',
         name: 'Remove Curse',
-        id: spells_ids.remove_curse,
+        id: spells_core_rulebook_ids.remove_curse,
         casting_time: '1 standard action',
     },    
     {
@@ -11707,7 +11707,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'Creature touched',
         name: 'Remove Disease',
-        id: spells_ids.remove_disease,
+        id: spells_core_rulebook_ids.remove_disease,
         casting_time: '1 standard action',
     },    
     {
@@ -11732,7 +11732,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: '(1+(CASTERLEVEL/4)) creatures, no two of which can be more than 30 ft. apart',
         name: 'Remove Fear',
-        id: spells_ids.remove_fear,
+        id: spells_core_rulebook_ids.remove_fear,
         casting_time: '1 standard action',
     },    
     {
@@ -11757,7 +11757,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'Up to four creatures, no two of which can be more than 30 ft. apart',
         name: 'Remove Paralysis',
-        id: spells_ids.remove_paralysis,
+        id: spells_core_rulebook_ids.remove_paralysis,
         casting_time: '1 standard action',
     },    
     {
@@ -11778,7 +11778,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: '60-ft. line from you',
         name: 'Repel Metal or Stone',
-        id: spells_ids.repel_metal_or_stone,
+        id: spells_core_rulebook_ids.repel_metal_or_stone,
         casting_time: '1 standard action',
     },    
     {
@@ -11811,7 +11811,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: '10-ft.-radius emanation centered on you',
         name: 'Repel Vermin',
-        id: spells_ids.repel_vermin,
+        id: spells_core_rulebook_ids.repel_vermin,
         casting_time: '1 standard action',
     },    
     {
@@ -11832,7 +11832,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: '60-ft. line-shaped emanation from you',
         name: 'Repel Wood',
-        id: spells_ids.repel_wood,
+        id: spells_core_rulebook_ids.repel_wood,
         casting_time: '1 standard action',
     },    
     {
@@ -11861,7 +11861,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: 'Up to (CASTERLEVEL*10)-ft.-radius emanation centered on you',
         name: 'Repulsion',
-        id: spells_ids.repulsion,
+        id: spells_core_rulebook_ids.repulsion,
         casting_time: '1 standard action',
     },    
     {
@@ -11886,7 +11886,7 @@ export const spells_data =
         school: 'Evocation',
         effect: '(CASTERLEVEL)-ft.-diameter sphere, centered around a creature',
         name: 'Resilient Sphere',
-        id: spells_ids.resilient_sphere,
+        id: spells_core_rulebook_ids.resilient_sphere,
         casting_time: '1 standard action',
     },    
     {
@@ -11927,7 +11927,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: 'Creature touched',
         name: 'Resist Energy',
-        id: spells_ids.resist_energy,
+        id: spells_core_rulebook_ids.resist_energy,
         casting_time: '1 standard action',
     },    
     {
@@ -11968,7 +11968,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: 'Creature touched',
         name: 'Resistance',
-        id: spells_ids.resistance,
+        id: spells_core_rulebook_ids.resistance,
         casting_time: '1 standard action',
     },    
     {
@@ -11993,7 +11993,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'Creature touched',
         name: 'Restoration',
-        id: spells_ids.restoration,
+        id: spells_core_rulebook_ids.restoration,
         casting_time: '3 rounds',
     },    
     {
@@ -12014,7 +12014,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'Creature touched',
         name: 'Restoration (Greater)',
-        id: spells_ids.restoration_greater,
+        id: spells_core_rulebook_ids.restoration_greater,
         casting_time: '3 rounds',
     },    
     {
@@ -12043,7 +12043,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'Creature touched',
         name: 'Restoration (Lesser)',
-        id: spells_ids.restoration_lesser,
+        id: spells_core_rulebook_ids.restoration_lesser,
         casting_time: '3 rounds',
     },    
     {
@@ -12064,7 +12064,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'Dead creature touched',
         name: 'Resurrection',
-        id: spells_ids.resurrection,
+        id: spells_core_rulebook_ids.resurrection,
         casting_time: '1 minute',
     },    
     {
@@ -12093,7 +12093,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'Up to (CASTERLEVEL) 10-ft. cubes [S]',
         name: 'Reverse Gravity',
-        id: spells_ids.reverse_gravity,
+        id: spells_core_rulebook_ids.reverse_gravity,
         casting_time: '1 standard action',
     },    
     {
@@ -12114,7 +12114,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'You',
         name: 'Righteous Might',
-        id: spells_ids.righteous_might,
+        id: spells_core_rulebook_ids.righteous_might,
         casting_time: '1 standard action',
     },    
     {
@@ -12139,7 +12139,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'One touched piece of rope from 5 ft. to 30 ft. long',
         name: 'Rope Trick',
-        id: spells_ids.rope_trick,
+        id: spells_core_rulebook_ids.rope_trick,
         casting_time: '1 standard action',
     },    
     {
@@ -12160,7 +12160,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'One nonmagical ferrous object or one ferrous creature',
         name: 'Rusting Grasp',
-        id: spells_ids.rusting_grasp,
+        id: spells_core_rulebook_ids.rusting_grasp,
         casting_time: '1 standard action',
     },    
     {
@@ -12181,7 +12181,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: 'Creature touched',
         name: 'Sanctuary',
-        id: spells_ids.sanctuary,
+        id: spells_core_rulebook_ids.sanctuary,
         casting_time: '1 standard action',
     },    
     {
@@ -12210,7 +12210,7 @@ export const spells_data =
         school: 'Necromancy',
         effect: '(CASTERLEVEL/3) living creatures, no two of which can be more than 30 ft. apart',
         name: 'Scare',
-        id: spells_ids.scare,
+        id: spells_core_rulebook_ids.scare,
         casting_time: '1 standard action',
     },    
     {
@@ -12235,7 +12235,7 @@ export const spells_data =
         school: 'Illusion',
         effect: 'Colorful lights in a 20-ft.-radius spread',
         name: 'Scintillating Pattern',
-        id: spells_ids.scintillating_pattern,
+        id: spells_core_rulebook_ids.scintillating_pattern,
         casting_time: '1 standard action',
     },    
     {
@@ -12260,7 +12260,7 @@ export const spells_data =
         school: 'Evocation',
         effect: 'One or more rays',
         name: 'Scorching Ray',
-        id: spells_ids.scorching_ray,
+        id: spells_core_rulebook_ids.scorching_ray,
         casting_time: '1 standard action',
     },    
     {
@@ -12285,7 +12285,7 @@ export const spells_data =
         school: 'Illusion',
         effect: '(CASTERLEVEL) 30-ft. cubes [S]',
         name: 'Screen',
-        id: spells_ids.screen,
+        id: spells_core_rulebook_ids.screen,
         casting_time: '10 minutes',
     },    
     {
@@ -12322,7 +12322,7 @@ export const spells_data =
         school: 'Divination',
         effect: 'Magical sensor',
         name: 'Scrying',
-        id: spells_ids.scrying,
+        id: spells_core_rulebook_ids.scrying,
         casting_time: '1 hour',
     },    
     {
@@ -12359,7 +12359,7 @@ export const spells_data =
         school: 'Divination',
         effect: 'Magical sensor',
         name: 'Scrying (Greater)',
-        id: spells_ids.scrying_greater,
+        id: spells_core_rulebook_ids.scrying_greater,
         casting_time: '1 standard action',
     },    
     {
@@ -12380,7 +12380,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: '(CASTERLEVEL) creature or objects, no two of which can be more than 30 ft. apart',
         name: 'Sculpt Sound',
-        id: spells_ids.sculpt_sound,
+        id: spells_core_rulebook_ids.sculpt_sound,
         casting_time: '1 standard action',
     },    
     {
@@ -12401,7 +12401,7 @@ export const spells_data =
         school: 'Evocation',
         effect: 'Ray',
         name: 'Searing Light',
-        id: spells_ids.searing_light,
+        id: spells_core_rulebook_ids.searing_light,
         casting_time: '1 standard action',
     },    
     {
@@ -12426,7 +12426,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'One chest and up to (CASTERLEVEL) cu. ft. of goods',
         name: 'Secret Chest',
-        id: spells_ids.secret_chest,
+        id: spells_core_rulebook_ids.secret_chest,
         casting_time: '10 minutes',
     },    
     {
@@ -12455,7 +12455,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'Page touched, up to 3 sq. ft. in size',
         name: 'Secret Page',
-        id: spells_ids.secret_page,
+        id: spells_core_rulebook_ids.secret_page,
         casting_time: '10 minutes',
     },    
     {
@@ -12484,7 +12484,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: '20-ft.-square structure',
         name: 'Secure Shelter',
-        id: spells_ids.secure_shelter,
+        id: spells_core_rulebook_ids.secure_shelter,
         casting_time: '10 minutes',
     },    
     {
@@ -12513,7 +12513,7 @@ export const spells_data =
         school: 'Divination',
         effect: 'You',
         name: 'See Invisibility',
-        id: spells_ids.see_invisibility,
+        id: spells_core_rulebook_ids.see_invisibility,
         casting_time: '1 standard action',
     },    
     {
@@ -12542,7 +12542,7 @@ export const spells_data =
         school: 'Illusion',
         effect: '(CASTERLEVEL/2) creatures, no two of which can be more than 30 ft. apart',
         name: 'Seeming',
-        id: spells_ids.seeming,
+        id: spells_core_rulebook_ids.seeming,
         casting_time: '1 standard action',
     },    
     {
@@ -12571,7 +12571,7 @@ export const spells_data =
         school: 'Evocation',
         effect: 'One creature',
         name: 'Sending',
-        id: spells_ids.sending,
+        id: spells_core_rulebook_ids.sending,
         casting_time: '10 minutes',
     },    
     {
@@ -12600,7 +12600,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'One touched book or written work',
         name: 'Sepia Snake Sigil',
-        id: spells_ids.sepia_snake_sigil,
+        id: spells_core_rulebook_ids.sepia_snake_sigil,
         casting_time: '10 minutes',
     },    
     {
@@ -12625,7 +12625,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: 'One willing creature or object [up to a (CASTERLEVEL) 2-ft. cubes] touched',
         name: 'Sequester',
-        id: spells_ids.sequester,
+        id: spells_core_rulebook_ids.sequester,
         casting_time: '1 standard action',
     },    
     {
@@ -12650,7 +12650,7 @@ export const spells_data =
         school: 'Illusion',
         effect: 'See text',
         name: 'Shades',
-        id: spells_ids.shades,
+        id: spells_core_rulebook_ids.shades,
         casting_time: '1 standard action',
     },    
     {
@@ -12679,7 +12679,7 @@ export const spells_data =
         school: 'Illusion',
         effect: 'See text',
         name: 'Shadow Conjuration',
-        id: spells_ids.shadow_conjuration,
+        id: spells_core_rulebook_ids.shadow_conjuration,
         casting_time: '1 standard action',
     },    
     {
@@ -12704,7 +12704,7 @@ export const spells_data =
         school: 'Illusion',
         effect: 'See text',
         name: 'Shadow Conjuration (Greater)',
-        id: spells_ids.shadow_conjuration_greater,
+        id: spells_core_rulebook_ids.shadow_conjuration_greater,
         casting_time: '1 standard action',
     },    
     {
@@ -12733,7 +12733,7 @@ export const spells_data =
         school: 'Illusion',
         effect: 'See text',
         name: 'Shadow Evocation',
-        id: spells_ids.shadow_evocation,
+        id: spells_core_rulebook_ids.shadow_evocation,
         casting_time: '1 standard action',
     },    
     {
@@ -12758,7 +12758,7 @@ export const spells_data =
         school: 'Illusion',
         effect: 'See text',
         name: 'Shadow Evocation (Greater)',
-        id: spells_ids.shadow_evocation_greater,
+        id: spells_core_rulebook_ids.shadow_evocation_greater,
         casting_time: '1 standard action',
     },    
     {
@@ -12787,7 +12787,7 @@ export const spells_data =
         school: 'Illusion',
         effect: 'Up to (CASTERLEVEL) touched creatures',
         name: 'Shadow Walk',
-        id: spells_ids.shadow_walk,
+        id: spells_core_rulebook_ids.shadow_walk,
         casting_time: '1 standard action',
     },    
     {
@@ -12808,7 +12808,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'Three or more shambling mounds, no two of which can be more than 30 ft. apart; see text',
         name: 'Shambler',
-        id: spells_ids.shambler,
+        id: spells_core_rulebook_ids.shambler,
         casting_time: '1 standard action',
     },    
     {
@@ -12837,7 +12837,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'You',
         name: 'Shapechange',
-        id: spells_ids.shapechange,
+        id: spells_core_rulebook_ids.shapechange,
         casting_time: '1 standard action',
     },    
     {
@@ -12870,7 +12870,7 @@ export const spells_data =
         school: 'Evocation',
         effect: 'Or Target 5-ft.-radius spread; or one solid object or one crystalline creature',
         name: 'Shatter',
-        id: spells_ids.shatter,
+        id: spells_core_rulebook_ids.shatter,
         casting_time: '1 standard action',
     },    
     {
@@ -12895,7 +12895,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: 'You',
         name: 'Shield',
-        id: spells_ids.shield,
+        id: spells_core_rulebook_ids.shield,
         casting_time: '1 standard action',
     },    
     {
@@ -12920,7 +12920,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: 'One creature',
         name: 'Shield Other',
-        id: spells_ids.shield_other,
+        id: spells_core_rulebook_ids.shield_other,
         casting_time: '1 standard action',
     },    
     {
@@ -12941,7 +12941,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: 'Creature touched',
         name: 'Shield of Faith',
-        id: spells_ids.shield_of_faith,
+        id: spells_core_rulebook_ids.shield_of_faith,
         casting_time: '1 standard action',
     },    
     {
@@ -12962,7 +12962,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: '(CASTERLEVEL) creatures in a 20-ft.-radius burst centered on you',
         name: 'Shield of Law',
-        id: spells_ids.shield_of_law,
+        id: spells_core_rulebook_ids.shield_of_law,
         casting_time: '1 standard action',
     },    
     {
@@ -12983,7 +12983,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'One touched nonmagical oak club or quarterstaff',
         name: 'Shillelagh',
-        id: spells_ids.shillelagh,
+        id: spells_core_rulebook_ids.shillelagh,
         casting_time: '1 standard action',
     },    
     {
@@ -13008,7 +13008,7 @@ export const spells_data =
         school: 'Evocation',
         effect: 'Creature or object touched',
         name: 'Shocking Grasp',
-        id: spells_ids.shocking_grasp,
+        id: spells_core_rulebook_ids.shocking_grasp,
         casting_time: '1 standard action',
     },    
     {
@@ -13037,7 +13037,7 @@ export const spells_data =
         school: 'Evocation',
         effect: 'Cone-shaped burst',
         name: 'Shout',
-        id: spells_ids.shout,
+        id: spells_core_rulebook_ids.shout,
         casting_time: '1 standard action',
     },    
     {
@@ -13066,7 +13066,7 @@ export const spells_data =
         school: 'Evocation',
         effect: 'Cone-shaped burst',
         name: 'Shout (Greater)',
-        id: spells_ids.shout_greater,
+        id: spells_core_rulebook_ids.shout_greater,
         casting_time: '1 standard action',
     },    
     {
@@ -13091,7 +13091,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'One touched object of up to (CASTERLEVEL*2) cu. ft.',
         name: 'Shrink Item',
-        id: spells_ids.shrink_item,
+        id: spells_core_rulebook_ids.shrink_item,
         casting_time: '1 standard action',
     },    
     {
@@ -13116,7 +13116,7 @@ export const spells_data =
         school: 'Illusion',
         effect: '20-ft.-radius emanation centered on a creature, object, or point in space',
         name: 'Silence',
-        id: spells_ids.silence,
+        id: spells_core_rulebook_ids.silence,
         casting_time: '1 round',
     },    
     {
@@ -13145,7 +13145,7 @@ export const spells_data =
         school: 'Illusion',
         effect: 'Visual figment that cannot extend beyond (CASTERLEVEL+4) 10-ft. cubes [S]',
         name: 'Silent Image',
-        id: spells_ids.silent_image,
+        id: spells_core_rulebook_ids.silent_image,
         casting_time: '1 standard action',
     },    
     {
@@ -13170,7 +13170,7 @@ export const spells_data =
         school: 'Illusion',
         effect: 'One duplicate creature',
         name: 'Simulacrum',
-        id: spells_ids.simulacrum,
+        id: spells_core_rulebook_ids.simulacrum,
         casting_time: '12 hours',
     },    
     {
@@ -13191,7 +13191,7 @@ export const spells_data =
         school: 'Necromancy',
         effect: 'Living creature touched',
         name: 'Slay Living',
-        id: spells_ids.slay_living,
+        id: spells_core_rulebook_ids.slay_living,
         casting_time: '1 standard action',
     },    
     {
@@ -13220,7 +13220,7 @@ export const spells_data =
         school: 'Enchantment',
         effect: 'One or more living creatures within a 10-ft.-radius burst',
         name: 'Sleep',
-        id: spells_ids.sleep,
+        id: spells_core_rulebook_ids.sleep,
         casting_time: '1 round',
     },    
     {
@@ -13249,7 +13249,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'Cylinder (40-ft. radius, 20 ft. high)',
         name: 'Sleet Storm',
-        id: spells_ids.sleet_storm,
+        id: spells_core_rulebook_ids.sleet_storm,
         casting_time: '1 standard action',
     },    
     {
@@ -13278,7 +13278,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: '(CASTERLEVEL) creatures, no two of which can be more than 30 ft. apart',
         name: 'Slow',
-        id: spells_ids.slow,
+        id: spells_core_rulebook_ids.slow,
         casting_time: '1 standard action',
     },    
     {
@@ -13303,7 +13303,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'Touched nonmagical circle of vine, rope, or thong with a (2+(CASTERLEVEL*2))ft. diameter',
         name: 'Snare',
-        id: spells_ids.snare,
+        id: spells_core_rulebook_ids.snare,
         casting_time: '3 rounds',
     },    
     {
@@ -13324,7 +13324,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: '(CASTERLEVEL) 10-ft. squares; see text',
         name: 'Soften Earth and Stone',
-        id: spells_ids.soften_earth_and_stone,
+        id: spells_core_rulebook_ids.soften_earth_and_stone,
         casting_time: '1 standard action',
     },    
     {
@@ -13349,7 +13349,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'Fog spreads in 20-ft. radius, 20 ft. high',
         name: 'Solid Fog',
-        id: spells_ids.solid_fog,
+        id: spells_core_rulebook_ids.solid_fog,
         casting_time: '1 standard action',
     },    
     {
@@ -13370,7 +13370,7 @@ export const spells_data =
         school: 'Enchantment',
         effect: 'Creatures within a 20-ft.-radius spread',
         name: 'Song of Discord',
-        id: spells_ids.song_of_discord,
+        id: spells_core_rulebook_ids.song_of_discord,
         casting_time: '1 standard action',
     },    
     {
@@ -13399,7 +13399,7 @@ export const spells_data =
         school: 'Necromancy',
         effect: 'Corpse',
         name: 'Soul Bind',
-        id: spells_ids.soul_bind,
+        id: spells_core_rulebook_ids.soul_bind,
         casting_time: '1 standard action',
     },    
     {
@@ -13424,7 +13424,7 @@ export const spells_data =
         school: 'Evocation',
         effect: '10-ft.-radius spread',
         name: 'Sound Burst',
-        id: spells_ids.sound_burst,
+        id: spells_core_rulebook_ids.sound_burst,
         casting_time: '1 standard action',
     },    
     {
@@ -13453,7 +13453,7 @@ export const spells_data =
         school: 'Divination',
         effect: 'You',
         name: 'Speak with Animals',
-        id: spells_ids.speak_with_animals,
+        id: spells_core_rulebook_ids.speak_with_animals,
         casting_time: '1 standard action',
     },    
     {
@@ -13474,7 +13474,7 @@ export const spells_data =
         school: 'Necromancy',
         effect: 'One dead creature',
         name: 'Speak with Dead',
-        id: spells_ids.speak_with_dead,
+        id: spells_core_rulebook_ids.speak_with_dead,
         casting_time: '10 minutes',
     },    
     {
@@ -13503,7 +13503,7 @@ export const spells_data =
         school: 'Divination',
         effect: 'You',
         name: 'Speak with Plants',
-        id: spells_ids.speak_with_plants,
+        id: spells_core_rulebook_ids.speak_with_plants,
         casting_time: '1 standard action',
     },    
     {
@@ -13528,7 +13528,7 @@ export const spells_data =
         school: 'Necromancy',
         effect: 'One spectral hand',
         name: 'Spectral Hand',
-        id: spells_ids.spectral_hand,
+        id: spells_core_rulebook_ids.spectral_hand,
         casting_time: '1 standard action',
     },    
     {
@@ -13549,7 +13549,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: 'Creature touched',
         name: 'Spell Immunity',
-        id: spells_ids.spell_immunity,
+        id: spells_core_rulebook_ids.spell_immunity,
         casting_time: '1 standard action',
     },    
     {
@@ -13570,7 +13570,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: 'Creature touched',
         name: 'Spell Immunity (Greater)',
-        id: spells_ids.spell_immunity_greater,
+        id: spells_core_rulebook_ids.spell_immunity_greater,
         casting_time: '1 standard action',
     },    
     {
@@ -13591,7 +13591,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: 'Creature touched',
         name: 'Spell Resistance',
-        id: spells_ids.spell_resistance,
+        id: spells_core_rulebook_ids.spell_resistance,
         casting_time: '1 standard action',
     },    
     {
@@ -13616,7 +13616,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: 'You',
         name: 'Spell Turning',
-        id: spells_ids.spell_turning,
+        id: spells_core_rulebook_ids.spell_turning,
         casting_time: '1 standard action',
     },    
     {
@@ -13637,7 +13637,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'Wooden quarterstaff touched',
         name: 'Spellstaff',
-        id: spells_ids.spellstaff,
+        id: spells_core_rulebook_ids.spellstaff,
         casting_time: '10 minutes',
     },    
     {
@@ -13666,7 +13666,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'Creature touched',
         name: 'Spider Climb',
-        id: spells_ids.spider_climb,
+        id: spells_core_rulebook_ids.spider_climb,
         casting_time: '1 standard action',
     },    
     {
@@ -13691,7 +13691,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: '(CASTERLEVEL) 20-ft. squares',
         name: 'Spike Growth',
-        id: spells_ids.spike_growth,
+        id: spells_core_rulebook_ids.spike_growth,
         casting_time: '1 standard action',
     },    
     {
@@ -13712,7 +13712,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: '(CASTERLEVEL) 20-ft. squares',
         name: 'Spike Stones',
-        id: spells_ids.spike_stones,
+        id: spells_core_rulebook_ids.spike_stones,
         casting_time: '1 standard action',
     },    
     {
@@ -13733,7 +13733,7 @@ export const spells_data =
         school: 'Evocation',
         effect: 'Magic weapon of force',
         name: 'Spiritual Weapon',
-        id: spells_ids.spiritual_weapon,
+        id: spells_core_rulebook_ids.spiritual_weapon,
         casting_time: '1 standard action',
     },    
     {
@@ -13758,7 +13758,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'One living creature',
         name: 'Stabilize',
-        id: spells_ids.stabilize,
+        id: spells_core_rulebook_ids.stabilize,
         casting_time: '1 standard action',
     },    
     {
@@ -13783,7 +13783,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'Creature touched',
         name: 'Statue',
-        id: spells_ids.statue,
+        id: spells_core_rulebook_ids.statue,
         casting_time: '1 round',
     },    
     {
@@ -13804,7 +13804,7 @@ export const spells_data =
         school: 'Divination',
         effect: '(CASTERLEVEL/3) living creatures',
         name: 'Status',
-        id: spells_ids.status,
+        id: spells_core_rulebook_ids.status,
         casting_time: '1 standard action',
     },    
     {
@@ -13829,7 +13829,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'Cloud spreads in 20-ft. radius, 20 ft. high',
         name: 'Stinking Cloud',
-        id: spells_ids.stinking_cloud,
+        id: spells_core_rulebook_ids.stinking_cloud,
         casting_time: '1 standard action',
     },    
     {
@@ -13862,7 +13862,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'Stone or stone object touched, up to (10+CASTERLEVEL) cu. ft.',
         name: 'Stone Shape',
-        id: spells_ids.stone_shape,
+        id: spells_core_rulebook_ids.stone_shape,
         casting_time: '1 standard action',
     },    
     {
@@ -13883,7 +13883,7 @@ export const spells_data =
         school: 'Divination',
         effect: 'You',
         name: 'Stone Tell',
-        id: spells_ids.stone_tell,
+        id: spells_core_rulebook_ids.stone_tell,
         casting_time: '10 minutes',
     },    
     {
@@ -13908,7 +13908,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'One petrified creature or a cylinder of stone from 1 ft. to 3 ft. in diameter and up to 10 ft. long',
         name: 'Stone to Flesh',
-        id: spells_ids.stone_to_flesh,
+        id: spells_core_rulebook_ids.stone_to_flesh,
         casting_time: '1 standard action',
     },    
     {
@@ -13937,7 +13937,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: 'Creature touched',
         name: 'Stoneskin',
-        id: spells_ids.stoneskin,
+        id: spells_core_rulebook_ids.stoneskin,
         casting_time: '1 standard action',
     },    
     {
@@ -13962,7 +13962,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: '360-ft.-radius storm cloud',
         name: 'Storm of Vengeance',
-        id: spells_ids.storm_of_vengeance,
+        id: spells_core_rulebook_ids.storm_of_vengeance,
         casting_time: '1 round',
     },    
     {
@@ -13991,7 +13991,7 @@ export const spells_data =
         school: 'Enchantment',
         effect: 'One living creature',
         name: 'Suggestion',
-        id: spells_ids.suggestion,
+        id: spells_core_rulebook_ids.suggestion,
         casting_time: '1 standard action',
     },    
     {
@@ -14020,7 +14020,7 @@ export const spells_data =
         school: 'Enchantment',
         effect: '(CASTERLEVEL) creatures, no two of which can be more than 30ft. apart',
         name: 'Suggestion (Mass)',
-        id: spells_ids.suggestion_mass,
+        id: spells_core_rulebook_ids.suggestion_mass,
         casting_time: '1 standard action',
     },    
     {
@@ -14041,7 +14041,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'One summoned handheld musical instrument',
         name: 'Summon Instrument',
-        id: spells_ids.summon_instrument,
+        id: spells_core_rulebook_ids.summon_instrument,
         casting_time: '1 round',
     },    
     {
@@ -14074,7 +14074,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'One summoned creature',
         name: 'Summon Monster I',
-        id: spells_ids.summon_monster_i,
+        id: spells_core_rulebook_ids.summon_monster_i,
         casting_time: '1 round',
     },    
     {
@@ -14107,7 +14107,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'One summoned creature',
         name: 'Summon Monster II',
-        id: spells_ids.summon_monster_ii,
+        id: spells_core_rulebook_ids.summon_monster_ii,
         casting_time: '1 round',
     },    
     {
@@ -14140,7 +14140,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'One summoned creature',
         name: 'Summon Monster III',
-        id: spells_ids.summon_monster_iii,
+        id: spells_core_rulebook_ids.summon_monster_iii,
         casting_time: '1 round',
     },    
     {
@@ -14173,7 +14173,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'One summoned creature',
         name: 'Summon Monster IV',
-        id: spells_ids.summon_monster_iv,
+        id: spells_core_rulebook_ids.summon_monster_iv,
         casting_time: '1 round',
     },    
     {
@@ -14202,7 +14202,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'One summoned creature',
         name: 'Summon Monster IX',
-        id: spells_ids.summon_monster_ix,
+        id: spells_core_rulebook_ids.summon_monster_ix,
         casting_time: '1 round',
     },    
     {
@@ -14235,7 +14235,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'One summoned creature',
         name: 'Summon Monster V',
-        id: spells_ids.summon_monster_v,
+        id: spells_core_rulebook_ids.summon_monster_v,
         casting_time: '1 round',
     },    
     {
@@ -14268,7 +14268,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'One summoned creature',
         name: 'Summon Monster VI',
-        id: spells_ids.summon_monster_vi,
+        id: spells_core_rulebook_ids.summon_monster_vi,
         casting_time: '1 round',
     },    
     {
@@ -14297,7 +14297,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'One summoned creature',
         name: 'Summon Monster VII',
-        id: spells_ids.summon_monster_vii,
+        id: spells_core_rulebook_ids.summon_monster_vii,
         casting_time: '1 round',
     },    
     {
@@ -14326,7 +14326,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'One summoned creature',
         name: 'Summon Monster VIII',
-        id: spells_ids.summon_monster_viii,
+        id: spells_core_rulebook_ids.summon_monster_viii,
         casting_time: '1 round',
     },    
     {
@@ -14351,7 +14351,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'One summoned creature',
         name: 'Summon Nature\'s Ally I',
-        id: spells_ids.summon_natures_ally_i,
+        id: spells_core_rulebook_ids.summon_natures_ally_i,
         casting_time: '1 round',
     },    
     {
@@ -14376,7 +14376,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'One summoned creature',
         name: 'Summon Nature\'s Ally II',
-        id: spells_ids.summon_natures_ally_ii,
+        id: spells_core_rulebook_ids.summon_natures_ally_ii,
         casting_time: '1 round',
     },    
     {
@@ -14401,7 +14401,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'One summoned creature',
         name: 'Summon Nature\'s Ally III',
-        id: spells_ids.summon_natures_ally_iii,
+        id: spells_core_rulebook_ids.summon_natures_ally_iii,
         casting_time: '1 round',
     },    
     {
@@ -14426,7 +14426,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'One summoned creature',
         name: 'Summon Nature\'s Ally IV',
-        id: spells_ids.summon_natures_ally_iv,
+        id: spells_core_rulebook_ids.summon_natures_ally_iv,
         casting_time: '1 round',
     },    
     {
@@ -14447,7 +14447,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'One summoned creature',
         name: 'Summon Nature\'s Ally IX',
-        id: spells_ids.summon_natures_ally_ix,
+        id: spells_core_rulebook_ids.summon_natures_ally_ix,
         casting_time: '1 round',
     },    
     {
@@ -14468,7 +14468,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'One summoned creature',
         name: 'Summon Nature\'s Ally V',
-        id: spells_ids.summon_natures_ally_v,
+        id: spells_core_rulebook_ids.summon_natures_ally_v,
         casting_time: '1 round',
     },    
     {
@@ -14489,7 +14489,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'One summoned creature',
         name: 'Summon Nature\'s Ally VI',
-        id: spells_ids.summon_natures_ally_vi,
+        id: spells_core_rulebook_ids.summon_natures_ally_vi,
         casting_time: '1 round',
     },    
     {
@@ -14510,7 +14510,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'One summoned creature',
         name: 'Summon Nature\'s Ally VII',
-        id: spells_ids.summon_natures_ally_vii,
+        id: spells_core_rulebook_ids.summon_natures_ally_vii,
         casting_time: '1 round',
     },    
     {
@@ -14531,7 +14531,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'One summoned creature',
         name: 'Summon Nature\'s Ally VIII',
-        id: spells_ids.summon_natures_ally_viii,
+        id: spells_core_rulebook_ids.summon_natures_ally_viii,
         casting_time: '1 round',
     },    
     {
@@ -14564,7 +14564,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'One swarm of bats, rats, or spiders',
         name: 'Summon Swarm',
-        id: spells_ids.summon_swarm,
+        id: spells_core_rulebook_ids.summon_swarm,
         casting_time: '1 round',
     },    
     {
@@ -14585,7 +14585,7 @@ export const spells_data =
         school: 'Evocation',
         effect: 'Line from your hand',
         name: 'Sunbeam',
-        id: spells_ids.sunbeam,
+        id: spells_core_rulebook_ids.sunbeam,
         casting_time: '1 standard action',
     },    
     {
@@ -14614,7 +14614,7 @@ export const spells_data =
         school: 'Evocation',
         effect: '80-ft.-radius burst',
         name: 'Sunburst',
-        id: spells_ids.sunburst,
+        id: spells_core_rulebook_ids.sunburst,
         casting_time: '1 standard action',
     },    
     {
@@ -14643,7 +14643,7 @@ export const spells_data =
         school: 'Necromancy',
         effect: 'One symbol',
         name: 'Symbol of Death',
-        id: spells_ids.symbol_of_death,
+        id: spells_core_rulebook_ids.symbol_of_death,
         casting_time: '10 minutes',
     },    
     {
@@ -14672,7 +14672,7 @@ export const spells_data =
         school: 'Necromancy',
         effect: 'One symbol',
         name: 'Symbol of Fear',
-        id: spells_ids.symbol_of_fear,
+        id: spells_core_rulebook_ids.symbol_of_fear,
         casting_time: null,
     },    
     {
@@ -14701,7 +14701,7 @@ export const spells_data =
         school: 'Enchantment',
         effect: 'One symbol',
         name: 'Symbol of Insanity',
-        id: spells_ids.symbol_of_insanity,
+        id: spells_core_rulebook_ids.symbol_of_insanity,
         casting_time: '10 minutes',
     },    
     {
@@ -14730,7 +14730,7 @@ export const spells_data =
         school: 'Necromancy',
         effect: 'One symbol',
         name: 'Symbol of Pain',
-        id: spells_ids.symbol_of_pain,
+        id: spells_core_rulebook_ids.symbol_of_pain,
         casting_time: '10 minutes',
     },    
     {
@@ -14759,7 +14759,7 @@ export const spells_data =
         school: 'Enchantment',
         effect: 'One symbol',
         name: 'Symbol of Persuasion',
-        id: spells_ids.symbol_of_persuasion,
+        id: spells_core_rulebook_ids.symbol_of_persuasion,
         casting_time: '10 minutes',
     },    
     {
@@ -14788,7 +14788,7 @@ export const spells_data =
         school: 'Enchantment',
         effect: 'One symbol',
         name: 'Symbol of Sleep',
-        id: spells_ids.symbol_of_sleep,
+        id: spells_core_rulebook_ids.symbol_of_sleep,
         casting_time: null,
     },    
     {
@@ -14817,7 +14817,7 @@ export const spells_data =
         school: 'Enchantment',
         effect: 'One symbol',
         name: 'Symbol of Stunning',
-        id: spells_ids.symbol_of_stunning,
+        id: spells_core_rulebook_ids.symbol_of_stunning,
         casting_time: null,
     },    
     {
@@ -14846,7 +14846,7 @@ export const spells_data =
         school: 'Necromancy',
         effect: 'One symbol',
         name: 'Symbol of Weakness',
-        id: spells_ids.symbol_of_weakness,
+        id: spells_core_rulebook_ids.symbol_of_weakness,
         casting_time: null,
     },    
     {
@@ -14867,7 +14867,7 @@ export const spells_data =
         school: 'Evocation',
         effect: 'One freestanding structure',
         name: 'Sympathetic Vibration',
-        id: spells_ids.sympathetic_vibration,
+        id: spells_core_rulebook_ids.sympathetic_vibration,
         casting_time: '10 minutes',
     },    
     {
@@ -14896,7 +14896,7 @@ export const spells_data =
         school: 'Enchantment',
         effect: 'One location [up to (CASTERLEVEL) 10-ft. cubes] or one object',
         name: 'Sympathy',
-        id: spells_ids.sympathy,
+        id: spells_core_rulebook_ids.sympathy,
         casting_time: '1 hour',
     },    
     {
@@ -14921,7 +14921,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'Or Targets see text',
         name: 'Telekinesis',
-        id: spells_ids.telekinesis,
+        id: spells_core_rulebook_ids.telekinesis,
         casting_time: '1 standard action',
     },    
     {
@@ -14946,7 +14946,7 @@ export const spells_data =
         school: 'Evocation',
         effect: '(CASTERLEVEL)-ft.-diameter sphere, centered around creatures or objects',
         name: 'Telekinetic Sphere',
-        id: spells_ids.telekinetic_sphere,
+        id: spells_core_rulebook_ids.telekinetic_sphere,
         casting_time: '1 standard action',
     },    
     {
@@ -14971,7 +14971,7 @@ export const spells_data =
         school: 'Divination',
         effect: 'You plus (CASTERLEVEL/3) willing creatures, no two of which can be more than 30 ft. apart',
         name: 'Telepathic Bond',
-        id: spells_ids.telepathic_bond,
+        id: spells_core_rulebook_ids.telepathic_bond,
         casting_time: '1 standard action',
     },    
     {
@@ -14996,7 +14996,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'You and touched objects or other touched willing creatures',
         name: 'Teleport',
-        id: spells_ids.teleport,
+        id: spells_core_rulebook_ids.teleport,
         casting_time: '1 standard action',
     },    
     {
@@ -15021,7 +15021,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'You and touched objects or other touched willing creatures',
         name: 'Teleport (Greater)',
-        id: spells_ids.teleport_greater,
+        id: spells_core_rulebook_ids.teleport_greater,
         casting_time: '1 standard action',
     },    
     {
@@ -15046,7 +15046,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'One touched object of up to (CASTERLEVEL*50) lbs. and (CASTERLEVEL*3) cu. ft.',
         name: 'Teleport Object',
-        id: spells_ids.teleport_object,
+        id: spells_core_rulebook_ids.teleport_object,
         casting_time: '1 standard action',
     },    
     {
@@ -15071,7 +15071,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: '5-ft.-radius circle that teleports those who activate it',
         name: 'Teleportation Circle',
-        id: spells_ids.teleportation_circle,
+        id: spells_core_rulebook_ids.teleportation_circle,
         casting_time: '10 minutes',
     },    
     {
@@ -15096,7 +15096,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'Creature touched',
         name: 'Temporal Stasis',
-        id: spells_ids.temporal_stasis,
+        id: spells_core_rulebook_ids.temporal_stasis,
         casting_time: '1 standard action',
     },    
     {
@@ -15121,7 +15121,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'You',
         name: 'Time Stop',
-        id: spells_ids.time_stop,
+        id: spells_core_rulebook_ids.time_stop,
         casting_time: '1 standard action',
     },    
     {
@@ -15150,7 +15150,7 @@ export const spells_data =
         school: 'Evocation',
         effect: '20-ft.-radius sphere centered on your location',
         name: 'Tiny Hut',
-        id: spells_ids.tiny_hut,
+        id: spells_core_rulebook_ids.tiny_hut,
         casting_time: '1 standard action',
     },    
     {
@@ -15183,7 +15183,7 @@ export const spells_data =
         school: 'Divination',
         effect: 'Creature touched',
         name: 'Tongues',
-        id: spells_ids.tongues,
+        id: spells_core_rulebook_ids.tongues,
         casting_time: '1 standard action',
     },    
     {
@@ -15208,7 +15208,7 @@ export const spells_data =
         school: 'Necromancy',
         effect: 'Creature touched',
         name: 'Touch of Fatigue',
-        id: spells_ids.touch_of_fatigue,
+        id: spells_core_rulebook_ids.touch_of_fatigue,
         casting_time: '1 standard action',
     },    
     {
@@ -15233,7 +15233,7 @@ export const spells_data =
         school: 'Enchantment',
         effect: 'Living creature touched',
         name: 'Touch of Idiocy',
-        id: spells_ids.touch_of_idiocy,
+        id: spells_core_rulebook_ids.touch_of_idiocy,
         casting_time: '1 standard action',
     },    
     {
@@ -15258,7 +15258,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'You',
         name: 'Transformation',
-        id: spells_ids.transformation,
+        id: spells_core_rulebook_ids.transformation,
         casting_time: '1 standard action',
     },    
     {
@@ -15279,7 +15279,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'All metal objects within a 40-ft.-radius burst',
         name: 'Transmute Metal to Wood',
-        id: spells_ids.transmute_metal_to_wood,
+        id: spells_core_rulebook_ids.transmute_metal_to_wood,
         casting_time: '1 standard action',
     },    
     {
@@ -15308,7 +15308,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'Up to (CASTERLEVEL*2) 10-ft. cubes [S]',
         name: 'Transmute Mud to Rock',
-        id: spells_ids.transmute_mud_to_rock,
+        id: spells_core_rulebook_ids.transmute_mud_to_rock,
         casting_time: '1 standard action',
     },    
     {
@@ -15337,7 +15337,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'Up to (CASTERLEVEL*2) 10-ft. cubes [S]',
         name: 'Transmute Rock to Mud',
-        id: spells_ids.transmute_rock_to_mud,
+        id: spells_core_rulebook_ids.transmute_rock_to_mud,
         casting_time: '1 standard action',
     },    
     {
@@ -15358,7 +15358,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'You and touched objects or other touched willing creatures',
         name: 'Transport via Plants',
-        id: spells_ids.transport_via_plants,
+        id: spells_core_rulebook_ids.transport_via_plants,
         casting_time: '1 standard action',
     },    
     {
@@ -15383,7 +15383,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'One creature',
         name: 'Trap the Soul',
-        id: spells_ids.trap_the_soul,
+        id: spells_core_rulebook_ids.trap_the_soul,
         casting_time: '1 standard action or see text',
     },    
     {
@@ -15408,7 +15408,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'You',
         name: 'Tree Shape',
-        id: spells_ids.tree_shape,
+        id: spells_core_rulebook_ids.tree_shape,
         casting_time: '1 standard action',
     },    
     {
@@ -15433,7 +15433,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'You',
         name: 'Tree Stride',
-        id: spells_ids.tree_stride,
+        id: spells_core_rulebook_ids.tree_stride,
         casting_time: '1 standard action',
     },    
     {
@@ -15454,7 +15454,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'Dead creature touched',
         name: 'True Resurrection',
-        id: spells_ids.true_resurrection,
+        id: spells_core_rulebook_ids.true_resurrection,
         casting_time: '10 minutes',
     },    
     {
@@ -15487,7 +15487,7 @@ export const spells_data =
         school: 'Divination',
         effect: 'Creature touched',
         name: 'True Seeing',
-        id: spells_ids.true_seeing,
+        id: spells_core_rulebook_ids.true_seeing,
         casting_time: '1 standard action',
     },    
     {
@@ -15512,7 +15512,7 @@ export const spells_data =
         school: 'Divination',
         effect: 'You',
         name: 'True Strike',
-        id: spells_ids.true_strike,
+        id: spells_core_rulebook_ids.true_strike,
         casting_time: '1 standard action',
     },    
     {
@@ -15541,7 +15541,7 @@ export const spells_data =
         school: 'Necromancy',
         effect: 'Several undead creatures within a 40-ft.-radius burst',
         name: 'Undeath to Death',
-        id: spells_ids.undeath_to_death,
+        id: spells_core_rulebook_ids.undeath_to_death,
         casting_time: '1 standard action',
     },    
     {
@@ -15570,7 +15570,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: 'One creature or object',
         name: 'Undetectable Alignment',
-        id: spells_ids.undetectable_alignment,
+        id: spells_core_rulebook_ids.undetectable_alignment,
         casting_time: '1 standard action',
     },    
     {
@@ -15595,7 +15595,7 @@ export const spells_data =
         school: 'Evocation',
         effect: '40-ft. radius emanating from the touched point',
         name: 'Unhallow',
-        id: spells_ids.unhallow,
+        id: spells_core_rulebook_ids.unhallow,
         casting_time: '24 hours',
     },    
     {
@@ -15616,7 +15616,7 @@ export const spells_data =
         school: 'Abjuration',
         effect: '(CASTERLEVEL) creatures in a 20-ft.-radius burst centered on you',
         name: 'Unholy Aura',
-        id: spells_ids.unholy_aura,
+        id: spells_core_rulebook_ids.unholy_aura,
         casting_time: '1 standard action',
     },    
     {
@@ -15637,7 +15637,7 @@ export const spells_data =
         school: 'Evocation',
         effect: '20-ft.-radius spread',
         name: 'Unholy Blight',
-        id: spells_ids.unholy_blight,
+        id: spells_core_rulebook_ids.unholy_blight,
         casting_time: '1 standard action',
     },    
     {
@@ -15666,7 +15666,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'One invisible, mindless, shapeless servant',
         name: 'Unseen Servant',
-        id: spells_ids.unseen_servant,
+        id: spells_core_rulebook_ids.unseen_servant,
         casting_time: '1 standard action',
     },    
     {
@@ -15691,7 +15691,7 @@ export const spells_data =
         school: 'Necromancy',
         effect: 'Living creature touched',
         name: 'Vampiric Touch',
-        id: spells_ids.vampiric_touch,
+        id: spells_core_rulebook_ids.vampiric_touch,
         casting_time: '1 standard action',
     },    
     {
@@ -15720,7 +15720,7 @@ export const spells_data =
         school: 'Illusion',
         effect: 'One or more creatures, no two of which can be more than 30 ft. apart',
         name: 'Veil',
-        id: spells_ids.veil,
+        id: spells_core_rulebook_ids.veil,
         casting_time: '1 standard action',
     },    
     {
@@ -15749,7 +15749,7 @@ export const spells_data =
         school: 'Illusion',
         effect: 'Intelligible sound, usually speech',
         name: 'Ventriloquism',
-        id: spells_ids.ventriloquism,
+        id: spells_core_rulebook_ids.ventriloquism,
         casting_time: '1 standard action',
     },    
     {
@@ -15778,7 +15778,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'Creature touched',
         name: 'Virtue',
-        id: spells_ids.virtue,
+        id: spells_core_rulebook_ids.virtue,
         casting_time: '1 standard action',
     },    
     {
@@ -15803,7 +15803,7 @@ export const spells_data =
         school: 'Divination',
         effect: 'You',
         name: 'Vision',
-        id: spells_ids.vision,
+        id: spells_core_rulebook_ids.vision,
         casting_time: '1 standard action',
     },    
     {
@@ -15828,7 +15828,7 @@ export const spells_data =
         school: 'Necromancy',
         effect: '(CASTERLEVEL) living creatures within a 40-ft.-radius spread',
         name: 'Wail of the Banshee',
-        id: spells_ids.wail_of_the_banshee,
+        id: spells_core_rulebook_ids.wail_of_the_banshee,
         casting_time: '1 standard action',
     },    
     {
@@ -15857,7 +15857,7 @@ export const spells_data =
         school: 'Evocation',
         effect: 'Opaque sheet of flame up to (CASTERLEVEL*20) ft. long or a ring of fire with a radius of up to ((CASTERLEVEL/2)*5) ft.; either form 20 ft. high',
         name: 'Wall of Fire',
-        id: spells_ids.wall_of_fire,
+        id: spells_core_rulebook_ids.wall_of_fire,
         casting_time: '1 standard action',
     },    
     {
@@ -15882,7 +15882,7 @@ export const spells_data =
         school: 'Evocation',
         effect: 'Wall whose area is up to (CASTERLEVEL) 10-ft. squares',
         name: 'Wall of Force',
-        id: spells_ids.wall_of_force,
+        id: spells_core_rulebook_ids.wall_of_force,
         casting_time: '1 standard action',
     },    
     {
@@ -15907,7 +15907,7 @@ export const spells_data =
         school: 'Evocation',
         effect: 'Anchored plane of ice, up to (CASTERLEVEL) 10-ft. squares, or hemisphere of ice with a radius of up to (3+CASTERLEVEL) ft.',
         name: 'Wall of Ice',
-        id: spells_ids.wall_of_ice,
+        id: spells_core_rulebook_ids.wall_of_ice,
         casting_time: '1 standard action',
     },    
     {
@@ -15932,7 +15932,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'Iron wall whose area is up to (CASTERLEVEL) 5-ft. squares; see text',
         name: 'Wall of Iron',
-        id: spells_ids.wall_of_iron,
+        id: spells_core_rulebook_ids.wall_of_iron,
         casting_time: '1 standard action',
     },    
     {
@@ -15965,7 +15965,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'Stone wall whose area is up to (CASTERLEVEL) 5-ft. squares [S]',
         name: 'Wall of Stone',
-        id: spells_ids.wall_of_stone,
+        id: spells_core_rulebook_ids.wall_of_stone,
         casting_time: '1 standard action',
     },    
     {
@@ -15986,7 +15986,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'Wall of thorny brush, up to (CASTERLEVEL) 10-ft. cubes [S]',
         name: 'Wall of Thorns',
-        id: spells_ids.wall_of_thorns,
+        id: spells_core_rulebook_ids.wall_of_thorns,
         casting_time: '1 standard action',
     },    
     {
@@ -16007,7 +16007,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: '(CASTERLEVEL) Small wooden objects, all within a 20-ft. radius',
         name: 'Warp Wood',
-        id: spells_ids.warp_wood,
+        id: spells_core_rulebook_ids.warp_wood,
         casting_time: '1 standard action',
     },    
     {
@@ -16040,7 +16040,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'Living creatures touched',
         name: 'Water Breathing',
-        id: spells_ids.water_breathing,
+        id: spells_core_rulebook_ids.water_breathing,
         casting_time: '1 standard action',
     },    
     {
@@ -16065,7 +16065,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: '(CASTERLEVEL) touched creatures',
         name: 'Water Walk',
-        id: spells_ids.water_walk,
+        id: spells_core_rulebook_ids.water_walk,
         casting_time: '1 standard action',
     },    
     {
@@ -16090,7 +16090,7 @@ export const spells_data =
         school: 'Necromancy',
         effect: 'Cone-shaped burst',
         name: 'Waves of Exhaustion',
-        id: spells_ids.waves_of_exhaustion,
+        id: spells_core_rulebook_ids.waves_of_exhaustion,
         casting_time: '1 standard action',
     },    
     {
@@ -16115,7 +16115,7 @@ export const spells_data =
         school: 'Necromancy',
         effect: 'Cone-shaped burst',
         name: 'Waves of Fatigue',
-        id: spells_ids.waves_of_fatigue,
+        id: spells_core_rulebook_ids.waves_of_fatigue,
         casting_time: '1 standard action',
     },    
     {
@@ -16140,7 +16140,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'Webs in a 20-ft.-radius spread',
         name: 'Web',
-        id: spells_ids.web,
+        id: spells_core_rulebook_ids.web,
         casting_time: '1 standard action',
     },    
     {
@@ -16165,7 +16165,7 @@ export const spells_data =
         school: 'Illusion',
         effect: 'Any number of creatures, no two of which can be more than 30 ft. apart',
         name: 'Weird',
-        id: spells_ids.weird,
+        id: spells_core_rulebook_ids.weird,
         casting_time: '1 standard action',
     },    
     {
@@ -16186,7 +16186,7 @@ export const spells_data =
         school: 'Evocation',
         effect: 'Cyclone 10 ft. wide at base, 30 ft. wide at top, and 30 ft. tall',
         name: 'Whirlwind',
-        id: spells_ids.whirlwind,
+        id: spells_core_rulebook_ids.whirlwind,
         casting_time: '1 standard action',
     },    
     {
@@ -16215,7 +16215,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: '10-ft.-radius spread',
         name: 'Whispering Wind',
-        id: spells_ids.whispering_wind,
+        id: spells_core_rulebook_ids.whispering_wind,
         casting_time: '1 standard action',
     },    
     {
@@ -16240,7 +16240,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'You and (CASTERLEVEL/3) touched creatures',
         name: 'Wind Walk',
-        id: spells_ids.wind_walk,
+        id: spells_core_rulebook_ids.wind_walk,
         casting_time: '1 standard action',
     },    
     {
@@ -16277,7 +16277,7 @@ export const spells_data =
         school: 'Evocation',
         effect: 'Wall up to (CASTERLEVEL*10) ft. long and (CASTERLEVEL*5) ft. high [S]',
         name: 'Wind Wall',
-        id: spells_ids.wind_wall,
+        id: spells_core_rulebook_ids.wind_wall,
         casting_time: '1 standard action',
     },    
     {
@@ -16302,7 +16302,7 @@ export const spells_data =
         school: 'Universal',
         effect: 'See text',
         name: 'Wish',
-        id: spells_ids.wish,
+        id: spells_core_rulebook_ids.wish,
         casting_time: '1 standard action',
     },    
     {
@@ -16323,7 +16323,7 @@ export const spells_data =
         school: 'Transmutation',
         effect: 'One touched piece of wood no larger than (10+CASTERLEVEL) cu. ft.',
         name: 'Wood Shape',
-        id: spells_ids.wood_shape,
+        id: spells_core_rulebook_ids.wood_shape,
         casting_time: '1 standard action',
     },    
     {
@@ -16344,7 +16344,7 @@ export const spells_data =
         school: 'Evocation',
         effect: 'Nonchaotic creatures in a 40-ft.-radius spread centered on you',
         name: 'Word of Chaos',
-        id: spells_ids.word_of_chaos,
+        id: spells_core_rulebook_ids.word_of_chaos,
         casting_time: '1 standard action',
     },    
     {
@@ -16369,7 +16369,7 @@ export const spells_data =
         school: 'Conjuration',
         effect: 'You and touched objects or other willing creatures',
         name: 'Word of Recall',
-        id: spells_ids.word_of_recall,
+        id: spells_core_rulebook_ids.word_of_recall,
         casting_time: '1 standard action',
     },    
     {
@@ -16390,7 +16390,7 @@ export const spells_data =
         school: 'Illusion',
         effect: '5-ft.-radius emanation centered on you',
         name: 'Zone of Silence',
-        id: spells_ids.zone_of_silence,
+        id: spells_core_rulebook_ids.zone_of_silence,
         casting_time: '1 round',
     },    
     {
@@ -16415,7 +16415,7 @@ export const spells_data =
         school: 'Enchantment',
         effect: '20-ft.-radius emanation',
         name: 'Zone of Truth',
-        id: spells_ids.zone_of_truth,
+        id: spells_core_rulebook_ids.zone_of_truth,
         casting_time: '1 standard action',
     },
 ]

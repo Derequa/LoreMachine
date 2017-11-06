@@ -46,32 +46,77 @@ export async function initData(realm) {
                 
                 case 'SkillInfo':
                 break;
+
                 case 'BaseWeapon':
                 break;
+
                 case 'BaseArmor':
                 break;
+
                 case 'SpellSchoolPower':
+                console.log('initializing spellschoolpowers');
+                try {
+                    for (let j = 0 ; j < spell_school_power_data.length ; j++) {
+                        console.log('Creating SpellSchoolPower : { name: ' + JSON.stringify(spell_school_power_data[j].name) + ', id: ' + JSON.stringify(spell_school_power_data[j].id) + ' }');
+                        realm.create('SpellSchoolPower',
+                        {
+                            id: spell_school_power_data[j].id,
+                            name: spell_school_power_data[j].name,
+                            description: spell_school_power_data[j].description,
+                            parent_id: spell_school_power_data[j].parent_id
+                        });
+                    }
+                } catch (err) { console.error(err); }
                 break;
+
                 case 'SpellSchool':
+                console.log('initializing spellschools');
+                try {
+                    for (let j = 0 ; j < spell_school_data.length ; j++) {
+                        console.log('Creating SpellSchool : { name: ' + JSON.stringify(spell_school_data[j].name) + ', id: ' + JSON.stringify(spell_school_data[j].id) + ' }');
+                        let powers = [];
+                        for (let k = 0 ; k < spell_school_data[j].powers.length ; k++) {
+                            powers.push({ val: spell_school_data[j].powers[k] });
+                        }
+                        realm.create('SpellSchool',
+                        {
+                            id: spell_school_data[j].id,
+                            name: spell_school_data[j].name,
+                            description: spell_school_data[j].description,
+                            url: spell_school_data[j].url,
+                            powers: powers
+                        });
+                    }
+                } catch (err) { console.error(err); }
                 break;
+
                 case 'Spell':
                 break;
+
                 case 'Item':
                 break;
+
                 case 'Feat':
                 break;
+
                 case 'ClericPower':
                 break;
+
                 case 'ClericDomain':
                 break;
+
                 case 'BloodlinePower':
                 break;
+
                 case 'SorcererBloodline':
                 break;
+
                 case 'ClassFeature':
                 break;
+
                 case 'Character':
                 break;
+
                 default:
                 break;
             }
@@ -95,7 +140,6 @@ async function getInitMap(realm) {
 }
 
 async function needsInit(realm, table_name, target_num) {
-
     let objs = await realm.objects(table_name);
     console.log(table_name + ' current size: ' + objs.length + ', loaded size: ' + target_num)
     return objs.length < target_num

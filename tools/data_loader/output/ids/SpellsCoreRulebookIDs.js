@@ -1,6 +1,6 @@
 // Data scraped from PC gen's data files. All credit for hauling in this data goes to the PC gen team: http://pcgen.org/
 
-export const spells_ids = {
+export const spells_core_rulebook_ids = {
     acid_arrow: 0,
     acid_fog: 1,
     acid_splash: 2,

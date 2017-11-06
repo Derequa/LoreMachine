@@ -69,25 +69,36 @@ export async function searchAll(query, resultsLimit) {
         let num_results = Object.keys(currentResults).length;
         if (num_results === 0)
             continue;
-        if (resultsLimit) {
-            if (num_results > resultsLimit - result_counter) {
-                // Do thing
-            }
-        }
-        else {
-            let table_results = [];
-            for (let j = 0 ; j < num_results ; j++) {
-                table_results.push(currentResults[j])
-            }
+        if (resultsLimit && (num_results > (resultsLimit - result_counter))) {
             results.push({
                 table: searchable_schemas[i].display_name,
                 display_name: searchable_schemas[i].display_name,
-                data: table_results,
+                data: getResultsArray(currentResults, (resultsLimit - result_counter)),
+            });
+            return results;
+        }
+        else {
+            results.push({
+                table: searchable_schemas[i].display_name,
+                display_name: searchable_schemas[i].display_name,
+                data: getResultsArray(currentResults, num_results),
             });
         }
+        console.log(results);
     }
 
     return results;
+}
+
+function getResultsArray(results, limit) {
+    let lim = (limit === undefined ? results.length : limit);
+    let table_results = [];
+
+    for (let i = 0 ; i < lim ; i++) {
+        table_results.push(results[i]);
+    }
+
+    return table_results;
 }
 
 async function debugOpen(schemas) {

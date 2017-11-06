@@ -315,7 +315,7 @@ export const ClassSchema = {
         description: 'string',
     }
 }
-// TODO
+// TODO:
 /*
 Schemas still needed
 Class

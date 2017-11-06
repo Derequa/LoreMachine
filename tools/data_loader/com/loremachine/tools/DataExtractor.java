@@ -9,11 +9,17 @@ import org.json.simple.JSONObject;
 
 public class DataExtractor {
 
+	
 	// Constant for space defining a tab.
     private static final String TAB = "    ";
     // The current number of tabs in we are.
     private static int tabLevel = 0;
 
+    
+    /**
+     * 
+     * @param args
+     */
     public static void main(String[] args) {
         if (args.length == 0) {
             System.out.println("No mode given!");
@@ -30,6 +36,7 @@ public class DataExtractor {
         }
     }
 
+    
     /**
      * This method will generate data files for the given list of JSON objects.
      * It will write a file with the given name to ./output/filename.js containing
@@ -106,6 +113,7 @@ public class DataExtractor {
     	}
     }
     
+    
     /**
      * This turns a JSON object into a pretty ordered string with appropriate indentation.
      * This will recursively work through JSON objects and arrays organizing them and
@@ -145,6 +153,7 @@ public class DataExtractor {
 		return ret;
     }
     
+    
     /**
      * This functions very similarly to stringifyObject except it accepts a JSON array.
      * It will walk through the objects of the array and recursively stringify each entry.
@@ -172,6 +181,7 @@ public class DataExtractor {
     	return ret;
     }
     
+    
     /**
      * Get the proper amount of spaces for the current tab level.
      * @return A string with the right amount of spaces for the current tab level.
@@ -183,6 +193,7 @@ public class DataExtractor {
     	}
     	return ret;
     }
+    
     
     /**
      * This normalizes a name.
@@ -197,6 +208,7 @@ public class DataExtractor {
 				.replaceAll("[^A-Za-z0-9_]", "");
     }
 
+    
     /**
      * This will load and pre-process all files in the input directory with the
      * given prefix.
@@ -216,6 +228,7 @@ public class DataExtractor {
         return inputFiles;
     }
 
+    
     /**
      * A quick way of pre-processing the file before we pull data from it.
      * This will remove various types of comments from the file, and write a new one in
@@ -266,32 +279,122 @@ public class DataExtractor {
         return ret;
     }
     
+    
+    /**
+     * This will take a line from a data file and turn it into a map of values.
+     * It expects values to be listed if the form NAME:(VALUE).
+     * It will build onto the value string until it sees another name token.
+     * 
+     * It matches token names against "[A-Z]*:.*"
+     * It will build a map with token names mapping to value strings.
+     * 
+     * @param firstTokenID The name of the first token. This is optional but some data files have no first token.
+     * @param fileLine The string of the line of the file to process.
+     * @return A map of all token names to thier value strings.
+     */
     protected static HashMap<String, String> tokenator(String firstTokenID, String fileLine) {
+    	// Scanner of the string
     	Scanner s = new Scanner(fileLine);
+    	// Init a map
 		HashMap<String, String> tagMap = new HashMap<String, String>();
+		// The current token
 		String token = "";
+		// The current token name
 		String currentTokenName = firstTokenID;
+		// The value we are building up for this token
 		String currentTokenData = null;
-		// Read in spell name
+		
+		// Loop through line
 		while (s.hasNext()) {
 			token = s.next();
 			if (token.matches("[A-Z]*:.*")) {
-				tagMap.put(currentTokenName, currentTokenData);
+				// Make sure we got a name to map
+				if (currentTokenName != null && currentTokenName.length() > 0)
+					tagMap.put(currentTokenName, currentTokenData);
+				// Start new values
 				currentTokenName = token.substring(0, token.indexOf(':'));
 				currentTokenData = token.substring(token.indexOf(':') + 1);
 			}
 			else {
+				// Add on data
 				if (currentTokenData != null)
 					currentTokenData += " " + token;
 				else
 					currentTokenData = token;
 			}
 		}
+		
+		// Close the scanner and add last data
 		s.close();
 		tagMap.put(currentTokenName, currentTokenData);
+		// Return the map
 		return tagMap;
     }
     
+    
+    /**
+     * Gets a data title from a filename.
+     * 
+     * Example: 
+     * spells-core_rulebook.lst.proc ---> spells_core_rulebook_data and spells_core_rulebook_ids
+     * 
+     * @param filename The name of the file to get a data title from.
+     * @return The data title processed from the filename.
+     */
+    protected static String getDataTitle(String filename) {
+    	String ret = filename.replace('-', '_').replace(' ', '_');
+    	ret = ret.substring(0, ret.indexOf('.'));
+    	return ret;
+    }
+    
+    
+    /**
+     * Gets a nice looking file title from a filename.
+     * 
+     * Example:
+     * spells-core_rulebook.lst.proc ---> SpellsCoreRulebook
+     * 
+     * @param fileName The name of the file to process.
+     * @return The nice pretty file title.
+     */
+    protected static String getFileTitle(String fileName) {
+    	String fileTitle = "";
+    	
+    	// Loop through the file title
+    	for (int i = 0 ; i < fileName.length() ; i++) {
+    		
+    		// Get the current char
+    		char c = fileName.charAt(i);
+    		
+    		// If we see a spacer try to look ahead and capitalize
+    		if (c == '-' || c == '_' || c == ' ') {
+    			// Capitalize if we can
+    			if (i < fileName.length() - 1 && Character.isLowerCase(fileName.charAt(i + 1))) {
+    				fileTitle += Character.toUpperCase(fileName.charAt(i + 1));
+    				i++;
+    			}
+    			// Otherwise ignore and move on
+    			continue;
+    		}
+    		// Always capitalize first character
+    		else if (i == 0 && Character.isLowerCase(fileName.charAt(i)))
+    			fileTitle += Character.toUpperCase(fileName.charAt(i));
+    		// Otherwise add and move on
+    		else
+    			fileTitle += c;
+    	}
+    	
+    	// Remove file extension and return
+    	fileTitle = fileTitle.substring(0, fileTitle.indexOf('.'));
+    	return fileTitle;
+    }
+    
+    
+    /**
+     * This cleans up single and double quotes in strings.
+     * @param gross The string to clean up.
+     * @return The purified string.
+     */
     protected static String stringPurifier(String gross) {
     	if (gross != null && gross.length() > 0)
     		return gross.replace("'", "\\'").replace("\"", "\\\"");
@@ -299,6 +402,12 @@ public class DataExtractor {
     		return gross;
     }
     
+    
+    /**
+     * A method for creating a nice string to represent a hash map.
+     * @param map The map to stringify map.
+     * @return The string representing the given map.
+     */
     protected static String stringifyMap(HashMap<?, ?> map) {
     	String ret = "";
 		for (Object key : map.keySet()) {
