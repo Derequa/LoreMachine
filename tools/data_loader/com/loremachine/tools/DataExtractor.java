@@ -9,7 +9,9 @@ import org.json.simple.JSONObject;
 
 public class DataExtractor {
 
+	// Constant for space defining a tab.
     private static final String TAB = "    ";
+    // The current number of tabs in we are.
     private static int tabLevel = 0;
 
     public static void main(String[] args) {
@@ -21,84 +23,100 @@ public class DataExtractor {
         HashSet<File> files = loadLists(args[0] + "-");
         switch(args[0]) {
             case "spells":
-                processSpells(files);
+                Spell.processSpells(files);
                 break;
             default:
                 break;
         }
     }
 
-    private static void processSpells(HashSet<File> files) {
-    	HashMap<String, Spell> spells = new HashMap<String, Spell>();
-    	for (File f: files) {
-    		try (Scanner fScan = new Scanner(f)) {
-    			boolean makingNewSpells = true;
-    			while (fScan.hasNextLine()) {
-    				String line = fScan.nextLine();
-    				if (line.matches("<.*>*")) {
-    					if (line.equals("<desc>"))
-    						makingNewSpells = false;
-    					continue;
-    				}
-    				if (line.length() == 0)
-    					continue;
-    				if (makingNewSpells) {
-    					Spell s = new Spell(tokenator("NAME", line));
-    					spells.put(s.getName(), s);
-    				}
-    				else {
-    					HashMap<String, String> tagMap = tokenator("NAME", line);
-    					String spellName = tagMap.get("NAME");
-    					String fixedName = spellName.substring(0, spellName.indexOf(".MOD"));
-    					if (spells.containsKey(fixedName)) {
-    						spells.get(fixedName).setDesc(tagMap.get("DESC"));
-    						spells.get(fixedName).toString();
-    					}
-    				}
-    			}
-    		} catch (FileNotFoundException e) {
-    			e.printStackTrace();
-    		}
-    	}
-    	LinkedList<JSONObject> jsonSpells = new LinkedList<JSONObject>();
-    	for (Spell s : spells.values())
-    		jsonSpells.add(s.toJSON());
-    	jsonSpells.sort(new JSONComparator());
-    	generateFile("output/Spells.js", "spells", jsonSpells);
-    }
-    
-    private static void generateFile(String filename, String dataTitle, List<JSONObject> data) {
+    /**
+     * This method will generate data files for the given list of JSON objects.
+     * It will write a file with the given name to ./output/filename.js containing
+     * an exported array with all the data from the JSON objects formatted neatly.
+     * 
+     * It will also expect each object to contain an id and name field.
+     * This allows it to also generate an ID file at ./output/ids/filenameIDs.js containing
+     * an exported object that maps object names to their ids. This object can then be imported
+     * to refer to object by ID much easier in code.
+     * 
+     * @param filename Basic file "title" no directory or extensions please.
+     * @param dataTitle The name of the type of data to use for exported stuff.
+     * @param data A list of all the JSON objects to write out.
+     */
+    protected static void generateFiles(String filename, String dataTitle, List<JSONObject> data) {
+    	
+    	// Preamble thanking PC gen
     	String preamble = "// Data scraped from PC gen's data files. All credit for hauling in this data goes to the PC gen team: http://pcgen.org/";
+    	// The content string for the ID file
     	String idContents =  "export const " + dataTitle + "_ids = {\n";
-    	String dataContents = "export const " + dataTitle + "_data = \n[";
+    	// The content string for the data file
+    	String dataContents = "import { " + dataTitle + "_ids } from \'./ids/" + filename + "IDs\';\n"
+    						+ "export const " + dataTitle + "_data = \n[";
+    	
+    	// Start at tab level 1
     	tabLevel = 1;
     	for (JSONObject o : data) {
+    		
+    		// If the object has no name or id field ignore it
     		if (o.get("id") == null || o.get("name") == null)
     			continue;
+    		// Get the name and ID
     		int id = (Integer) o.get("id");
+    		// Ensure the name is all lowercase and alphanumeric with underscores instead of spaces
     		String name = nameify((String) o.get("name"));
-    		idContents += TAB + name + ": " + id + ",\n";
     		
+    		// Add the name/id to the ID file
+    		idContents += TAB + name + ": " + id + ",\n";
+    		// Stringify this object
     		dataContents += stringifyObject(o, dataTitle) + ",";
     	}
+    	
+    	// Fence-posting
     	idContents += "}\n";
     	dataContents += "\n]\n";
     	
-    	File f = new File(filename);
-    	if (!f.exists()) {
-			try {
-				f.createNewFile();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+    	
+    	// Create new files for output
+    	File fIDs = new File("output/ids/" + filename + "IDs.js");
+    	File fData = new File("output/" + filename + ".js");
+    	if (!fIDs.exists()) {
+			try { fIDs.createNewFile(); }
+			catch (IOException e) { e.printStackTrace(); }
     	}
-    	try (FileWriter fw = new FileWriter(f)) {
-    		fw.write(preamble + "\n\n" + idContents + "\n\n" + dataContents + "\n\n");
-    	} catch (IOException e) {
-    		e.printStackTrace();
+    	if (!fData.exists()) {
+			try { fData.createNewFile(); }
+			catch (IOException e) { e.printStackTrace(); }
+    	}
+    	
+    	// Write data to files
+    	FileWriter fw = null;
+    	try {
+    		fw = new FileWriter(fIDs);
+    		fw.write(preamble + "\n\n" + idContents + "\n\n");
+    		fw.close();
+    		fw = new FileWriter(fData);
+    		fw.write(preamble + "\n\n" + dataContents + "\n\n");
+    	}
+    	catch (IOException e) { e.printStackTrace(); }
+    	finally {
+    		// Close filewriter
+    		try { if (fw != null) fw.close(); }
+    		catch (IOException e) { e.printStackTrace(); }
     	}
     }
     
+    /**
+     * This turns a JSON object into a pretty ordered string with appropriate indentation.
+     * This will recursively work through JSON objects and arrays organizing them and
+     * adding the right amount of indentation as it goes.
+     * 
+     * If an ID field is found it will map the value to a map entry with the given dataTile_ids name
+     * as is defined in generateFiles.
+     * @param o The object to stringify.
+     * @param dataTitle The title of the data map.
+     * @return A nice pretty string for this JSON object.
+     */
     private static String stringifyObject(JSONObject o, String dataTitle) {
     	String ret = "";
     	ret += getTab() + "\n" + getTab() + "{\n";
@@ -127,6 +145,13 @@ public class DataExtractor {
 		return ret;
     }
     
+    /**
+     * This functions very similarly to stringifyObject except it accepts a JSON array.
+     * It will walk through the objects of the array and recursively stringify each entry.
+     * @param a The JSON array to make pretty.
+     * @param dataTitle The name of the data map as needed by stringifyObject and given by generateFiles.
+     * @return A pretty string for the given array.
+     */
     private static String stringifyArray(JSONArray a, String dataTitle) {
     	String ret = "";
     	ret += "\n" + getTab() + "[";
@@ -147,6 +172,10 @@ public class DataExtractor {
     	return ret;
     }
     
+    /**
+     * Get the proper amount of spaces for the current tab level.
+     * @return A string with the right amount of spaces for the current tab level.
+     */
     private static String getTab() {
     	String ret = "";
     	for (int i = 0 ; i < tabLevel ; i++) {
@@ -155,6 +184,12 @@ public class DataExtractor {
     	return ret;
     }
     
+    /**
+     * This normalizes a name.
+     * It turns it into an all lower-case alpha-numeric string with underscores instead of spaces.
+     * @param name The name to normalize.
+     * @return The normalized name.
+     */
     private static String nameify(String name) {
     	return Normalizer.normalize(name, Form.NFD)
 				.toLowerCase()

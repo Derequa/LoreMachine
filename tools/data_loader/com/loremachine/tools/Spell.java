@@ -1,6 +1,10 @@
 package com.loremachine.tools;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.Scanner;
 import org.json.simple.*;
 
@@ -109,4 +113,47 @@ public class Spell {
 			 + "DESC: " + this.description + "\n"
 			 + "URL: " + this.url + "\n";
 	}
+	
+	/**
+     * 
+     * @param files
+     */
+    protected static void processSpells(HashSet<File> files) {
+    	HashMap<String, Spell> spells = new HashMap<String, Spell>();
+    	for (File f: files) {
+    		try (Scanner fScan = new Scanner(f)) {
+    			boolean makingNewSpells = true;
+    			while (fScan.hasNextLine()) {
+    				String line = fScan.nextLine();
+    				if (line.matches("<.*>*")) {
+    					if (line.equals("<desc>"))
+    						makingNewSpells = false;
+    					continue;
+    				}
+    				if (line.length() == 0)
+    					continue;
+    				if (makingNewSpells) {
+    					Spell s = new Spell(DataExtractor.tokenator("NAME", line));
+    					spells.put(s.getName(), s);
+    				}
+    				else {
+    					HashMap<String, String> tagMap = DataExtractor.tokenator("NAME", line);
+    					String spellName = tagMap.get("NAME");
+    					String fixedName = spellName.substring(0, spellName.indexOf(".MOD"));
+    					if (spells.containsKey(fixedName)) {
+    						spells.get(fixedName).setDesc(tagMap.get("DESC"));
+    						spells.get(fixedName).toString();
+    					}
+    				}
+    			}
+    		} catch (FileNotFoundException e) {
+    			e.printStackTrace();
+    		}
+    	}
+    	LinkedList<JSONObject> jsonSpells = new LinkedList<JSONObject>();
+    	for (Spell s : spells.values())
+    		jsonSpells.add(s.toJSON());
+    	jsonSpells.sort(new JSONComparator());
+    	DataExtractor.generateFiles("Spells", "spells", jsonSpells);
+    }
 }
