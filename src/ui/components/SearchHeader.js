@@ -6,7 +6,16 @@ import {
     Icon,
     Input,
 } from 'native-base';
+import ModalDropdown from 'react-native-modal-dropdown';
 
+
+const dumb_data =
+[
+    'first thing',
+    'second thing',
+    'third thing',
+    'last thing'
+]
 
 export default class SearchHeader extends React.Component {
     constructor(props) {
@@ -27,7 +36,7 @@ export default class SearchHeader extends React.Component {
         iconColor
         inputStyle
         onChangeText
-        onBackPress
+        leftIcon
         autoFocus
         defaultValue
     */
@@ -42,9 +51,7 @@ export default class SearchHeader extends React.Component {
             searchBar
             rounded>
                 <Item style={{paddingLeft: 0}}>
-                    <Button transparent onPress={this.props.onBackPress}>
-                        <Icon name='arrow-back' style={{alignSelf: 'center', color: this.props.iconColor}}/>
-                    </Button>
+                    {this.props.leftIcon}
                     <Icon name='ios-search' style={{paddingLeft: 0, alignSelf: 'center', color: this.props.iconColor}}/>
                     <Input 
                     ref={(search) => {this.searchRef = search}}
@@ -68,6 +75,11 @@ export default class SearchHeader extends React.Component {
 
     
     _changeText(value) {
+        if (value.length > 0 && this.state.searchText.length === 0)
+            this.dropDown.show();
+        else if (value.length === 0)
+            this.dropDown.hide();
+        
         this.setState({searchText: value});
         if (this.props.onChangeText)
             this.props.onChangeText(value);

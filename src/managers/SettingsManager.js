@@ -29,13 +29,14 @@ let _db_result = null;
 export default class Settings {
 
     static async get() {
-        return new Promise(async function(resolve, reject) {
-            if (!instance) {
+        if (!instance) {
+            return new Promise(async function(resolve, reject) {
                 let loaded = await Settings.load();
                 instance = new Settings(loaded);
-            }
-            resolve(instance);
-        });
+                resolve(instance);
+            });
+        }
+        return instance;
     }
 
     static async load() {

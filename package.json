@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "bluebird": "^3.5.1",
+    "fuse.js": "3.2.0",
     "native-base": "^2.3.2",
     "react": "16.0.0-alpha.12",
     "react-native": "0.46.4",

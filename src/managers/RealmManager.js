@@ -1,7 +1,7 @@
 import { SettingsSchema } from './SettingsManager';
 import { Lore, searchable_schemas} from '../model/Lore';
 import { initData } from '../model/Loader';
-
+import Fuse from 'fuse.js';
 const Realm = require('realm');
 var Promise = require('bluebird');
 
@@ -15,6 +15,20 @@ Promise.config({
     // Enable monitoring
     monitoring: false
 });
+
+var options = {
+    shouldSort: true,
+    threshold: 0.6,
+    location: 0,
+    distance: 100,
+    maxPatternLength: 32,
+    minMatchCharLength: 1,
+    keys:
+    [
+        "name",
+    ]
+};
+  
 
 export const intObject = {
     name: 'intObject',
@@ -31,8 +45,8 @@ let instance = null;
 export default class RealmManager {
 
     static async getRealm() {
-        return new Promise(async function (resolve, reject) {
-            if (!instance) {
+        if (!instance) {
+            return new Promise(async function (resolve, reject) {
                 let schemas = new Array();
                 schemas.push(SettingsSchema, intObject, stringObject);
                 schemas = schemas.concat(Lore);
@@ -40,9 +54,10 @@ export default class RealmManager {
                 instance = await Realm.open({schema: schemas});
                 console.log('initializing data...');
                 await initData(instance);
-            }
-            resolve(instance);
-        });
+                resolve(instance);
+            });
+        }
+        return instance;
     }
 }
 
@@ -55,7 +70,6 @@ export async function searchAll(query, resultsLimit) {
         await RealmManager.getRealm();
     for (let i = 0 ; (i < searchable_schemas.length) ; i++) {
         console.log('searching ' + searchable_schemas[i].object_name + '...');
-        console.log(JSON.stringify(searchable_schemas[i]));
         if (!searchable_schemas[i].object_name || !searchable_schemas[i].display_name || !searchable_schemas[i].filter)
             continue;
         
@@ -64,7 +78,6 @@ export async function searchAll(query, resultsLimit) {
             .objects(searchable_schemas[i].object_name)
             .filtered(searchable_schemas[i].filter.replace('<value>', query));
         
-        console.log(currentResults);
         
         let num_results = Object.keys(currentResults).length;
         if (num_results === 0)
@@ -73,7 +86,7 @@ export async function searchAll(query, resultsLimit) {
             results.push({
                 table: searchable_schemas[i].display_name,
                 display_name: searchable_schemas[i].display_name,
-                data: getResultsArray(currentResults, (resultsLimit - result_counter)),
+                data: getResultsArray(currentResults, (resultsLimit - result_counter), query),
             });
             return results;
         }
@@ -81,16 +94,15 @@ export async function searchAll(query, resultsLimit) {
             results.push({
                 table: searchable_schemas[i].display_name,
                 display_name: searchable_schemas[i].display_name,
-                data: getResultsArray(currentResults, num_results),
+                data: getResultsArray(currentResults, num_results, query),
             });
         }
-        console.log(results);
     }
-
+    
     return results;
 }
 
-function getResultsArray(results, limit) {
+function getResultsArray(results, limit, query) {
     let lim = (limit === undefined ? results.length : limit);
     let table_results = [];
 
@@ -98,7 +110,9 @@ function getResultsArray(results, limit) {
         table_results.push(results[i]);
     }
 
-    return table_results;
+    let fuse = new Fuse(table_results, options); // order by relavence
+    let sorted = fuse.search(query);
+    return sorted;
 }
 
 async function debugOpen(schemas) {

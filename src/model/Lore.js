@@ -81,10 +81,12 @@ export const BaseWeaponSchema = {
         price: 'int',
         price_currency: 'string',
         weapon_type: 'string', // exotic, martial, simple etc
+        weapon_usage: 'string',
         damage_type: 'string', // P, B, S
         range: 'int',
         weight: 'int',
-        weapon_special: {type: 'list', objectType: 'stringObject'},
+        ammo: 'int', // Ammo item id
+        weapon_special: {type: 'list', objectType: 'intObject'},
     } 
 }
 

@@ -9,6 +9,7 @@ import {
     Button,
     Title,
     Text,
+    List,
     ListItem,
     View,
     Card,
@@ -22,8 +23,9 @@ import { NavigationActions } from 'react-navigation';
 import { searchAll } from '../../managers/RealmManager';
 import { colors } from '../colors';
 import { Linking } from 'react-native';
-var Promise = require('bluebird');
 
+
+var Promise = require('bluebird');
 Promise.config({
     // Enable warnings
     warnings: true,
@@ -34,59 +36,63 @@ Promise.config({
     // Enable monitoring
     monitoring: false
 });
+
+
 const max_results = 100;
+
 
 export default class SearchResultsScreen extends React.Component {
 
-    static navigationOptions = {
-        header: null
-    };
+
+    static navigationOptions = { header: null };
+
 
     constructor(props) {
         super(props);
         this.state = {
             query: this.props.navigation.state.params.query,
             searchResults: [],
-            refreshing: true,
             searchInput: false,
         }
     }
+
 
     componentDidMount() {
         this._refreshData();
     }
 
+
     // TODO: replace with menu?
     _goBack() { this.props.navigation.dispatch(NavigationActions.back()) }
 
-    // TODO: fix slow search
-    async _refreshData(query) {
+
+    // TODO: search is better but could still use work
+    _refreshData(query) {
         console.log('refreshing...');
         let q = (query !== undefined ? query : this.state.query);
-        let results = await searchAll(q, max_results);
-        console.log(results);
-        let newData = [];
-        for (let i = 0 ; i < results.length ; i++) {
-            let section = {
-                title: results[i].display_name,
-                data: [],
-            }
-            for (let j = 0 ; j < results[i].data.length ; j++) {
-                section.data.push({
-                    name: results[i].data[j].name,
-                    description: results[i].data[j].description,
-                    url: results[i].data[j].url
+        searchAll(q, max_results)
+        .then(async (results) => {
+            console.log(results);
+            let newData = [];
+            for (let i = 0 ; i < results.length ; i++) {
+                console.log('Adding section: ' + results[i].display_name);
+                newData.push({
+                    section_title: results[i].display_name
                 });
+                for (let j = 0 ; j < results[i].data.length ; j++) {
+                    console.log('Adding item: ' + results[i].data[j].name);
+                    newData.push(results[i].data[j]);
+                }
             }
-            newData.push(section);
-        }
-        this.setState({searchResults: newData, refreshing: false, query: q });
+            if (newData.length === 0) {
+                newData.push({empty: true});
+            }
+            this.setState({searchResults: newData, query: q, });
+        })
+        .catch((err) => {console.error(err)});
+        
     }
 
-    // TODO: fix slow search, for real
-    _onNewSearch(text) {
-        this.setState({ query: text, refreshing: true }, this._refreshData.bind(this, text));
-    }
 
     _onBackPress() {
         if (!this.state.searchInput) {
@@ -97,33 +103,39 @@ export default class SearchResultsScreen extends React.Component {
         }
     }
 
+
     render() {
         return (
             <Container style={{backgroundColor: colors.black}}>
                 <SearchHeader
-                onBackPress={this._onBackPress.bind(this)}
+                leftIcon={(
+                    <Button transparent onPress={this._onBackPress.bind(this)}>
+                        <Icon name='arrow-back' style={{alignSelf: 'center', color: colors.black}}/>
+                    </Button>
+                )}
                 headerStyle={{backgroundColor: colors.transparent}}
                 androidStatusBarColor={colors.black}
                 iosBarStyle='light-content'
                 autoFocus={false}
                 defaultValue={this.state.query}
-                onSubmit={this._onNewSearch.bind(this)}
+                onSubmit={this._refreshData.bind(this)}
                 iconColor={colors.black}/>
-                <Content>
-                    <SectionList
-                    sections={this.state.searchResults}
-                    refreshing={this.state.refreshing}
-                    renderItem={this._renderItem}
-                    ListEmptyComponent={this._renderEmpty}
-                    renderSectionHeader={this._renderSection}
-                    onRefresh={this._refreshData.bind(this)}
-                    keyExtractor={this._keyExtractor}/>
-                </Content>
+                <View>
+                    <List
+                    dataArray={this.state.searchResults}
+                    renderRow={this._renderItem.bind(this)}/>
+                </View>
             </Container>
         );
     }
 
-    _renderItem({item}) {
+
+    _renderItem(item) {
+        // Hack for shitty section support with native base
+        if (item.empty)
+            return this._renderEmpty();
+        else if (item.section_title)
+            return this._renderSection(item.section_title);
         return (
             <Card style={{backgroundColor: colors.greyDark}}>
                 <CardItem header style={{backgroundColor: colors.greyDark}}>
@@ -156,7 +168,8 @@ export default class SearchResultsScreen extends React.Component {
         );
     }
 
-    _renderSection({section}) {
+
+    _renderSection(title) {
         return (
             <Text style={{
                 color: colors.greyDark,
@@ -164,9 +177,10 @@ export default class SearchResultsScreen extends React.Component {
                 fontWeight: 'bold',
                 alignSelf: 'flex-start',
                 padding: 15,
-            }}>{section.title}</Text>
+            }}>{title}</Text>
         );
     }
+
 
     _renderEmpty() {
         return (
@@ -194,10 +208,6 @@ export default class SearchResultsScreen extends React.Component {
                 style={{fontSize: 170, color: colors.greyDark}}/>
             </View>
         );
-    }
-
-    _keyExtractor(item) {
-        return item.name;
     }
 
 }

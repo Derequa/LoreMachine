@@ -34,6 +34,7 @@ import {
     Dimensions,
     Image,
     Keyboard,
+    BackHandler,
 } from 'react-native';
 import SettingsManager, { DECK_MODE, LIST_MODE } from '../../managers/SettingsManager';
 
@@ -62,7 +63,9 @@ export default class CharacterSelectorScreen extends React.Component {
             <NewCharacterPopup ref={(popup) => { this._newCharacterPopupRef = popup; }} navigation={this.props.navigation}/>
         );
         this.keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', this._keyboardDidHide.bind(this));
+        this.hardwareBackHandler = BackHandler.addEventListener('hardwareBackPress', this._backHandler);
     }
+
 
     componentWillUnmount() {
         if (this._newCharacterPopupRef) {
@@ -73,6 +76,7 @@ export default class CharacterSelectorScreen extends React.Component {
             this._newCharacterPopupRoot.destroy();
         
         this.keyboardDidHideListener.remove();
+        BackHandler.removeEventListener('hardwareBackPress', this._backHandler);
     }
 
     _keyboardDidHide() {
@@ -88,13 +92,22 @@ export default class CharacterSelectorScreen extends React.Component {
     _openDrawer = () => { this.drawer._root.open() };
 
 
+    _backHandler() {
+        return true;
+    }
+
+
     _changeRenderMode() {
+        console.log('changing mode...');
         let lastMode = this.state.renderMode;
         this.setState({
             renderMode: ((lastMode === DECK_MODE) ? LIST_MODE : DECK_MODE)
         });
         SettingsManager.get()
-        .then((settings) => { settings.change({selectorMode: this.state.renderMode})});
+        .then((settings) => {
+            settings.change({selectorMode: this.state.renderMode});
+            return null;
+        });
     }
 
 
@@ -127,13 +140,19 @@ export default class CharacterSelectorScreen extends React.Component {
                     <Icon name="add" />
                 </Fab>
                     {this.state.searching ? 
-                    (<SearchHeader
-                    onBackPress={this._onSearchCancel.bind(this)}
+                    (
+                    <SearchHeader
+                    leftIcon={(
+                        <Button transparent onPress={this._onSearchCancel.bind(this)}>
+                            <Icon name='arrow-back' style={{alignSelf: 'center', color: colors.black}}/>
+                        </Button>
+                    )}
                     headerStyle={{backgroundColor: colors.transparent}}
                     androidStatusBarColor={colors.black}
                     iosBarStyle='light-content'
                     onSubmit={this._onSearchSubmit.bind(this)}
-                    iconColor={colors.black}/>)
+                    iconColor={colors.black}/>
+                    )
                     : 
                     (<Header
                     style={{backgroundColor: colors.transparent}}
@@ -154,7 +173,9 @@ export default class CharacterSelectorScreen extends React.Component {
                             </Button>
                         </Right>
                         </Header>)}
+                        <View>
                         {(this.state.renderMode === DECK_MODE) ? this._renderDeck() : this._renderList()}
+                        </View>
                 </Container>
             </Drawer>
         );
@@ -163,24 +184,21 @@ export default class CharacterSelectorScreen extends React.Component {
 
     _renderDeck() {
         return(
-            <View>
-                <DeckSwiper
-                dataSource={this.state.data}
-                renderItem={this._renderCard}
-                />
-            </View>
+            <DeckSwiper
+            dataSource={this.state.data}
+            renderItem={this._renderCard}
+            />
         );
     }
 
 
     _renderList() {
-        return(
-            <View>
-                <List
-                dataArray={this.state.data}
-                renderRow={this._renderListItem}
-                />
-            </View>);
+        return (
+            <List
+            dataArray={this.state.data}
+            renderRow={this._renderListItem}
+            />
+        );
     }
 
 
