@@ -35,7 +35,8 @@ const messages =
     'kink-shaming the rogue...',
     'slaying the princess...',
     'searching for traps...',
-    'farting on the diplomacy check...'
+    'farting on the diplomacy check...',
+    'cheese for everyone',
 ];
 const msgIndex = Math.floor(Math.random() * messages.length);
 const max_show_off_time = 2000;
