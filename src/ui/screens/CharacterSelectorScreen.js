@@ -63,20 +63,14 @@ export default class CharacterSelectorScreen extends React.Component {
             <NewCharacterPopup ref={(popup) => { this._newCharacterPopupRef = popup; }} navigation={this.props.navigation}/>
         );
         this.keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', this._keyboardDidHide.bind(this));
-        this.hardwareBackHandler = BackHandler.addEventListener('hardwareBackPress', this._backHandler);
     }
 
-
     componentWillUnmount() {
-        if (this._newCharacterPopupRef) {
-            this._newCharacterPopupRef.dismiss();
-            this._newCharacterPopupRef = null;
-        }
+        console.log('unmounting...');
         if (this._newCharacterPopupRoot)
             this._newCharacterPopupRoot.destroy();
         
         this.keyboardDidHideListener.remove();
-        BackHandler.removeEventListener('hardwareBackPress', this._backHandler);
     }
 
     _keyboardDidHide() {
@@ -92,8 +86,12 @@ export default class CharacterSelectorScreen extends React.Component {
     _openDrawer = () => { this.drawer._root.open() };
 
 
-    _backHandler() {
-        return true;
+    _backHandler = () => {
+        const { dispatch, navigation, nav } = this.props;
+        if (nav.routes.length === 1 && (nav.routes[0].routeName === 'Start')) {
+            return true;
+        }
+        return false;
     }
 
 

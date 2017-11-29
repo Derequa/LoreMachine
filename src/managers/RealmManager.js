@@ -68,9 +68,11 @@ export async function searchAll(query, resultsLimit) {
 
     if (!instance)
         await RealmManager.getRealm();
+    
     for (let i = 0 ; (i < searchable_schemas.length) ; i++) {
-        console.log('searching ' + searchable_schemas[i].object_name + '...');
-        if (!searchable_schemas[i].object_name || !searchable_schemas[i].display_name || !searchable_schemas[i].filter)
+        console.log(`searching ${searchable_schemas[i].object_name}...`);
+        
+        if (!searchable_schemas[i].object_name || !searchable_schemas[i].type_display_name || !searchable_schemas[i].filter)
             continue;
         
         console.log(searchable_schemas[i].filter.replace('<value>', query));
@@ -78,27 +80,23 @@ export async function searchAll(query, resultsLimit) {
             .objects(searchable_schemas[i].object_name)
             .filtered(searchable_schemas[i].filter.replace('<value>', query));
         
-        
         let num_results = Object.keys(currentResults).length;
         if (num_results === 0)
             continue;
-        if (resultsLimit && (num_results > (resultsLimit - result_counter))) {
-            results.push({
-                table: searchable_schemas[i].display_name,
-                display_name: searchable_schemas[i].display_name,
-                data: getResultsArray(currentResults, (resultsLimit - result_counter), query),
-            });
-            return results;
-        }
-        else {
-            results.push({
-                table: searchable_schemas[i].display_name,
-                display_name: searchable_schemas[i].display_name,
-                data: getResultsArray(currentResults, num_results, query),
-            });
+
+        for (let j = 0 ; j < num_results ; j++) {
+            const formattedResult =
+            {
+                name: currentResults[j].name,
+                description: currentResults[j].description,
+                url: currentResults[j].url,
+                type: searchable_schemas[i].type_display_name,
+            }
+            results.push(formattedResult);
         }
     }
-    
+    let fuse = new Fuse(results, options); // order by relavence
+    results = fuse.search(query);
     return results;
 }
 

@@ -40,7 +40,12 @@ const messages =
 ];
 const msgIndex = Math.floor(Math.random() * messages.length);
 const max_show_off_time = 2000;
-const navAction = NavigationActions.navigate({routeName: 'CharacterSelector'});
+const resetAction = NavigationActions.reset({
+    index: 0,
+    actions: [
+        NavigationActions.navigate({routeName: 'CharacterSelector'})
+    ]
+});
 
 export default class StartupScreen extends React.Component {
     
@@ -48,6 +53,7 @@ export default class StartupScreen extends React.Component {
     
     constructor(props) {
         super(props);
+        this.msgIndex = Math.floor(Math.random() * messages.length);
     }
 
     componentDidMount() {
@@ -56,9 +62,9 @@ export default class StartupScreen extends React.Component {
         .then(() => {
             let endTime = new Date().getTime();
             if (endTime - startTime > max_show_off_time)
-                this.props.navigation.navigate('CharacterSelector');
+                this._goToSelector();
             else
-                setTimeout(this._goToSelector.bind(this), (max_show_off_time - (endTime - startTime)));
+                setTimeout(this._goToSelector, (max_show_off_time - (endTime - startTime)));
         });
     }
 
@@ -67,8 +73,8 @@ export default class StartupScreen extends React.Component {
         await SettingsManager.get();
     }
 
-    _goToSelector() {
-        this.props.navigation.dispatch(navAction);
+    _goToSelector = () => {
+        this.props.navigation.dispatch(resetAction);
     }
 
     // TODO: fix centering issues bc header
@@ -97,7 +103,7 @@ export default class StartupScreen extends React.Component {
                     fontWeight: 'bold',
                     fontStyle: 'italic'
                 }}>
-                    {messages[msgIndex]}
+                    {messages[this.msgIndex]}
                 </Text>
             </View>
         );

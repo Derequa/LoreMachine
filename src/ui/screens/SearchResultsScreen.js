@@ -4,19 +4,19 @@ import {
     Content,
     Header,
     Left,
+    Right,
     Body,
     Icon,
     Button,
     Title,
     Text,
-    List,
-    ListItem,
     View,
     Card,
     CardItem,
+    List,
 } from 'native-base';
 import {
-    SectionList,
+    FlatList,
 } from 'react-native';
 import SearchHeader from '../components/SearchHeader';
 import { NavigationActions } from 'react-navigation';
@@ -63,38 +63,28 @@ export default class SearchResultsScreen extends React.Component {
 
 
     // TODO: replace with menu?
-    _goBack() { this.props.navigation.dispatch(NavigationActions.back()) }
+    _goBack = async () => { this.props.navigation.dispatch(NavigationActions.back()) }
 
 
     // TODO: search is better but could still use work
-    _refreshData(query) {
-        console.log('refreshing...');
+    _refreshData = async (query) => {
         let q = (query !== undefined ? query : this.state.query);
-        searchAll(q, max_results)
-        .then(async (results) => {
-            console.log(results);
-            let newData = [];
-            for (let i = 0 ; i < results.length ; i++) {
-                console.log('Adding section: ' + results[i].display_name);
-                newData.push({
-                    section_title: results[i].display_name
-                });
-                for (let j = 0 ; j < results[i].data.length ; j++) {
-                    console.log('Adding item: ' + results[i].data[j].name);
-                    newData.push(results[i].data[j]);
-                }
-            }
-            if (newData.length === 0) {
-                newData.push({empty: true});
-            }
-            this.setState({searchResults: newData, query: q, });
-        })
-        .catch((err) => {console.error(err)});
+        const results = await searchAll(q, max_results);
+        console.log(results);
         
+        if (results.length < 1) {
+            this.setState({searchResults: [{empty: true}], query: q, });
+            return;
+        }
+        this.setState({searchResults: results, query: q, });
+
+        if (this.listRef) {
+            this.listRef._root.scrollTo([0, 0]);
+        }
     }
 
 
-    _onBackPress() {
+    _onBackPress = () => {
         if (!this.state.searchInput) {
             this._goBack();
         }
@@ -109,7 +99,7 @@ export default class SearchResultsScreen extends React.Component {
             <Container style={{backgroundColor: colors.black}}>
                 <SearchHeader
                 leftIcon={(
-                    <Button transparent onPress={this._onBackPress.bind(this)}>
+                    <Button transparent onPress={this._onBackPress}>
                         <Icon name='arrow-back' style={{alignSelf: 'center', color: colors.black}}/>
                     </Button>
                 )}
@@ -118,39 +108,39 @@ export default class SearchResultsScreen extends React.Component {
                 iosBarStyle='light-content'
                 autoFocus={false}
                 defaultValue={this.state.query}
-                onSubmit={this._refreshData.bind(this)}
+                onSubmit={this._refreshData}
                 iconColor={colors.black}/>
-                <View>
                     <List
+                    ref={(list) => {this.listRef = list}}
                     dataArray={this.state.searchResults}
-                    renderRow={this._renderItem.bind(this)}/>
-                </View>
+                    renderRow={this._renderItem}/>
             </Container>
         );
     }
 
 
-    _renderItem(item) {
-        // Hack for shitty section support with native base
+    _renderItem = (item) => {
         if (item.empty)
             return this._renderEmpty();
-        else if (item.section_title)
-            return this._renderSection(item.section_title);
         return (
             <Card style={{backgroundColor: colors.greyDark}}>
                 <CardItem header style={{backgroundColor: colors.greyDark}}>
                     <Left>
                         <Text style={{color: colors.white, fontWeight: 'bold'}}>{item.name}</Text>
                     </Left>
+                    <Right>
+                        <Text style={{color: colors.greyLight, fontWeight: 'bold'}}>{item.type}</Text>
+                    </Right>
                 </CardItem>
                 <CardItem style={{backgroundColor: colors.greyDark}}>
                     <Body>
                         <Text style={{color: colors.white}} numberOfLines={3} >{item.description}</Text>
                     </Body>
                 </CardItem>
-                {item.url  && (
+                
                 <CardItem footer style={{backgroundColor: colors.greyDark}}>
                     <Left>
+                    {item.url  && (
                         <Button transparent onPress={() => {Linking.openURL(item.url)}}>
                             <Text 
                             style={{
@@ -161,28 +151,15 @@ export default class SearchResultsScreen extends React.Component {
                             Wiki Page
                             </Text>
                         </Button>
+                    )}
                     </Left>
                 </CardItem>
-                )}
             </Card>
         );
     }
 
 
-    _renderSection(title) {
-        return (
-            <Text style={{
-                color: colors.greyDark,
-                fontSize: 18,
-                fontWeight: 'bold',
-                alignSelf: 'flex-start',
-                padding: 15,
-            }}>{title}</Text>
-        );
-    }
-
-
-    _renderEmpty() {
+    _renderEmpty = () => {
         return (
             <View style={{flex: 1, flexDirection: 'column', alignItems: 'center'}}>
                 <Text
@@ -192,7 +169,7 @@ export default class SearchResultsScreen extends React.Component {
                     textAlign: 'center',
                     color: colors.greyDark
                 }}>
-                {"We got nothing..."}
+                {'We got nothing...'}
                 </Text>
                 <Text
                 style={{
@@ -201,7 +178,7 @@ export default class SearchResultsScreen extends React.Component {
                     textAlign: 'center',
                     color: colors.greyDark
                 }}>
-                {"Try again?"}
+                {'Try again?'}
                 </Text>
                 <Icon 
                 name='sad'

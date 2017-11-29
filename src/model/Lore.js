@@ -428,77 +428,77 @@ export const searchable_schemas =
 [
     {
         object_name: 'Language',
-        display_name: 'Languages',
+        type_display_name: 'Language',
         filter: basic_query_string,
     },
     {
         object_name: 'SkillInfo',
-        display_name: 'Skills',
+        type_display_name: 'Skill',
         filter: basic_query_string,
     },
     {
         object_name: 'BaseWeapon',
-        display_name: 'Weapons',
+        type_display_name: 'Weapon',
         filter: basic_query_string,
     },
     {
         object_name: 'BaseArmor',
-        display_name: 'Armors',
+        type_display_name: 'Armor',
         filter: basic_query_string,
     },
     {
         object_name: 'SpellSchoolPower',
-        display_name: 'Spell School Powers',
+        type_display_name: 'Spell School Power',
         filter: basic_query_string,
     },
     {
         object_name: 'SpellSchool',
-        display_name: 'Spell Schools',
+        type_display_name: 'Spell School',
         filter: basic_query_string,
     },
     {
         object_name: 'Spell',
-        display_name: 'Spells',
+        type_display_name: 'Spell',
         filter: 'name CONTAINS[c] \"<value>\" OR type CONTAINS[c] \"<value>\" OR school CONTAINS[c] \"<value>\"',
     },
     {
         object_name: 'Item',
-        display_name: 'Items',
+        type_display_name: 'Item',
         filter: basic_query_string,
     },
     {
         object_name: 'Feat',
-        display_name: 'Feats',
+        type_display_name: 'Feat',
         filter: basic_query_string,
     },
     {
         object_name: 'ClericPower',
-        display_name: 'Cleric Powers',
+        type_display_name: 'Cleric Power',
         filter: basic_query_string,
     },
     {
         object_name: 'ClericDomain',
-        display_name: 'Cleric Domains',
+        type_display_name: 'Cleric Domain',
         filter: basic_query_string,
     },
     {
         object_name: 'BloodlinePower',
-        display_name: 'Sorcerer Bloodline Powers',
+        type_display_name: 'Sorcerer Bloodline Power',
         filter: basic_query_string,
     },
     {
         object_name: 'SorcererBloodline',
-        display_name: 'Sorcerer Bloodlines',
+        type_display_name: 'Sorcerer Bloodline',
         filter: basic_query_string,
     },
     {
         object_name: 'ClassFeature',
-        display_name: 'Class Features',
+        type_display_name: 'Class Feature',
         filter: basic_query_string,
     },
     {
         object_name: 'Character',
-        display_name: 'Characters',
+        type_display_name: 'Character',
         filter: basic_query_string,
     }
 ]
