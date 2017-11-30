@@ -31,6 +31,7 @@ export default class SearchHeader extends React.Component {
     }
 
     componentWillUnmount() {
+        console.log('unmounting...');
         this.menuRef.close();
     }
 
@@ -73,10 +74,11 @@ export default class SearchHeader extends React.Component {
                     {this.state.searchText.length > 0 && (
                         <Button
                         transparent
-                        style={{alignSelf: 'center'}}
+                        style={{alignSelf: 'center', paddingRight: 0}}
                         onPress={this._clearSearch}>
                             <Icon name='close' style={{color: this.props.iconColor}}/>
                         </Button>)}
+                    {this.props.rightIcon}
                 </Item>
             </Header>
             <Menu 
@@ -110,11 +112,16 @@ export default class SearchHeader extends React.Component {
             this.menuRef.open();
         else if (value.length === 0)
             this.menuRef.close();
-        
+        else if (!this.menuRef._isOpen()) {
+            this.menuRef.open();
+        }
         if (this.props.onChangeText)
             this.props.onChangeText(value);
 
-        const results = await searchAll(value);     
+        const results = await searchAll(value);
+        if (results.length === 0) {
+            this.menuRef.close();
+        }
         this.setState({searchText: value, searchData: results});
 
     }
@@ -129,6 +136,7 @@ export default class SearchHeader extends React.Component {
 
     _onSubmit = () => {
         if (this.props.onSubmit)
-            this.props.onSubmit(this.state.searchText);
+            this.props.onSubmit({ query: this.state.searchText, results: this.state.searchData });
+        this.menuRef.close();
     }
 }

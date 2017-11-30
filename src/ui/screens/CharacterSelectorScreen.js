@@ -41,7 +41,13 @@ import SettingsManager, { DECK_MODE, LIST_MODE } from '../../managers/SettingsMa
 
 const SCREEN_WIDTH = (Dimensions.get('screen').width);
 const SCREEN_HEIGHT = (Dimensions.get('screen').height);
-
+const dummy_characters =
+[
+    {id: 0, name: 'Solaire', level: 10, clazz: 'Cleric', race: 'Human', image: require('../../../assets/solaire.jpg')},
+    {id: 1, name: 'Gimli', level: 7, clazz: 'Barbarian', race: 'Dwarf', image: require('../../../assets/gimli.jpeg')},
+    {id: 2, name: 'Vex', level: 6, clazz: 'Rogue', race: 'Human', image: require('../../../assets/vex.png')},
+    {id: 3, name: 'Daerak', level: 6, clazz: 'Paladin', race: 'Half-Elf', image: require('../../../assets/daerak.jpg')}
+];
 
 export default class CharacterSelectorScreen extends React.Component {
 
@@ -62,7 +68,7 @@ export default class CharacterSelectorScreen extends React.Component {
         this._newCharacterPopupRoot = new RootSiblings(
             <NewCharacterPopup ref={(popup) => { this._newCharacterPopupRef = popup; }} navigation={this.props.navigation}/>
         );
-        this.keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', this._keyboardDidHide.bind(this));
+        this.keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', this._keyboardDidHide);
     }
 
     componentWillUnmount() {
@@ -73,7 +79,7 @@ export default class CharacterSelectorScreen extends React.Component {
         this.keyboardDidHideListener.remove();
     }
 
-    _keyboardDidHide() {
+    _keyboardDidHide = () => {
         if (this.state.searching){
             this._onSearchCancel();
         }
@@ -86,16 +92,7 @@ export default class CharacterSelectorScreen extends React.Component {
     _openDrawer = () => { this.drawer._root.open() };
 
 
-    _backHandler = () => {
-        const { dispatch, navigation, nav } = this.props;
-        if (nav.routes.length === 1 && (nav.routes[0].routeName === 'Start')) {
-            return true;
-        }
-        return false;
-    }
-
-
-    _changeRenderMode() {
+    _changeRenderMode = () => {
         console.log('changing mode...');
         let lastMode = this.state.renderMode;
         this.setState({
@@ -109,18 +106,18 @@ export default class CharacterSelectorScreen extends React.Component {
     }
 
 
-    _onSearchStart() {
+    _onSearchStart = () => {
         this.setState({ searching: true });
     }
 
 
-    _onSearchCancel() {
+    _onSearchCancel = () => {
         this.setState({ searching: false });
     }
 
 
-    _onSearchSubmit(text) {
-        this.props.navigation.navigate('SearchResults', {query: text});
+    _onSearchSubmit = ({query, results}) => {
+        this.props.navigation.navigate('SearchResults', {query, results});
     }
 
 
@@ -134,53 +131,37 @@ export default class CharacterSelectorScreen extends React.Component {
             onClose={() => this._closeDrawer()}
             >
                 <Container style={{backgroundColor: colors.black}}>
-                <Fab style={{ backgroundColor: colors.orangeLight }} position="bottomRight" onPress={() => { this._newCharacterPopupRef.show() }}>
-                    <Icon name="add" />
+                <Fab style={{ backgroundColor: colors.orangeLight }} position='bottomRight' onPress={() => { this._newCharacterPopupRef.show() }}>
+                    <Icon name='add'/>
                 </Fab>
-                    {this.state.searching ? 
-                    (
                     <SearchHeader
                     leftIcon={(
-                        <Button transparent onPress={this._onSearchCancel.bind(this)}>
-                            <Icon name='arrow-back' style={{alignSelf: 'center', color: colors.black}}/>
+                        <Button transparent onPress={this._openDrawer} style={{alignSelf: 'center'}}>
+                            <Icon ios='ios-menu' android='md-menu' style={{color: colors.black}}/>
                         </Button>
                     )}
                     headerStyle={{backgroundColor: colors.transparent}}
                     androidStatusBarColor={colors.black}
+                    autoFocus={false}
+                    inputStyle={{alignSelf: 'center', justifyContent: 'center'}}
                     iosBarStyle='light-content'
-                    onSubmit={this._onSearchSubmit.bind(this)}
-                    iconColor={colors.black}/>
-                    )
-                    : 
-                    (<Header
-                    style={{backgroundColor: colors.transparent}}
-                    androidStatusBarColor={colors.black}
-                    iosBarStyle='light-content'>
-                        <Left style={{flex: 1, flexDirection: 'row'}}>
-                            <Button transparent onPress={this._openDrawer}>
-                                <Icon ios='ios-menu' android='md-menu'/>
-                            </Button>
-                            <Title style={{alignSelf: 'center', paddingLeft: 5}}>Characters</Title>
-                        </Left>
-                        <Right>
-                            <Button transparent onPress={this._onSearchStart.bind(this)}>
-                                <Icon name='ios-search'/>
-                            </Button>
-                            <Button transparent onPress={this._changeRenderMode.bind(this)}>
-                                <Icon active name={(this.state.renderMode === LIST_MODE) ? 'list' : 'albums'} style={{ color: colors.white, fontSize: 26, width: 30 }}/>
-                            </Button>
-                        </Right>
-                        </Header>)}
-                        <View>
+                    onSubmit={this._onSearchSubmit}
+                    iconColor={colors.black}
+                    rightIcon={(
+                        <Button transparent onPress={this._changeRenderMode} style={{alignSelf: 'center', paddingRight: 0}}>
+                            <Icon active name={(this.state.renderMode === LIST_MODE) ? 'list' : 'albums'} style={{ color: colors.black, fontSize: 26, width: 30 }}/>
+                        </Button>
+                    )}/>
+                    <View>
                         {(this.state.renderMode === DECK_MODE) ? this._renderDeck() : this._renderList()}
-                        </View>
+                    </View>
                 </Container>
             </Drawer>
         );
     }
 
 
-    _renderDeck() {
+    _renderDeck = () => {
         return(
             <DeckSwiper
             dataSource={this.state.data}
@@ -190,7 +171,7 @@ export default class CharacterSelectorScreen extends React.Component {
     }
 
 
-    _renderList() {
+    _renderList = () => {
         return (
             <List
             dataArray={this.state.data}
@@ -200,7 +181,7 @@ export default class CharacterSelectorScreen extends React.Component {
     }
 
 
-    _renderCard(card) {
+    _renderCard = (card) => {
         return(
             <Card style={{ elevation: 3, padding: 5, backgroundColor: colors.greyDark}}>
                 <CardItem style={{backgroundColor: colors.greyDark}}>
@@ -219,7 +200,7 @@ export default class CharacterSelectorScreen extends React.Component {
     }
 
 
-    _renderListItem(item) {
+    _renderListItem = (item) => {
         return(
             <ListItem style={{backgroundColor: colors.black}}>
                 <Body style={{flex: 1, flexDirection: 'row'}}>
@@ -233,50 +214,8 @@ export default class CharacterSelectorScreen extends React.Component {
     }
 
 
-    _loadCharacters() {
-        return(
-            [
-                {id: 0, name: 'Solaire', level: 10, clazz: 'Cleric', race: 'Human', image: require('../../../assets/solaire.jpg')},
-                {id: 1, name: 'Gimli', level: 7, clazz: 'Barbarian', race: 'Dwarf', image: require('../../../assets/gimli.jpeg')},
-                {id: 2, name: 'Vex', level: 6, clazz: 'Rogue', race: 'Human', image: require('../../../assets/vex.png')},
-                {id: 3, name: 'Daerak', level: 6, clazz: 'Paladin', race: 'Half-Elf', image: require('../../../assets/daerak.jpg')}
-            ]
-        );
+    _loadCharacters = () => {
+        return dummy_characters;
     }
 
 }
-
-
-/* old JSON character importer expierements
-_openFilePicker() {
-        console.log('fab pressed you fucker');
-        DocumentPicker.show({
-            filetype: [DocumentPickerUtil.allFiles()],
-            },(error,res) => {
-            // Android
-            var RNGRP = require('react-native-get-real-path');
-            var RNFS = require('react-native-fs');
-            RNGRP.getRealPathFromURI(res.uri)
-                .then((filePath) => {
-                    console.log(filePath);
-                    RNFS.readFile(filePath)
-                    .then((res) => {
-                        let daerak = JSON.parse(res);
-                        console.log(daerak);
-                    })
-                    
-                    if (res) {
-                        console.log(
-                        res.uri,
-                        res.type, // mime type
-                        res.fileName,
-                        res.fileSize
-                        );
-                    }
-                })
-                .catch((err) => {
-                    console.log(err);
-                });
-          });
-    }
- */

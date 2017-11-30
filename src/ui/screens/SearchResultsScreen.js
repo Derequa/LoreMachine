@@ -49,16 +49,12 @@ export default class SearchResultsScreen extends React.Component {
 
     constructor(props) {
         super(props);
+        const results = this.props.navigation.state.params.results;
         this.state = {
             query: this.props.navigation.state.params.query,
-            searchResults: [],
+            searchResults: results ? results : [{empty: true}],
             searchInput: false,
         }
-    }
-
-
-    componentDidMount() {
-        this._refreshData();
     }
 
 
@@ -67,20 +63,25 @@ export default class SearchResultsScreen extends React.Component {
 
 
     // TODO: search is better but could still use work
-    _refreshData = async (query) => {
-        let q = (query !== undefined ? query : this.state.query);
-        const results = await searchAll(q, max_results);
-        console.log(results);
-        
+    _refreshData = async ({ query, results }) => {
+        const q = query ? query : this.state.query;
+        let r = results;
+
+        if (!r) {
+            r = await searchAll(q);
+        }
+
+        if (this.listRef) {
+            // TODO: fix scroll jump on reaalllyy long lists
+            this.listRef._root.scrollTo([0, 0]);
+        }
+
         if (results.length < 1) {
             this.setState({searchResults: [{empty: true}], query: q, });
             return;
         }
-        this.setState({searchResults: results, query: q, });
 
-        if (this.listRef) {
-            this.listRef._root.scrollTo([0, 0]);
-        }
+        this.setState({searchResults: r, query: q, });        
     }
 
 
