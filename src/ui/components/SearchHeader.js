@@ -71,44 +71,44 @@ export default class SearchHeader extends React.Component {
     render() {
         return(
             <View>
-            <Header
-            style={this.props.headerStyle}
-            androidStatusBarColor={this.props.androidStatusBarColor}
-            iosBarStyle={this.props.iosBarStyle}
-            searchBar
-            rounded
-            >
-                <Item style={styles.headerItem}>
-                    {this.props.leftIcon}
-                    <Icon name='ios-search' style={styles.iconColor}/>
-                    <Input 
-                    ref={(search) => {this.searchRef = search}}
-                    autoFocus={this.props.autoFocus !== undefined ? this.props.autoFocus : true}
-                    style={this.props.inputStyle}
-                    defaultValue={this.props.defaultValue ? this.props.defaultValue : ''}
-                    placeholder={'Search'}
-                    onChangeText={this._changeText.bind(this)}
-                    onSubmitEditing={this._onSubmit.bind(this)}
-                    />
-                    {this.state.searchText.length > 0 && (
-                        <Button
-                        transparent
-                        style={styles.clearSearchButton}
-                        onPress={this._clearSearch}>
-                            <Icon name='close' style={styles.iconColor}/>
-                        </Button>)}
-                    {this.props.rightIcon}
-                </Item>
-            </Header>
-            <Menu 
-            ref={(menu) => {this.menuRef = menu}}
-            renderer={renderers.NotAnimatedContextMenu}
-            >
-                <MenuTrigger/>
-                <MenuOptions customStyles={{optionsContainer: {width: SCREEN_WIDTH}}}>
-                    {this._getMenuOptions()}
-                </MenuOptions>
-            </Menu>
+                <Header
+                style={this.props.headerStyle}
+                androidStatusBarColor={this.props.androidStatusBarColor}
+                iosBarStyle={this.props.iosBarStyle}
+                searchBar
+                rounded
+                >
+                    <Item style={styles.headerItem}>
+                        {this.props.leftIcon}
+                        <Icon name='ios-search' style={styles.iconColor}/>
+                        <Input 
+                        ref={(search) => {this.searchRef = search}}
+                        autoFocus={this.props.autoFocus !== undefined ? this.props.autoFocus : true}
+                        style={this.props.inputStyle}
+                        defaultValue={this.props.defaultValue ? this.props.defaultValue : ''}
+                        placeholder={'Search'}
+                        onChangeText={this._changeText.bind(this)}
+                        onSubmitEditing={this._onSubmit.bind(this)}
+                        />
+                        {this.state.searchText.length > 0 && (
+                            <Button
+                            transparent
+                            style={styles.clearSearchButton}
+                            onPress={this._clearSearch}>
+                                <Icon name='close' style={styles.iconColor}/>
+                            </Button>)}
+                        {this.props.rightIcon}
+                    </Item>
+                </Header>
+                <Menu 
+                ref={(menu) => {this.menuRef = menu}}
+                renderer={renderers.NotAnimatedContextMenu}
+                >
+                    <MenuTrigger/>
+                    <MenuOptions customStyles={{optionsContainer: {width: SCREEN_WIDTH}}}>
+                        {this._getMenuOptions()}
+                    </MenuOptions>
+                </Menu>
             </View>  
         );// TODO: Handle dropdown changes on screen rotation
     }

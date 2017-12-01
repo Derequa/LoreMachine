@@ -9,6 +9,7 @@ import CharacterSelectorScreen from './ui/screens/CharacterSelectorScreen';
 import UnderDevelopmentScreen from './ui/screens/UnderDevelopmentScreen';
 import SearchResultsScreen from './ui/screens/SearchResultsScreen';
 import StartupScreen from './ui/screens/StartupScreen';
+import DataDisplayScreen from './ui/screens/DataDisplayScreen';
 import Config from 'react-native-config';
 import { MenuContext } from 'react-native-popup-menu';
 
@@ -38,7 +39,10 @@ export const MainAppStack = StackNavigator({
     },
     SearchResults: {
         screen: SearchResultsScreen,
-    }
+    },
+    DataDisplay: {
+        screen: DataDisplayScreen,
+    },
 }, navigationOptions,);
 
 export const App = () => (

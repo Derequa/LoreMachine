@@ -8,6 +8,7 @@ export const appDefaults = {
 }
 
 export const appStyles = StyleSheet.create({
+    mainContainer: { backgroundColor: colors.black },
     searchHeaderBackButton: {
         alignSelf: 'center', 
         color: colors.black

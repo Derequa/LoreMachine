@@ -91,6 +91,7 @@ export async function searchAll(query, resultsLimit) {
                 description: currentResults[j].description,
                 url: currentResults[j].url,
                 type: searchable_schemas[i].type_display_name,
+                object_name: searchable_schemas[i].object_name,
             }
             results.push(formattedResult);
         }

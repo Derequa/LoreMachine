@@ -26,7 +26,8 @@ import {
 import {
     FlatList,
     Linking,
-    StyleSheet
+    StyleSheet,
+    TouchableOpacity
 } from 'react-native';
 
 
@@ -97,7 +98,7 @@ export default class SearchResultsScreen extends React.Component {
     }
 
 
-    _goBack = async () => { this.props.navigation.dispatch(NavigationActions.back()) }
+    _goBack = () => { this.props.navigation.dispatch(NavigationActions.back()) }
 
 
     _refreshData = async ({ query, results }) => {
@@ -117,25 +118,17 @@ export default class SearchResultsScreen extends React.Component {
     }
 
 
-    _onBackPress = () => {
-        if (!this.state.searchInput) {
-            this._goBack();
-        }
-        else {
-            this.setState({ searchInput: false });
-        }
-    }
-
-
     render() {
+        const leftIcon = (
+            <Button transparent onPress={this._goBack}>
+                <Icon name={appDefaults.searchHeaderBackIcon} style={appStyles.searchHeaderBackButton}/>
+            </Button>
+        );
+
         return (
             <Container style={styles.mainContainer}>
                 <SearchHeader
-                leftIcon={(
-                    <Button transparent onPress={this._onBackPress}>
-                        <Icon name={appDefaults.searchHeaderBackIcon} style={appStyles.searchHeaderBackButton}/>
-                    </Button>
-                )}
+                leftIcon={leftIcon}
                 headerStyle={appStyles.searchHeaderBackground}
                 inputStyle={appStyles.searchInputStyle}
                 androidStatusBarColor={appDefaults.searchHeaderBarColor}
@@ -162,6 +155,7 @@ export default class SearchResultsScreen extends React.Component {
         if (item.empty)
             return this._renderEmpty();
         return (
+            <TouchableOpacity onPress={() => {this.props.navigation.navigate('DataDisplay', {data: item})}}>
             <Card style={styles.resultCardStyle} contentContainerStyle={styles.resultCardContainer}>
                 <CardItem header style={styles.resultCardStyle}>
                     <Left style={styles.resultTitleContainer}>
@@ -183,6 +177,7 @@ export default class SearchResultsScreen extends React.Component {
                     </Body>
                 </CardItem>
             </Card>
+            </TouchableOpacity>
         );
     }
 
