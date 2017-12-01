@@ -19,6 +19,7 @@ import SearchHeader from '../components/SearchHeader';
 import { NavigationActions } from 'react-navigation';
 import { searchAll } from '../../managers/RealmManager';
 import { colors } from '../colors';
+import { navToDataScreen } from '../components/data/DataComponentMapper';
 import {
     appStyles,
     appDefaults
@@ -27,7 +28,8 @@ import {
     FlatList,
     Linking,
     StyleSheet,
-    TouchableOpacity
+    TouchableOpacity,
+    Keyboard
 } from 'react-native';
 
 
@@ -137,6 +139,7 @@ export default class SearchResultsScreen extends React.Component {
                 defaultValue={this.state.query}
                 onSubmit={this._refreshData}
                 clearOnSubmmit={false}
+                onItemSelect={this._onItemSelect}
                 />
                     <FlatList
                     ref={(list) => {this.listRef = list}}
@@ -155,7 +158,7 @@ export default class SearchResultsScreen extends React.Component {
         if (item.empty)
             return this._renderEmpty();
         return (
-            <TouchableOpacity onPress={() => {this.props.navigation.navigate('DataDisplay', {data: item})}}>
+            <TouchableOpacity onPress={() => {this._onItemSelect(item)}}>
             <Card style={styles.resultCardStyle} contentContainerStyle={styles.resultCardContainer}>
                 <CardItem header style={styles.resultCardStyle}>
                     <Left style={styles.resultTitleContainer}>
@@ -196,4 +199,9 @@ export default class SearchResultsScreen extends React.Component {
     _getItemLayout = (data, index) => { return {offset: 180 * index, length: 180, index} }
 
     _scrollToTopHack = () => { this.listRef.scrollToIndex({animated: true, index: 0}) }
+
+    _onItemSelect = (data) => {
+        Keyboard.dismiss();
+        navToDataScreen(this.props.navigation, data);
+    }
 }

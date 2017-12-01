@@ -1,7 +1,16 @@
 // Map data types from realm to React Components
-import Language from './Language';
+import BasicItem from './BasicItem';
 
 
 export const dataMap = {
-    'Language': Language,
+    'Language': BasicItem,
+    'SpellSchoolPower': BasicItem,
+    'SpellSchool': BasicItem,
+}
+
+export function hasScreen (data) { return (dataMap[data.object_name] !== undefined) }
+
+export function navToDataScreen (navigation, data) {
+    if (hasScreen(data))
+        navigation.navigate('DataDisplay', {data}); 
 }

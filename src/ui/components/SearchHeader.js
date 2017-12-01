@@ -9,6 +9,7 @@ import {
     View,
 } from 'native-base';
 import { searchAll } from '../../managers/RealmManager';
+import { navToDataScreen } from './data/DataComponentMapper';
 import {
     Menu,
     MenuTrigger,
@@ -36,6 +37,11 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         paddingRight: 0
     },
+    dropDownTitle: {
+        color: colors.black,
+        fontSize: 18
+    },
+    dropDownSubTitle: { color: colors.greyDark }
 });
 
 
@@ -51,21 +57,6 @@ export default class SearchHeader extends React.Component {
     componentWillUnmount() {
         this.menuRef.close();
     }
-
-    /*
-        Props and shit
-        
-        headerStyle
-        androidStatusBarColor
-        iosBarStyle
-        onSubmit
-        iconColor
-        inputStyle
-        onChangeText
-        leftIcon
-        autoFocus
-        defaultValue
-    */
 
     
     render() {
@@ -115,11 +106,23 @@ export default class SearchHeader extends React.Component {
 
     _getMenuOptions = () => {
         let options = [];
+
         for (let i = 0 ; i < this.state.searchData.length && i < maxDisplayResults ; i++) {
             const name = this.state.searchData[i].name;
+            const type = this.state.searchData[i].type;
             options.push((
-                <MenuOption key={name}>
-                    <Text>{name}</Text>
+                <MenuOption
+                key={name} 
+                onSelect={() => {
+                    if (this.props.clearOnSubmmit) {
+                        this.searchRef.setNativeProps({text: ''});
+                    }
+                    if (this.props.onItemSelect) {
+                        this.props.onItemSelect(this.state.searchData[i])
+                    }
+                }}>
+                    <Text style={styles.dropDownTitle}>{name}</Text>
+                    <Text style={styles.dropDownSubTitle}>{type}</Text>
                 </MenuOption>
             ));
         }

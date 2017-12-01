@@ -28,6 +28,7 @@ import {
     appDefaults
 } from '../appStyles';
 import { colors } from '../colors';
+import { navToDataScreen } from '../components/data/DataComponentMapper';
 import { DocumentPicker, DocumentPickerUtil } from 'react-native-document-picker';
 import MainSideBar from '../components/MainSideBar';
 import NewCharacterPopup from '../components/NewCharacterPopup';
@@ -118,7 +119,10 @@ export default class CharacterSelectorScreen extends React.Component {
     _closeDrawer = () => { this.drawer._root.close() };
     _openDrawer = () => { this.drawer._root.open() };
     _onSearchSubmit = ({query, results}) => { this.props.navigation.navigate('SearchResults', {query, results}) }
-
+    _onItemSelect = (data) => {
+        Keyboard.dismiss();
+        navToDataScreen(this.props.navigation, data);
+    }
 
     _changeRenderMode = () => {
         console.log('changing mode...');
@@ -171,6 +175,7 @@ export default class CharacterSelectorScreen extends React.Component {
                     onSubmit={this._onSearchSubmit}
                     clearOnSubmmit={true}
                     rightIcon={rightIcon}
+                    onItemSelect={this._onItemSelect}
                     />
                     <View>
                         {(this.state.renderMode === DECK_MODE) ? this._renderDeck() : this._renderList()}
