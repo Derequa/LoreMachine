@@ -36,8 +36,9 @@ const messages =
     'slaying the princess...',
     'searching for traps...',
     'farting on the diplomacy check...',
-    'cheese for everyone',
+    'cheese for everyone!',
 ];
+
 const msgIndex = Math.floor(Math.random() * messages.length);
 const max_show_off_time = 2000;
 const resetAction = NavigationActions.reset({
@@ -77,8 +78,6 @@ export default class StartupScreen extends React.Component {
         this.props.navigation.dispatch(resetAction);
     }
 
-    // TODO: fix centering issues bc header
-    // Have to use header for status bar color
     render() {
         return (
             <View style={{

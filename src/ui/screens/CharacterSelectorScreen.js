@@ -23,7 +23,10 @@ import {
     Item,
     Input,
 } from 'native-base';
-import { styles } from '../styles';
+import {
+    appStyles,
+    appDefaults
+} from '../appStyles';
 import { colors } from '../colors';
 import { DocumentPicker, DocumentPickerUtil } from 'react-native-document-picker';
 import MainSideBar from '../components/MainSideBar';
@@ -35,6 +38,7 @@ import {
     Image,
     Keyboard,
     BackHandler,
+    StyleSheet,
 } from 'react-native';
 import SettingsManager, { DECK_MODE, LIST_MODE } from '../../managers/SettingsManager';
 
@@ -48,6 +52,39 @@ const dummy_characters =
     {id: 2, name: 'Vex', level: 6, clazz: 'Rogue', race: 'Human', image: require('../../../assets/vex.png')},
     {id: 3, name: 'Daerak', level: 6, clazz: 'Paladin', race: 'Half-Elf', image: require('../../../assets/daerak.jpg')}
 ];
+const styles = StyleSheet.create({
+    mainContainer: { backgroundColor: colors.black },
+    fab: { backgroundColor: colors.orangeLight },
+    drawerButton: {alignSelf: 'center'},
+    drawerIcon: {color: colors.black},
+    renderModeButton: {
+        alignSelf: 'center',
+        paddingRight: 0
+    },
+    renderModeIcon: {
+        color: colors.black,
+        fontSize: 26,
+        width: 30
+    },
+    cardContainer: {
+        elevation: 3,
+        padding: 5,
+        backgroundColor: colors.greyDark
+    },
+    cardItem: { backgroundColor: colors.greyDark },
+    textColor: { color: colors.white },
+    cardImage: {
+        height: (Dimensions.get('window').height) - 220,
+        flex: 1
+    },
+    listItemContainer: { backgroundColor: colors.black },
+    listItemBody: {
+        flex: 1,
+        flexDirection: 'row'
+    },
+    listItemTextContainer: { padding: 10 },
+});
+
 
 export default class CharacterSelectorScreen extends React.Component {
 
@@ -58,7 +95,6 @@ export default class CharacterSelectorScreen extends React.Component {
         this.state = {
             data: [],
             renderMode: DECK_MODE,
-            searching: false,
         }
     }
 
@@ -68,7 +104,6 @@ export default class CharacterSelectorScreen extends React.Component {
         this._newCharacterPopupRoot = new RootSiblings(
             <NewCharacterPopup ref={(popup) => { this._newCharacterPopupRef = popup; }} navigation={this.props.navigation}/>
         );
-        this.keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', this._keyboardDidHide);
     }
 
     componentWillUnmount() {
@@ -79,25 +114,20 @@ export default class CharacterSelectorScreen extends React.Component {
         this.keyboardDidHideListener.remove();
     }
 
-    _keyboardDidHide = () => {
-        if (this.state.searching){
-            this._onSearchCancel();
-        }
-    }
-
 
     _closeDrawer = () => { this.drawer._root.close() };
-
-
     _openDrawer = () => { this.drawer._root.open() };
+    _onSearchSubmit = ({query, results}) => { this.props.navigation.navigate('SearchResults', {query, results}) }
 
 
     _changeRenderMode = () => {
         console.log('changing mode...');
         let lastMode = this.state.renderMode;
+
         this.setState({
             renderMode: ((lastMode === DECK_MODE) ? LIST_MODE : DECK_MODE)
         });
+
         SettingsManager.get()
         .then((settings) => {
             settings.change({selectorMode: this.state.renderMode});
@@ -106,52 +136,42 @@ export default class CharacterSelectorScreen extends React.Component {
     }
 
 
-    _onSearchStart = () => {
-        this.setState({ searching: true });
-    }
-
-
-    _onSearchCancel = () => {
-        this.setState({ searching: false });
-    }
-
-
-    _onSearchSubmit = ({query, results}) => {
-        this.props.navigation.navigate('SearchResults', {query, results});
-    }
-
-
     // TODO: clean up, particularly inline anon callbacks
     // Also add in drop down thingy for search, probably should put that in the search header component...
     render() {
+        const leftIcon = (
+            <Button transparent onPress={this._openDrawer} style={styles.drawerButton}>
+                <Icon ios='ios-menu' android='md-menu' style={styles.drawerIcon}/>
+            </Button>
+        );
+
+        const rightIcon = (
+            <Button transparent onPress={this._changeRenderMode} style={styles.renderModeButton}>
+                <Icon active name={(this.state.renderMode === LIST_MODE) ? 'list' : 'albums'} style={styles.renderModeIcon}/>
+            </Button>
+        );
+
         return (
             <Drawer
             ref={(ref) => { this.drawer = ref; }}
             content={<MainSideBar navigator={this.navigator} navigation={this.props.navigation}/>}
             onClose={() => this._closeDrawer()}
             >
-                <Container style={{backgroundColor: colors.black}}>
-                <Fab style={{ backgroundColor: colors.orangeLight }} position='bottomRight' onPress={() => { this._newCharacterPopupRef.show() }}>
+                <Container style={styles.mainContainer}>
+                <Fab style={styles.fab} position='bottomRight' onPress={() => { this._newCharacterPopupRef.show() }}>
                     <Icon name='add'/>
                 </Fab>
                     <SearchHeader
-                    leftIcon={(
-                        <Button transparent onPress={this._openDrawer} style={{alignSelf: 'center'}}>
-                            <Icon ios='ios-menu' android='md-menu' style={{color: colors.black}}/>
-                        </Button>
-                    )}
-                    headerStyle={{backgroundColor: colors.transparent}}
-                    androidStatusBarColor={colors.black}
+                    leftIcon={leftIcon}
+                    headerStyle={appStyles.searchHeaderBackground}
+                    androidStatusBarColor={appDefaults.searchHeaderBarColor}
                     autoFocus={false}
-                    inputStyle={{alignSelf: 'center', justifyContent: 'center'}}
-                    iosBarStyle='light-content'
+                    inputStyle={appStyles.searchInputStyle}
+                    iosBarStyle={appDefaults.searchHeaderBarStyle}
                     onSubmit={this._onSearchSubmit}
-                    iconColor={colors.black}
-                    rightIcon={(
-                        <Button transparent onPress={this._changeRenderMode} style={{alignSelf: 'center', paddingRight: 0}}>
-                            <Icon active name={(this.state.renderMode === LIST_MODE) ? 'list' : 'albums'} style={{ color: colors.black, fontSize: 26, width: 30 }}/>
-                        </Button>
-                    )}/>
+                    clearOnSubmmit={true}
+                    rightIcon={rightIcon}
+                    />
                     <View>
                         {(this.state.renderMode === DECK_MODE) ? this._renderDeck() : this._renderList()}
                     </View>
@@ -161,39 +181,23 @@ export default class CharacterSelectorScreen extends React.Component {
     }
 
 
-    _renderDeck = () => {
+    _renderDeck = () => { return (<DeckSwiper dataSource={this.state.data} renderItem={this._renderCard}/>) }
+    _renderList = () => { return (<List dataArray={this.state.data} renderRow={this._renderListItem}/>) }
+
+
+    _renderCard = (item) => {
         return(
-            <DeckSwiper
-            dataSource={this.state.data}
-            renderItem={this._renderCard}
-            />
-        );
-    }
-
-
-    _renderList = () => {
-        return (
-            <List
-            dataArray={this.state.data}
-            renderRow={this._renderListItem}
-            />
-        );
-    }
-
-
-    _renderCard = (card) => {
-        return(
-            <Card style={{ elevation: 3, padding: 5, backgroundColor: colors.greyDark}}>
-                <CardItem style={{backgroundColor: colors.greyDark}}>
+            <Card style={styles.cardContainer}>
+                <CardItem style={styles.cardItem}>
                     <Left>
                         <Body>
-                            <Text style={{color: colors.white}}>{card.name + ': Level ' + card.level}</Text>
-                            <Text style={{color: colors.white}} note>{card.race + ' ' + card.clazz}</Text>
+                            <Text style={styles.textColor}>{`${item.name}: Level ${item.level}`}</Text>
+                            <Text style={styles.textColor} note>{`${item.race} ${item.clazz}`}</Text>
                         </Body>
                     </Left>
                 </CardItem>
                 <CardItem cardBody>
-                    <Image style={{ height: (Dimensions.get('window').height) - 220, flex: 1 }} source={card.image} resizeMode='cover'/>
+                    <Image style={styles.cardImage} source={item.image} resizeMode='cover'/>
                 </CardItem>
             </Card>
         );
@@ -202,20 +206,18 @@ export default class CharacterSelectorScreen extends React.Component {
 
     _renderListItem = (item) => {
         return(
-            <ListItem style={{backgroundColor: colors.black}}>
-                <Body style={{flex: 1, flexDirection: 'row'}}>
+            <ListItem style={styles.listItemContainer}>
+                <Body style={styles.listItemBody}>
                     <Thumbnail size={80} source={item.image} />
-                    <View style={{ padding: 10}}>
-                        <Text style={{color: colors.white}}>{item.name + ': Level ' + item.level}</Text>
-                        <Text style={{color: colors.white}} note>{item.race + ' ' + item.clazz}</Text>
+                    <View style={styles.listItemTextContainer}>
+                        <Text style={styles.textColor}>{`${item.name}: Level ${item.level}`}</Text>
+                        <Text style={styles.textColor} note>{`${item.race} ${item.clazz}`}</Text>
                     </View>
                 </Body>
             </ListItem>);
     }
 
 
-    _loadCharacters = () => {
-        return dummy_characters;
-    }
+    _loadCharacters = () => { return dummy_characters }
 
 }

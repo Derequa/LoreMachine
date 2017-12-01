@@ -1,0 +1,11 @@
+root = true
+
+[*]
+end_of_line = lf
+
+[*.(js,py,java,gradle,json}]
+indent_style = space
+indent_size = 4
+
+[Makefile]
+indent_style = tab
