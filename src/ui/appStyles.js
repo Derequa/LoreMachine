@@ -18,4 +18,5 @@ export const appStyles = StyleSheet.create({
         justifyContent: 'center'
     },
     searchHeaderBackground: { backgroundColor: colors.transparent },
+    text: {color: colors.white}
 });

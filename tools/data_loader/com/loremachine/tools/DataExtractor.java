@@ -143,7 +143,7 @@ public class DataExtractor {
     			else if (value instanceof JSONArray)
     				ret += stringifyArray((JSONArray) value, dataTitle) + ",\n";
     			else if (value instanceof String)
-    				ret += "\'" + value + "\',\n";
+    				ret += "`" + value + "`,\n";
     			else
     				ret += value + ",\n";
     		}
@@ -172,7 +172,7 @@ public class DataExtractor {
 			else if (item instanceof JSONArray)
 				ret += stringifyArray((JSONArray) item, dataTitle) + ",\n";
 			else if (item instanceof String)
-				ret += "\'" + item + "\',\n";
+				ret += "`" + item + "`,\n";
 			else
 				ret += item + ",\n";
      	}

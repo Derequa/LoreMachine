@@ -1,5 +1,9 @@
 import React from 'react';
-import { Image, Switch, Dimensions } from "react-native";
+import {
+    Image,
+    Dimensions,
+    StyleSheet,
+} from 'react-native';
 import {
 	Content,
 	Text,
@@ -13,13 +17,19 @@ import {
 	Badge,
 	Button,
 	View,
-} from "native-base";
+} from 'native-base';
+import {
+    appDefaults,
+    appStyles
+} from '../appStyles';
 import { colors } from '../colors';
+
+
 const drawerItems = [
     {
-        name: 'Settings',
-        route: 'NopeScreen',
-        icon: 'settings',
+        name: 'Browse',
+        route: 'DataBrowser',
+        icon: 'folder',
         color: colors.whitePale
     },
     {
@@ -35,15 +45,32 @@ const drawerItems = [
         color: colors.burgandy
     },
     {
-        name: 'stuff 4',
+        name: 'Settings',
         route: 'NopeScreen',
-        icon: 'add',
+        icon: 'settings',
         color: colors.greenPale
     },
 ];
-const deviceHeight = Dimensions.get("window").height;
-const deviceWidth = Dimensions.get("window").width;
+const deviceHeight = Dimensions.get('window').height;
+const deviceWidth = Dimensions.get('window').width;
 const coverImage = require('../../../assets/loremachine.png');
+const styles = StyleSheet.create({
+    menuImage: {
+        resizeMode: 'contain',
+        height: deviceHeight / 3.5,
+        width: null,
+        position: "relative",
+        marginBottom: 10
+    },
+    menuContainer: {
+        flex: 1,
+        backgroundColor: colors.black,
+        top: -1
+    },
+    iconStyle: {
+        
+    },
+});
 
 export default class MainSideBar extends React.Component {
     
@@ -54,25 +81,19 @@ export default class MainSideBar extends React.Component {
     render() {
         return(
             <Container>
-                <Content bounces={false} style={{ flex: 1, backgroundColor: colors.black, top: -1 }}>
-                    <Image source={coverImage} style={{
-                        resizeMode: 'contain',
-                        height: deviceHeight / 3.5,
-                        width: null,
-                        position: "relative",
-                        marginBottom: 10
-                    }}/>
-                    <List dataArray={drawerItems} renderRow={this._renderItem.bind(this)}/>
+                <Content bounces={false} style={styles.menuContainer}>
+                    <Image source={coverImage} style={styles.menuImage}/>
+                    <List dataArray={drawerItems} renderRow={this._renderItem}/>
                 </Content>
             </Container>
         );
     }
 
-    _renderItem(item) {
+    _renderItem = (item) => {
         return(
-            <ListItem button onPress={() => {this.props.navigation.navigate(item.route)}} style={{backgroundColor: colors.black}}>
+            <ListItem button onPress={() => {this._nav(item)}} style={appStyles.mainContainer}>
                 <Left>
-                    <Icon active name={item.icon} style={{ color: item.color, fontSize: 26, width: 30 }} />
+                    <Icon active name={item.icon} style={[styles.iconStyle, {color: item.color}]} />
                     <Text style={{color: item.color}}>
                         {item.name}
                     </Text>
@@ -81,5 +102,9 @@ export default class MainSideBar extends React.Component {
         );
     }
 
-    nothing() {}
+    _nav = (item) => {
+        if (this.props.closeSelf)
+            this.props.closeSelf();
+        this.props.navigation.navigate(item.route);
+    }
 }

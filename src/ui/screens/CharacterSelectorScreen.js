@@ -111,8 +111,6 @@ export default class CharacterSelectorScreen extends React.Component {
         console.log('unmounting...');
         if (this._newCharacterPopupRoot)
             this._newCharacterPopupRoot.destroy();
-        
-        this.keyboardDidHideListener.remove();
     }
 
 
@@ -158,8 +156,7 @@ export default class CharacterSelectorScreen extends React.Component {
         return (
             <Drawer
             ref={(ref) => { this.drawer = ref; }}
-            content={<MainSideBar navigator={this.navigator} navigation={this.props.navigation}/>}
-            onClose={() => this._closeDrawer()}
+            content={<MainSideBar navigator={this.navigator} navigation={this.props.navigation} closeSelf={this._closeDrawer}/>}
             >
                 <Container style={styles.mainContainer}>
                 <Fab style={styles.fab} position='bottomRight' onPress={() => { this._newCharacterPopupRef.show() }}>

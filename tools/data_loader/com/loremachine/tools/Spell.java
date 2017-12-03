@@ -2,21 +2,25 @@ package com.loremachine.tools;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Scanner;
 import org.json.simple.*;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;;
 
 public class Spell {
 	
 	// Field to count and uniquely ID all the spells we read in
 	private static int idMarker = 0;
-
+	private static HashMap<String, JSONObject> jsonSpellData = new HashMap<String, JSONObject>();
 	
 	private int id;
 	private String name;
-	private HashMap<String, Integer> level;
+	private JSONArray level;
 	private String school;
 	private String type;
 	private String casting_time;
@@ -31,18 +35,35 @@ public class Spell {
 	
 	
 	public Spell(HashMap<String, String> tags) {
+		this.name = tags.get("NAME");
+		if (this.name.contains("(")) {
+			int idx = this.name.indexOf('(');
+			if (idx > 2) {
+				String altName = this.name.substring(0, idx - 1)
+						+ ", " + this.name.substring(idx).replace("(", "").replace(")", "");
+				this.name = altName;
+			}
+		}
 		
+		JSONObject obj = jsonSpellData.get(this.name.toLowerCase());
 		this.id = idMarker++;
-		this.name = DataExtractor.stringPurifier(tags.get("NAME"));
-		this.level = getLevels(tags.get("CLASSES"));
+		this.level = (JSONArray) obj.get("levels");
+		cleanUpClassLevels(this.level);
 		this.school = DataExtractor.stringPurifier(tags.get("SCHOOL"));
 		this.type = DataExtractor.stringPurifier(tags.get("TYPE").replaceAll("[.]", " & "));
 		this.casting_time = DataExtractor.stringPurifier(tags.get("CASTTIME"));
-		this.components = DataExtractor.stringPurifier(tags.get("COMPS"));
+		this.components = (String) obj.get("component_text");
+		if (this.components == null) {
+			this.components = DataExtractor.stringPurifier(tags.get("COMPS"));
+		}
 		this.range = DataExtractor.stringPurifier(tags.get("RANGE"));
 		this.effect = DataExtractor.stringPurifier(tags.get("TARGETAREA"));
-		this.duration = DataExtractor.stringPurifier(tags.get("DURATION"));
-		this.saving_throw = DataExtractor.stringPurifier(tags.get("SAVEINFO"));
+		this.duration = (String) obj.get("duration");
+		if (this.duration == null) {
+			this.duration = DataExtractor.stringPurifier(tags.get("DURATION"));
+			this.duration = this.duration.replaceAll("CASTERLEVEL", "caster level");
+		}
+		this.saving_throw = (String) obj.get("saving_throw");
 		this.spell_resistance = DataExtractor.stringPurifier(tags.get("SPELLRES"));
 		this.url = tags.get("SOURCELINK");
 		this.setDesc(tags.get("DESC"));
@@ -55,8 +76,8 @@ public class Spell {
 	 * @param fromFile String from file containing class/level info.
 	 * @return A hash map containing class names mapped to levels.
 	 */
-	private HashMap<String, Integer> getLevels(String fromFile) {
-		HashMap<String, Integer> ret = new HashMap<String, Integer>();
+	private JSONArray getLevels(String fromFile) {
+		JSONArray ret = new JSONArray();
 		String[] levels = fromFile.split("[|]");
 		for (String level : levels) {
 			int intLevel = Integer.parseInt(level.substring(level.indexOf('=') + 1));
@@ -64,10 +85,22 @@ public class Spell {
 			for (String clazz : classes) {
 				if (clazz.indexOf('=') != -1)
 					clazz = clazz.substring(0, clazz.indexOf('='));
-				ret.put(clazz, new Integer(intLevel));
+				
+				JSONObject entry = new JSONObject();
+				entry.put("clazz", clazz);
+				entry.put("level", new Integer(intLevel));
+				ret.add(entry);
 			}
 		}
 		return ret;
+	}
+	
+	private static void cleanUpClassLevels(JSONArray a) {
+		for (Object lie : a) {
+			JSONObject truth = (JSONObject) lie;
+			truth.put("clazz", truth.get("class"));
+			truth.remove("class");
+		}
 	}
 	
 	
@@ -92,17 +125,17 @@ public class Spell {
 	@SuppressWarnings("unchecked")
 	protected JSONObject toJSON() {
 		
-		JSONArray classLevels = new JSONArray();
+		/*JSONArray classLevels = new JSONArray();
 		for (String clazz : this.level.keySet()) {
 			JSONObject arrayObject = new JSONObject();
 			arrayObject.put(clazz, this.level.get(clazz));
 			classLevels.add(arrayObject);
-		}
+		}*/
 		
 		JSONObject obj = new JSONObject();
 		obj.put("id", this.id);
 		obj.put("name", this.name);
-		obj.put("level", classLevels);
+		obj.put("level", this.level);
 		obj.put("school", this.school);
 		obj.put("type", this.type);
 		obj.put("casting_time", this.casting_time);
@@ -124,7 +157,7 @@ public class Spell {
 	public String toString() {
 		return "ID: " + this.id + "\n"
 			 + "NAME: " + this.name + "\n"
-			 + "LEVEL: " + DataExtractor.stringifyMap(this.level) + "\n"
+			 + "LEVEL: " + this.level.toJSONString() + "\n"
 			 + "SCHOOL: " + this.school + "\n"
 			 + "TYPE: " + this.type + "\n"
 			 + "CASTING TIME: " + this.casting_time + "\n"
@@ -148,6 +181,23 @@ public class Spell {
      * @param files A list of files to process.
      */
     protected static void processSpells(HashSet<File> files) {
+    	
+    	// Load JSON data from PSRD
+    	File psrdDir = new File("./input/PSRD-json-spells");
+    	JSONParser parser = new JSONParser();
+    	
+    	if (psrdDir.exists() && psrdDir.isDirectory()) {
+    		for (File f : psrdDir.listFiles()) {
+    			try {
+	    			if (!f.getName().endsWith(".json"))
+	    				continue;
+	    			JSONObject o = (JSONObject) parser.parse(new FileReader(f));
+	    			jsonSpellData.put(((String) o.get("name")).toLowerCase(), o);
+    			} catch (IOException | ParseException e) {
+    				e.printStackTrace();
+    			}
+    		}
+    	}
     	
     	// Go through all the files and process them
     	for (File f: files) {
@@ -184,9 +234,15 @@ public class Spell {
     					HashMap<String, String> tagMap = DataExtractor.tokenator("NAME", line);
     					String spellName = tagMap.get("NAME");
     					String fixedName = spellName.substring(0, spellName.indexOf(".MOD"));
-    					if (spells.containsKey(fixedName)) {
-    						spells.get(fixedName).setDesc(tagMap.get("DESC"));
-    						spells.get(fixedName).toString();
+    					try {
+	    					if (spells.containsKey(fixedName)) {
+	    						spells.get(fixedName).setDesc(tagMap.get("DESC"));
+	    						spells.get(fixedName).toString();
+	    					}
+    					} catch (NullPointerException e) {
+    						System.out.println(fixedName);
+    						e.printStackTrace();
+    						System.exit(1);
     					}
     				}
     			}

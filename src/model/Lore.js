@@ -36,7 +36,8 @@ export const SkillInfoSchema = {
     properties: {
         id: 'int',
         name: { type: 'string', indexed: true },
-        details: 'string',
+        description: 'string',
+        ability_type: 'string', // 3 letter code
         url: 'string',
     }
 }
@@ -46,8 +47,6 @@ export const SkillSchema = {
     properties: {
         name: 'string',
         base_id: 'int',
-        is_class_skill: 'bool',
-        ability_name: 'string',
         ranks: 'int',
         misc_modifier: 'int',
     }
@@ -86,7 +85,7 @@ export const BaseWeaponSchema = {
         range: 'int',
         weight: 'int',
         ammo: 'int', // Ammo item id
-        weapon_special: {type: 'list', objectType: 'intObject'},
+        weapon_special: 'int[]',
     } 
 }
 
@@ -95,7 +94,7 @@ export const CustomWeaponSchema = {
     properties: {
         name: 'string', // User given name
         base_weapon_id: 'int', // The ID of the weapon this uses as a base
-        special_properties: {type: 'list', objectType: 'Property'}
+        special_properties: 'Property[]'
     }
 }
 
@@ -124,7 +123,7 @@ export const CustomArmorSchema = {
     properties: {
         name: 'string', // User given name
         base_armor_id: 'int', // The ID of the weapon this uses as a base
-        special_properties: {type: 'list', objectType: 'Property'}
+        special_properties: 'Property[]'
     }
 }
 
@@ -144,7 +143,7 @@ export const SpellSchoolSchema = {
         name: { type: 'string', indexed: true },
         description: 'string',
         url: 'string',
-        powers: {type: 'list', objectType: 'intObject'},
+        powers: 'int[]',
     }
 }
 
@@ -154,16 +153,16 @@ export const SpellSchema = {
     properties: {
         id: 'int',
         name: { type: 'string', indexed: true },
-        level: {type: 'list', objectType: 'ClassLevel'},
+        level: 'ClassLevel[]',
         school: { type: 'string', indexed: true },
         type: { type: 'string', indexed: true },
-        casting_time: 'string',
+        casting_time: 'string?',
         components: 'string',
-        range: 'string',
+        range: 'string?',
         effect: 'string',
         duration: 'string',
-        saving_throw: 'string',
-        spell_resistance: 'string',
+        saving_throw: 'string?',
+        spell_resistance: 'string?',
         description: 'string',
         url: 'string',
     }
@@ -212,13 +211,13 @@ export const SpecialAbilitySchema = {
 export const FeatPreReqSchema = {
     name: 'FeatPreReq',
     properties: {
-        ability_score: {type: 'list', objectType: 'Ability'},
+        ability_score: 'Ability[]',
         base_attack: 'int',
-        clazz: {type: 'list', objectType: 'ClassLevel'},
-        feats: {type: 'list', objectType: 'intObject'},
-        class_features: {type: 'list', objectType: 'intObject'},
-        skills: {type: 'list', objectType: 'Skill'},
-        special_ability_names: {type: 'list', objectType: 'stringObject'}
+        clazz: 'ClassLevel[]',
+        feats: 'int[]',
+        class_features: 'int[]',
+        skills: 'Skill[]',
+        special_ability_names: 'string[]'
     }
 }
 
@@ -231,7 +230,7 @@ export const FeatSchema = {
         type: 'string',
         description: 'string',
         url: 'string',
-        prereqs: {type: 'list', objectType: 'FeatPreReq'}
+        prereqs: 'FeatPreReq[]'
     }
 }
 
@@ -254,9 +253,9 @@ export const ClericDomainSchema = {
         name: { type: 'string', indexed: true },
         url: 'string',
         alignment: 'string',
-        deities: {type: 'list', objectType: 'intObject'}, // IDs of deity
-        powers: {type: 'list', objectType: 'intObject'}, // IDs of cleric power
-        spells: {type: 'list', objectType: 'intObject'}, // IDs of spells
+        deities: 'int[]', // IDs of deity
+        powers: 'int[]', // IDs of cleric power
+        spells: 'int[]', // IDs of spells
     }
 }
 
@@ -280,8 +279,8 @@ export const SorcererBloodlineSchema = {
         description: 'string',
         url: 'string',
         class_skill: {type: 'Skill'},
-        bonus_spells: {type: 'list', objectType: 'intObject'},
-        bloodline_powers: {type: 'list', objectType: 'intObject'}, // IDs of bloodline powers
+        bonus_spells: 'int[]',
+        bloodline_powers: 'int[]', // IDs of bloodline powers
         bloodline_arcana: 'string',
     }
 }
@@ -380,20 +379,20 @@ export const CharacterSchema = {
         spell_resistance: 'int',
         cmb_misc_modifier: 'int',
         cmd_misc_modifier: 'int',
-        abilities: {type: 'list', objectType: 'Ability'},
-        saving_throws: {type: 'list', objectType: 'SavingThrow'},
+        abilities: 'Ability[]',
+        saving_throws: 'SavingThrow[]',
 
         // Skills
-        skills: {type: 'list', objectType: 'Skill'},
-        languages: {type: 'list', objectType: 'intObject'},
+        skills: 'Skill[]',
+        languages: 'int[]',
         conditional_modifiers: 'string', // Should only be used to describe why a misc mod exists
 
         // Items
-        regular_weapons: {type: 'list', objectType: 'intObject'},
-        custom_weapons: {type: 'list', objectType: 'CustomWeapon'},
-        regular_ac_items: {type: 'list', objectType: 'intObject'},
-        custom_ac_items: {type: 'list', objectType: 'CustomArmor'},
-        inventory: {type: 'list', objectType: 'InventoryItem'},
+        regular_weapons: 'int[]',
+        custom_weapons: 'CustomWeapon[]',
+        regular_ac_items: 'int[]',
+        custom_ac_items: 'CustomArmor[]',
+        inventory: 'InventoryItem[]',
 
         // Money
         pp: 'int',
@@ -402,16 +401,16 @@ export const CharacterSchema = {
         cp: 'int',
 
         // Special
-        class_features: {type: 'list', objectType: 'intObject'},
-        special_abilities: {type: 'list', objectType: 'intObject'},
-        feats: {type: 'list', objectType: 'intObject'},
-        domains: {type: 'list', objectType: 'intObject'},
-        specialty_schools: {type: 'list', objectType: 'intObject'},
-        opposed_schools: {type: 'list', objectType: 'intObject'},
-        bloodline: {type: 'list', objectType: 'intObject'},
+        class_features: 'int[]',
+        special_abilities: 'int[]',
+        feats: 'int[]',
+        domains: 'int[]',
+        specialty_schools: 'int[]',
+        opposed_schools: 'int[]',
+        bloodline: 'int[]',
 
         // Spells
-        spells_known: {type: 'list', objectType: 'intObject'}, // IDs of spells
+        spells_known: 'int[]', // IDs of spells
         num_spells_known_base: 'int', // Base number of spells known without any modifiers
         spell_save_dc: 'int',
         base_spells_per_day: 'int',

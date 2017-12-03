@@ -8,7 +8,7 @@ import {
     Icon
 } from 'native-base';
 import { dataMap } from '../components/data/DataComponentMapper';
-import { NavigationActions } from 'react-navigation';
+import TitleHeader from '../components/TitleHeader';
 import {
     appDefaults,
     appStyles
@@ -24,7 +24,7 @@ export default class DataDisplayScreen extends React.Component {
         this.data = props.navigation.state.params.data;
     }
 
-    _goBack = () => { this.props.navigation.dispatch(NavigationActions.back()) }
+    
 
     render() {
         const RenderComponent = dataMap[this.data.object_name];
@@ -34,17 +34,10 @@ export default class DataDisplayScreen extends React.Component {
         
         return (
             <Container style={appStyles.mainContainer}>
-                <Header
-                style={{backgroundColor: colors.transparent}}
-                androidStatusBarColor={appDefaults.searchHeaderBarColor}
-                iosBarStyle={appDefaults.searchHeaderBarStyle}>
-                    <Left style={{flex: 1, flexDirection: 'row'}}>
-                        <Button transparent onPress={this._goBack}>
-                            <Icon name={appDefaults.searchHeaderBackIcon} style={{color: colors.white}}/>
-                        </Button>
-                        <Title style={{alignSelf: 'center', paddingLeft: 5}}>{`${this.data.type}: ${this.data.name}`}</Title>
-                    </Left>
-                </Header>
+                <TitleHeader
+                title={`${this.data.type}: ${this.data.name}`}
+                navigation={this.props.navigation}
+                />
                 <RenderComponent data={this.data}/>
             </Container>
         );

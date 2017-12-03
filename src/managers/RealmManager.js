@@ -40,6 +40,15 @@ export const stringObject = {
     properties: { val: 'string' }
 }
 
+export const tableObject = {
+    name: 'tableObject',
+    properties: {
+        name: 'string',
+        columns: {type: 'list', objectType: 'stringObject'},
+        rows: {type: 'list', objectType: 'stringObject'},
+    }
+}
+
 let instance = null;
 
 export default class RealmManager {
@@ -48,7 +57,7 @@ export default class RealmManager {
         if (!instance) {
             return new Promise(async function (resolve, reject) {
                 let schemas = new Array();
-                schemas.push(SettingsSchema, intObject, stringObject);
+                schemas.push(SettingsSchema, intObject, stringObject, tableObject);
                 schemas = schemas.concat(Lore);
                 //await debugOpen(schemas);
                 instance = await Realm.open({schema: schemas});
@@ -87,6 +96,7 @@ export async function searchAll(query, resultsLimit) {
         for (let j = 0 ; j < num_results ; j++) {
             const formattedResult =
             {
+                id: currentResults[j].id,
                 name: currentResults[j].name,
                 description: currentResults[j].description,
                 url: currentResults[j].url,
@@ -120,4 +130,36 @@ async function debugOpen(schemas) {
         let temp = await Realm.open({schema: [schemas[i], intObject, stringObject]});
         await temp.close();
     }
+}
+
+export async function getAllFrom(object_name) {
+    const realm = await RealmManager.getRealm();
+    const results = await realm.objects(object_name);
+
+    const num_results = Object.keys(results).length;
+    if (num_results === 0)
+        return [];
+
+    let type;
+    for (let i = 0 ; i < searchable_schemas.length ; i++) {
+        if (searchable_schemas[i].object_name === object_name)
+            type = searchable_schemas[i].type_display_name;
+    }
+    
+    let ret = [];
+    for (let i = 0 ; i < num_results ; i++) {
+        const formattedResult =
+        {
+            id: results[i].id,
+            name: results[i].name,
+            description: results[i].description,
+            url: results[i].url,
+            type: type,
+            object_name: object_name,
+            raw: Object.assign({}, results[i])
+        }
+        ret.push(formattedResult);
+    }
+
+    return ret;
 }

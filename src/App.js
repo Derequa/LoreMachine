@@ -10,6 +10,8 @@ import UnderDevelopmentScreen from './ui/screens/UnderDevelopmentScreen';
 import SearchResultsScreen from './ui/screens/SearchResultsScreen';
 import StartupScreen from './ui/screens/StartupScreen';
 import DataDisplayScreen from './ui/screens/DataDisplayScreen';
+import DataBrowserScreen from './ui/screens/DataBrowserScreen';
+import DataBrowserListScreen from './ui/screens/DataBrowserListScreen';
 import Config from 'react-native-config';
 import { MenuContext } from 'react-native-popup-menu';
 
@@ -43,6 +45,12 @@ export const MainAppStack = StackNavigator({
     DataDisplay: {
         screen: DataDisplayScreen,
     },
+    DataBrowser: {
+        screen: DataBrowserScreen,
+    },
+    DataBrowserList: {
+        screen: DataBrowserListScreen,
+    }
 }, navigationOptions,);
 
 export const App = () => (
